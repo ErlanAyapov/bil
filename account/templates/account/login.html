@@ -1,0 +1,31 @@
+{% extends "main/main.html" %}
+  
+    {% block content %}
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+            <h3 class="text-center mb-4">Кіру</h3>
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Қолданушы аты</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Қолданушы атыңызды енгізіңіз" required value="{{ username }}">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Құпия сөз</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Құпия сөзді енгізіңіз" required value="{{ password }}">
+                </div>
+                <p class="text-danger text-center">{{ error }}</p>
+            
+                <button type="submit" class="btn btn-primary w-100">Кіру</button>
+                <p class="text-center mt-3">
+                    <a href="#" class="text-decoration-none">Құпия сөзді ұмыттыңыз ба?</a>
+                </p>
+                <p class="text-center mt-2">
+                    <span>Аккаунтыңыз жоқ па?</span> <a href="#" class="text-decoration-none">Тіркелу</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+    <!-- Bootstrap JS --> 
+{% block footer %}{% endblock %}

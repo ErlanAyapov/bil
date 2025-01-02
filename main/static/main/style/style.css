@@ -1,0 +1,85 @@
+body {
+    background-color: #2f2e2e; /* Светлый фон */
+}
+header {
+    position: fixed; /* Темное меню */
+    top: 0;
+    width: 100%;
+}
+main {
+    margin-top: 56px; /* Отступ для меню */
+}
+.navbar {
+    background-color: #081522; /* Темное меню */
+}
+
+.navbar .nav-link {
+    color: #ffffff !important; /* Белый цвет текста */
+}
+
+.navbar .nav-link:hover {
+    color: #adb5bd !important; /* Светлый серый при наведении */
+}
+
+.banner {
+    background: url('../images/start1.jpg') no-repeat center center/cover;
+    height: 400px;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.card {
+    background-color: #1e1e1e; /* Темный цвет для карточки */
+    color: #ffffff; /* Белый текст в карточке */
+}
+input.form-control {
+    background-color: #545353; /* Темный фон для полей */
+    color: #ffffff; /* Белый текст */
+    border: 1px solid #444444; /* Серый контур */
+}
+input.form-control:focus {
+    background-color: #cbcbcb; /* Светлее при фокусе */
+    border-color: #0d6efd; /* Цвет контура при фокусе */
+    box-shadow: none; /* Убираем стандартную тень */
+}
+a {
+    color: #0d6efd; /* Цвет ссылок */
+}
+a:hover {
+    color: #0a58ca; /* Цвет ссылок при наведении */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .banner {
+        height: 100vh; /* Высота на весь экран */
+    }
+}
+/* Темное выпадающее меню */
+.dropdown-menu {
+    background-color: #081522b4; /* Темный фон */
+    border: none; /* Убираем границы */
+    z-index: 10000; /* Поверх всего */
+}
+
+.dropdown-item {
+    color: #ffffff; /* Белый текст */
+}
+
+.dropdown-item:hover {
+    background-color: #3189e0; /* Светло-синий фон при наведении */
+    color: #ffffff; /* Белый текст */
+}
+
+.dropdown-divider {
+    border-color: #adb5bd; /* Светлый серый цвет для разделителя */
+}
