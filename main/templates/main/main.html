@@ -131,6 +131,22 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+
+        const messaging = app.messaging();
+
+        messaging.getToken({ vapidKey: 'BOaB6k6MvuOkhF4rmQO88EM39SOUPe66SAyTNkOA6lQZeanBIAS4rhH23ZTIZCo-58sCq-ZH3cCx10tRso4xGGI' })
+            .then((currentToken) => {
+                if (currentToken) {
+                    console.log('FCM Token:', currentToken);
+                    // Отправьте токен на сервер
+                } else {
+                    console.log('No registration token available.');
+                }
+            })
+            .catch((err) => {
+                console.error('An error occurred while retrieving token. ', err);
+            });
+
       </script>
 </body>
 </html>
