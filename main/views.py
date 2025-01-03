@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from utils import send_notification
 
 
 # Create your views here.
