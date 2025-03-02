@@ -7,10 +7,10 @@ header {
     width: 100%;
 }
 main {
-    margin-top: 56px; /* Отступ для меню */
+    margin-top: 0; /* Отступ для меню */
 }
 .navbar {
-    background-color: #081522; /* Темное меню */
+    background-color: #0000008a; /* Темное меню */
 }
 
 .navbar .nav-link {

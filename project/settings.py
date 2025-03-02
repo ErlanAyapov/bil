@@ -46,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -124,3 +124,37 @@ STATIC_ROOT = '/home/simsiti0009ggg/project/bil/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,  # Не отключать существующие логгеры
+    'handlers': {
+        'console': {  # Логирование в консоль
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {  # Логирование в файл
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'django.log'),  # Путь к файлу логов
+            'formatter': 'verbose',
+        },
+    },
+    'formatters': {
+        'verbose': {  # Формат вывода логов
+            'format': '{asctime} - {levelname} - {module} - {message}',
+            'style': '{',
+        },
+    },
+    'loggers': {
+        'django': {  # Логгер для Django
+            'handlers': ['console', 'file'],  # Использовать оба обработчика
+            'level': 'INFO',  # Уровень логирования
+            'propagate': True,  # Распространять логи на родительские логгеры
+        },
+        'main': {  # Логгер для вашего приложения
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Уровень логирования
+            'propagate': False,  # Не распространять логи на другие логгеры
+        },
+    },
+}

@@ -1,6 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, messaging
-
+# import os
 # Инициализация Firebase
 cred = credentials.Certificate("../bil7-dfc73-firebase-adminsdk-azxfl-574a75e22d.json")
 firebase_admin.initialize_app(cred)
@@ -19,3 +19,4 @@ def send_notification(registration_token, title, body):
     # Отправляем сообщение
     response = messaging.send(message)
     print('Successfully sent message:', response)
+

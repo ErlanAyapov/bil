@@ -33,7 +33,7 @@ class LoginView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            return HttpResponseRedirect(reverse('main'))
+            return HttpResponseRedirect(reverse('aggregated_data_list'))
         else:
             messages.error(request, 'Invalid username or password')
             context = {'username': username, 'password': password, 'error': 'Құпия сөз дұрыс емес'}

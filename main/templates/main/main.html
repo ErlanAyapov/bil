@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-    <title>Bil</title>
+    <title>AI</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
@@ -22,13 +22,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto"> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"> Оқиға</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="#">Байланыс</a>
                         </li>
                         {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'aggregated_data_list' %}"> Агрегатор логтары</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Аккаунт
@@ -54,9 +55,9 @@
         {% block content %}
         <!-- Баннер -->
         <div class="banner">
-            <h1>Қош келдіңіз!</h1>
+            <h1>Киберқауіпсіздікке арналған интеллектуалды қорғаныс.</h1>
             <p class="lead"></p>
-            <a href="#services" class="btn btn-primary">Бастау</a>
+            <!-- <a href="{% url 'login' %}" class="btn btn-primary">Бастау</a> -->
         </div>
 
         <!-- Секция: Қызметтер -->
