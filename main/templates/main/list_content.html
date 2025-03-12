@@ -1,0 +1,22 @@
+  <!-- Отображение данных -->
+  {% for obj in object_list %}
+  <section class="mb-4">
+      <div class="container">
+          <h2 class="text-center mb-3" style="font-family: 'Courier New', Courier, monospace; font-size: 2rem;">{{ obj.created_at }}</h2>
+          <ul class="list-unstyled">
+              {% for local in obj.local_datas.all %}
+              <li class="mb-3">
+                  <div class="p-3 bg-dark border rounded" style="border: 1px solid #1e1e1e; box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);">
+                      <h5 class="mb-1">{{ local.device }}</h5>
+                      <small class="text-muted d-block">{{ local.created_at }}</small>
+                      <details class="mt-2">
+                          <summary class="text-light" style="cursor: pointer; font-family: 'Courier New', Courier, monospace;">Весы</summary>
+                          <code class="d-block mt-2 p-2 bg-black text-secondary" style="border: 1px solid #a5b2a5; border-radius: 5px;">{{ local.data }}</code>
+                      </details>
+                  </div>
+              </li>
+              {% endfor %}
+          </ul>
+      </div>
+  </section>
+  {% endfor %}

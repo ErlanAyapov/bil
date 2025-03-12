@@ -1,46 +1,247 @@
-{% extends 'main/main.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <div style="padding-top: 150px;">
-    <!-- Кнопка "Начать обучение" -->
-    <div class="text-center mb-4">
-        <form action="{% url 'start_training' %}" method="POST" style="display: inline-block;">
+    <!-- Кнопка "RUN" -->
+    <!-- <div class="text-center mb-4">
+        <form action="{% url 'start_training' %}" method="POST" style="display: inline-block;" onsubmit="
+            event.preventDefault();
+            event.stopPropagation();
+            fetch(`{% url 'start_training' %}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({
+                    status: document.getElementById('id_status').value
+                })
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            }).then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        ">
             {% csrf_token %}
-            <button type="submit" class="btn btn-success btn-lg" style="font-family: 'Courier New', Courier, monospace; font-size: 1.2rem;">
-                Начать обучение
+            <input type="hidden" name="status" value="{{train_status}}" required id="id_status">
+            <button type="submit" class="btn btn-{% if train_status == 'STOP' %}success{% else %}danger{% endif %} btn-lg" style="font-family: 'Courier New', Courier, monospace; font-size: 1.2rem;" id="toggleButton">
+                {% if train_status == 'STOP' %} RUN{% else %} Остановить обучение{% endif %}
             </button>
+            <script>
+                document.getElementById('toggleButton').addEventListener('click', function(event) {
+                    var statusInput = document.getElementById('id_status');
+                    if (statusInput.value === 'STOP') {
+                        statusInput.value = 'RUN';
+                        this.textContent = 'STOP';
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-danger');
+                    } else {
+                        statusInput.value = 'STOP';
+                        this.textContent = 'RUN';
+                        this.classList.remove('btn-danger');
+                        this.classList.add('btn-success');
+                    }
+                });
+            </script>
         </form>
-    </div>
+    </div> -->
 
-    <!-- Отображение данных -->
-    {% for obj in object_list %}
-    <section class="mb-4">
-        <div class="container">
-            <h2 class="text-center mb-3" style="font-family: 'Courier New', Courier, monospace; font-size: 2rem;">{{ obj.created_at }}</h2>
-            <ul class="list-unstyled">
-                {% for local in obj.local_datas.all %}
-                <li class="mb-3">
-                    <div class="p-3 bg-dark border rounded" style="border: 1px solid #1e1e1e; box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);">
-                        <h5 class="mb-1">{{ local.device }}</h5>
-                        <small class="text-muted d-block">{{ local.created_at }}</small>
-                        <details class="mt-2">
-                            <summary class="text-light" style="cursor: pointer; font-family: 'Courier New', Courier, monospace;">Весы</summary>
-                            <code class="d-block mt-2 p-2 bg-black text-secondary" style="border: 1px solid #a5b2a5; border-radius: 5px;">{{ local.data }}</code>
-                        </details>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
+    <div id="listContent">
+        {% for obj in object_list %}
+        <div class="aggregator-content mb-3">
+            <div class="content-header d-flex p-1">
+                <h4 class="mt-3 pl-2">{{obj.created_at}}</h4>
+                <form action="" class="d-flex " style="margin-left: auto;">
+                    <label for="" style="margin-right: 10px;">
+                        <span>Раунд саны</span>
+                        <input type="number" value="{{ obj.round_count }}" class="form-control form" {% if not forloop.first %}disabled style="color: black;"{% endif %} required>
+                    </label>
+                    <label for="" style="margin-right: 10px;">
+                        <span>Эпоха</span>
+                        <input type="number" value="{{ obj.epoch_count }}" class="form-control form" {% if not forloop.first %}disabled style="color: black;" {% endif %} required>
+                    </label>
+                    <button class="btn w-100 btn-success">Старт</button>
+                </form>    
+            </div>
+            <!-- Графики Loss -->
+            <div class="chart-section mt-5 hidden" style="display: none;">
+                <h5 class="text-center">Потеря</h5>
+                <div class="content-body" >
+                    <canvas id="lossChart"></canvas>
+                </div>
+            </div>
+    
+            <!-- График Accuracy -->
+            <div class="chart-section mt-5">
+                <h5 class="text-center">Точность</h5>
+                <div class="content-body">
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+            </div> 
         </div>
-    </section>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const lossChartCanvas = document.getElementById('lossChart');
+    const accuracyChartCanvas = document.getElementById('accuracyChart');
 
-<style>
-    main {
-        background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-        min-height: 100vh;
-        color: #ffffff;
+    // Массивы цветов
+    const lossColors = [
+        'rgba(255, 99, 132, 1)', 'rgba(255, 159, 64, 1)', 'rgba(255, 205, 86, 1)',
+        'rgba(255, 105, 180, 1)', 'rgba(255, 69, 0, 1)', 'rgba(255, 0, 0, 1)',
+        'rgba(205, 92, 92, 1)', 'rgba(178, 34, 34, 1)', 'rgba(139, 0, 0, 1)',
+        'rgba(128, 0, 0, 1)'
+    ];
+    const accuracyColors = [
+        'rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)',
+        'rgba(201, 203, 207, 1)', 'rgba(0, 128, 128, 1)', 'rgba(0, 0, 255, 1)',
+        'rgba(0, 255, 255, 1)', 'rgba(0, 255, 0, 1)', 'rgba(127, 255, 0, 1)',
+        'rgba(0, 100, 0, 1)'
+    ];
+
+    // Создаем объекты Chart
+    let lossChart = null;
+    let accuracyChart = null;
+
+    // Функция для инициализации графиков
+    function initializeCharts(lossData, accuracyData) {
+        lossChart = new Chart(lossChartCanvas, {
+            type: 'line',
+            data: {
+                labels: lossData.labels,
+                datasets: lossData.datasets.map((dataset, index) => ({
+                    ...dataset,
+                    borderColor: lossColors[index % lossColors.length],
+                    backgroundColor: lossColors[index % lossColors.length].replace('1)', '0.2)')
+                }))
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Раунд'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Значение'
+                        }
+                    }
+                }
+            }
+        });
+
+        accuracyChart = new Chart(accuracyChartCanvas, {
+            type: 'line',
+            data: {
+                labels: accuracyData.labels,
+                datasets: accuracyData.datasets.map((dataset, index) => ({
+                    ...dataset,
+                    borderColor: accuracyColors[index % accuracyColors.length],
+                    backgroundColor: accuracyColors[index % accuracyColors.length].replace('1)', '0.2)')
+                }))
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Раунд'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Значение'
+                        }
+                    }
+                }
+            }
+        });
     }
-</style>
+
+    // Функция для обновления данных графиков
+    function updateCharts() {
+        fetch('{% url "get_chart_data" %}')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Обновляем данные графиков
+                    if (lossChart && accuracyChart) {
+                        // Обновляем метки (если они изменились)
+                        if (JSON.stringify(lossChart.data.labels) !== JSON.stringify(data.loss.labels)) {
+                            lossChart.data.labels = data.loss.labels;
+                            accuracyChart.data.labels = data.accuracy.labels;
+                        }
+
+                        // Обновляем значения датасетов
+                        data.loss.datasets.forEach((newDataset, index) => {
+                            if (lossChart.data.datasets[index]) {
+                                lossChart.data.datasets[index].data = newDataset.data;
+                            }
+                        });
+
+                        data.accuracy.datasets.forEach((newDataset, index) => {
+                            if (accuracyChart.data.datasets[index]) {
+                                accuracyChart.data.datasets[index].data = newDataset.data;
+                            }
+                        });
+
+                        // Обновляем графики без анимации
+                        // lossChart.update({ duration: 0 });
+                        accuracyChart.update({ duration: 0 });
+                    }
+                } else {
+                    console.error('Ошибка при получении данных:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка сети:', error);
+            });
+    }
+
+    // Инициализация графиков и запуск обновления
+    fetch('{% url "get_chart_data" %}')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                initializeCharts(data.loss, data.accuracy);
+                // Запускаем обновление каждую секунду
+                setInterval(updateCharts, 1000);
+            } else {
+                console.error('Ошибка при получении данных:', data.error);
+                lossChartCanvas.parentNode.innerHTML = `<p style="color: red;">${data.error}</p>`;
+                accuracyChartCanvas.parentNode.innerHTML = `<p style="color: red;">${data.error}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка сети:', error);
+            lossChartCanvas.parentNode.innerHTML = `<p style="color: red;">Ошибка загрузки данных.</p>`;
+            accuracyChartCanvas.parentNode.innerHTML = `<p style="color: red;">Ошибка загрузки данных.</p>`;
+        });
+});
+</script>
 {% endblock %}

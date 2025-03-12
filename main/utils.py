@@ -1,22 +1,23 @@
-import firebase_admin
-from firebase_admin import credentials, messaging
-# import os
-# Инициализация Firebase
-cred = credentials.Certificate("../bil7-dfc73-firebase-adminsdk-azxfl-574a75e22d.json")
-firebase_admin.initialize_app(cred)
+import requests
+from .models import Device
 
-# Функция для отправки уведомлений
-def send_notification(registration_token, title, body):
-    # Создаем сообщение
-    message = messaging.Message(
-        notification=messaging.Notification(
-            title=title,
-            body=body,
-        ),
-        token=registration_token,  # Токен устройства
-    )
 
-    # Отправляем сообщение
-    response = messaging.send(message)
-    print('Successfully sent message:', response)
+def get_device_status(devic_host, device_port):
+    url = f'http://{devic_host}:{device_port}/check_status/'
+    response = requests.get(url)
+    return response.json()
 
+
+def create_handred_devices():
+    for i in range(100):
+        Device.objects.create(
+            name=f'Шлюз {i+1}',
+            ip=f'192.168.1.{i}',
+            port=8000,
+        )
+    
+def get_device_tokens():
+    devices = [device for device in Device.objects.all()]
+    with open('1.env', 'w') as file:
+        for index, device in enumerate(devices, start=1): 
+            file.write(f'GATEWAY_{index}={device.device_token}\n')

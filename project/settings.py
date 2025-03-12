@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,8 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = str(os.environ.get('SECRET_KEY'))
- 
+SECRET_KEY = os.getenv('SECRET_KEY')
+FERNET_KEY = os.getenv('FERNET_KEY')
+
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY is not set in the environment variables.")
+if not FERNET_KEY:
+    raise ValueError("FERNET_KEY is not set in the environment variables.")
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -31,15 +42,17 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
-    'quiz',
+    'main', 
     'account',
+    'channels',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'kk'
 
 TIME_ZONE = 'UTC'
 
@@ -158,3 +171,5 @@ LOGGING = {
         },
     },
 }
+
+ASGI_APPLICATION = 'project.asgi.application'
