@@ -1,2 +1,4 @@
 logs/
 .pem
+.env
+.sqlite3
