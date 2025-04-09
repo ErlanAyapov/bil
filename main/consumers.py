@@ -1,12 +1,13 @@
 # consumers.py
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
-from .models import Device
+
 import json
 
 class DeviceStatusConsumer(AsyncWebsocketConsumer):
     # Список всех подключенных клиентов
     connected_clients = set()
+    
 
     async def connect(self):
         await self.accept()
@@ -27,6 +28,7 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def get_device(self, device_token):
+        from .models import Device
         try:
             return Device.objects.get(device_token=device_token)
         except Device.DoesNotExist:
@@ -34,6 +36,7 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def get_all_devices(self):
+        from .models import Device
         return list(Device.objects.values(
             "device_token",
             "name"
