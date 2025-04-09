@@ -1,0 +1,316 @@
+body {
+    background-color: #2f2e2e; /* Светлый фон */
+}
+header {
+    position: fixed; /* Темное меню */
+    top: 0;
+    width: 100%;
+}
+main {
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(63deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
+    min-height: 100vh;
+    color: #ffffff;
+}
+.navbar {
+    background-color: #0000008a; /* Темное меню */
+    z-index: 100000;
+}
+
+.navbar .nav-link {
+    color: #ffffff !important; /* Белый цвет текста */
+}
+
+.navbar .nav-link:hover {
+    color: #adb5bd !important; /* Светлый серый при наведении */
+}
+
+.banner {
+    background: url('../images/start1.jpg') no-repeat center center/cover;
+    height: 400px;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.card {
+    background-color: #1e1e1e; /* Темный цвет для карточки */
+    color: #ffffff; /* Белый текст в карточке */
+}
+input.form-control {
+    background-color: #545353; /* Темный фон для полей */
+    color: #ffffff; /* Белый текст */
+    border: 1px solid #444444; /* Серый контур */
+}
+input.form-control:focus {
+    background-color: #cbcbcb; /* Светлее при фокусе */
+    border-color: #0d6efd; /* Цвет контура при фокусе */
+    box-shadow: none; /* Убираем стандартную тень */
+}
+a {
+    color: #0d6efd; /* Цвет ссылок */
+}
+a:hover {
+    color: #0a58ca; /* Цвет ссылок при наведении */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .banner {
+        height: 100vh; /* Высота на весь экран */
+    }
+}
+/* Темное выпадающее меню */
+.dropdown-menu {
+    background-color: #081522b4; /* Темный фон */
+    border: none; /* Убираем границы */
+    z-index: 100; /* Поверх всего */
+}
+
+.dropdown-item {
+    color: #ffffff; /* Белый текст */
+}
+
+.dropdown-item:hover {
+    background-color: #3189e0; /* Светло-синий фон при наведении */
+    color: #ffffff; /* Белый текст */
+}
+
+.dropdown-divider {
+    border-color: #adb5bd; /* Светлый серый цвет для разделителя */
+}
+.aggregator-content, .connected-devices-container {
+    width: 80%;
+    margin: auto;
+    background: #1f1d1d;
+    padding: 5px;
+    border-radius: 5px;
+} 
+.connected-devices-container {
+    height: 700px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.devices {
+    margin-top: 0;
+    position: relative;
+    height: 100%;
+}
+
+.server {
+
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 0 15px #00bcd4, 
+                0 0 10px #00bcd4,
+                0 0 5px #00bcd4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.device {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background: linear-gradient(135deg, #a1b9d1, #00bcd4);
+    border-radius: 50%;
+    /* display: flex; */
+    /* justify-content: center; */
+    padding-top: 30px;
+    align-items: center; 
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    /* box-shadow: 0 0 10px rgba(0, 188, 212, 0.8); */
+    transition: transform 0.3s ease;
+}
+.device.isonline {
+    border: 2px solid #4dff59;
+}
+.device[data-isonline="false"] {
+    background: linear-gradient(135deg, #888, #555);
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.6);
+}
+.blink {
+    /* border: 2px solid #4deaff; */
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.8);
+    animation: blink 1s infinite;
+}
+.danger-blink {
+    /* box-shadow: 0 0 10px rgba(255, 77, 77, 0.8); */
+    animation: danger 1s infinite;
+    background: linear-gradient(135deg, #ff4d4d, #ff0000);
+}
+.isoffline {
+    background: linear-gradient(135deg, #888, #555);
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.6);
+}
+    /* Основной контейнер */
+.main-content {
+    margin-right: 400px; /* Оставляем место для боковой панели */
+    padding: 20px;
+    z-index: 0; 
+}
+
+    /* Сетка устройств */
+.devices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Автоматическая сетка */
+    gap: 15px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.device-item {
+    background: #201f1f;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.device-item:hover {
+    color: #07deff;
+    box-shadow: 0 0 5px #07deff,
+            0 0 10px #07deff,
+            0 0 15px #07deff;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
+/* Фиксированная боковая панель */
+.logs-panel {
+    position: fixed;
+    right: 0;
+    top: 75px;
+    width: 400px;
+    height: 100vh;
+    background: #171717;
+    padding: 15px;
+    border-left: 2px solid #ddd;
+    box-shadow: -2px 0px 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+#logs-content {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    background: rgb(41, 37, 37);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.device-item.selected {
+    color: #07deff;
+    box-shadow: 0 0 5px #07deff,
+            0 0 10px #07deff,
+            0 0 15px #07deff;
+}
+.device_status { 
+    font-size: 45px;
+    position: absolute;
+    right: 5px;
+    bottom: -5px;
+    padding: 0;
+}
+.device_status.benign {
+    color: #00fffb;
+    text-shadow: 0 0 5px #00fffb
+                ;
+}
+.device_status.sleep {
+    color: #454444e0;
+}
+.device_status.danger {
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000;
+}
+.navbar-expand-lg {
+    z-index: 0;
+}
+/* Адаптивность */
+@media (max-width: 900px) {
+    .main-content {
+        margin-right: 0;
+    }
+    .logs-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 2px solid #ddd;
+    }
+}
+@keyframes blink {
+    0% {
+        /* border: 2px solid #4deaff; */
+        box-shadow: 0 0 10px rgb(0, 212, 194),
+                    0 0 5px rgba(0, 212, 194, 1)
+                    0 0 15px rgba(0, 212, 194, 1);
+    }
+    50% {
+        /* border: 0; */
+        box-shadow: none;
+    }
+    100% {
+        /* border: 2px solid #4deaff; */
+        box-shadow: 0 0 10px rgba(0, 212, 194, 1),
+                    0 0 5px rgba(0, 212, 194, 1)
+                    0 0 15px rgba(0, 212, 194, 1);
+    }
+}
+
+
+@keyframes danger {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 77, 77, 1),
+                    0 0 15px rgba(255, 77, 77, 1),
+                    0 0 5px rgba(255, 77, 77, 1);
+                    
+    }
+    50% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 77, 77, 1),
+                    0 0 15px rgba(255, 77, 77, 1),
+                    0 0 5px rgba(255, 77, 77, 1);
+    }
+}
+
+.footer {
+    background-color: #0000008a; /* Темный фон */
+    color: #ffffff; /* Белый текст */
+    padding: 20px 0; /* Отступы */
+    text-align: left; /* Выравнивание по центру */
+    font-size: 22px; /* Размер шрифта */
+}
+.ml-3 {
+    margin-left: 1rem !important;
+}
