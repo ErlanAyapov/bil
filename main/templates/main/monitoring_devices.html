@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="container" style="padding-top: 100px; padding-bottom: 50px;">
-    
-    <div class="main-content">
+    <style>
+        main {
+            background-image: url("{% static 'main/images/bg.jpg' %}") ;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            
+        }
+    </style>
+    <div class="main-content" style="background-color: rgba(0, 0, 0, 0.7); padding: 20px; border-radius: 10px;">
         <h1 class="text-center">Мониторинг устройств</h1>
         <!-- Сетка устройств -->
         <div class="devices-grid">
             {% for device in devices %}
                 <div class="device-item" onclick="showLogs(this)" data-device-id="{{ device.id }}">
-                    <span class="device_status benign">•</span>
+                    <span class="device_status {% if device.is_online %}benign{% endif %}">•</span>
                     <span class="device_name">{{ device.name }}</span>
                 </div>
             {% endfor %}
@@ -28,16 +36,16 @@
                 <table class="table text-center">
                     <thead class="table-dark" >
                         <tr>
-                            <th scope="col">Статус</th>
+                            <!-- <th scope="col">Статус</th> -->
                             <th scope="col">Класс</th>
                             <th scope="col">Точность</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-danger fs-5">•</td>
-                            <td class="text-white" id="device_prediction_{{device.id}}">-</td>
-                            <td class="text-white" id="device_confidence_{{device.id}}">-</td>
+                        <tr class="device-info">
+                            <!-- <td class="text-white device_status_name fs-5" id="device_status_{{device.id}}">-</td> -->
+                            <td class="text-white device_prediction" id="device_prediction_{{device.id}}">-</td>
+                            <td class="text-white device_confidence" id="device_confidence_{{device.id}}">-</td>
                         </tr>
                     </tbody>
                 </table>
@@ -89,8 +97,8 @@
                 <td style="width: 250px;">Confidence</td>
             </tr>
             {% for device in devices %}
-            <tr>
-                <td style="width: 250px;">{{device.name}}</td>
+            <tr class="device-info">
+                <td style="width: 250px;">-</td>
                 <td id="device_prediction_{{device.id}}" style="width: 250px;"></td>
                 <td id="device_confidence_{{device.id}}" style="width: 250px;"></td>
             </tr>
@@ -153,6 +161,10 @@
         }; 
         ws.onclose = function(event) {
             console.log("WebSocket соединение закрыто:", event);
+            document.querySelectorAll('.device_status_name, .device_prediction, .device_confidence').forEach(element => {
+                element.classList.add('text-white');
+                element.innerText = '-';
+            });
         }; 
         // Позиционирование устройств
         const devices = document.querySelectorAll(".device");

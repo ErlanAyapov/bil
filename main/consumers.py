@@ -42,6 +42,15 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         try:
             data = json.loads(text_data)
+            msg_type = data.get("type")
+
+            # Обработка heartbeat
+            if msg_type == "heartbeat":
+                await self.send(json.dumps({"type": "pong"}))
+                return
+
+            
+
             device_token = data.get('device_token')
             prediction = data.get('prediction')
             confidence = data.get('confidence')
@@ -54,7 +63,7 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
                 return
 
             # Обновляем статус
-            new_status = "danger" if prediction != "0" else "safe"
+            new_status = "danger" if prediction != 0 else "safe"
             await database_sync_to_async(device.save)()
 
             # Рассылаем обновление ВСЕМ клиентам
