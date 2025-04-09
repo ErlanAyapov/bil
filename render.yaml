@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: iotector-asgi
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: daphne -b 0.0.0.0 -p 8000 project.asgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: project.settings
