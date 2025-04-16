@@ -15,6 +15,7 @@ urlpatterns = [
     path('update_device_status/', update_device_status, name='update_device_status'),
     path('check_device_status/', check_device_status, name='check_device_status'),
     path('monitoring_devices/', monitoring_devices, name='monitoring_devices'),
+    path('dashboard/', dashboard, name='dashboard'),
     path('check_predict_status/', check_predict_status, name='check_predict_status'),
     path('save_predict_results/', save_predict_results, name='save_predict_results')
 ]

@@ -247,11 +247,19 @@ def monitoring_devices(request):
     try:
         if request.method == 'GET':
             devices = Device.objects.all()
-            return render(request, 'main/monitoring_devices.html', {'devices': devices})
+            return render(request, 'main.html', {'devices': devices})
         return JsonResponse({'status': 'error', 'message': 'Not allowed method'}, status=400)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
+def dashboard(request):
+    try:
+        if request.method == 'GET':
+            devices = Device.objects.all()
+            return render(request, 'main/dashboard.html', {'devices': devices})
+        return JsonResponse({'status': 'error', 'message': 'Not allowed method'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 class AggregatedDataListView(ListView):
     model = AggregetedData
     template_name = 'main/aggregated_data_list.html'

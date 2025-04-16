@@ -1,0 +1,74 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Мониторинг устройств{% endblock %}
+
+<!-- Используем класс g-1 для корректных промежутков между колонками -->
+{% block main %}
+<div class="row g-1">
+    <div class="col-6">
+      <div class="sm-container p-1">
+        <h5 class=" text-muted">Трафик устройств</h5>
+        <canvas id="traffic-chart"></canvas>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="sm-container p-1">
+        <h5 class=" text-muted">Глобальная активность</h5>
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+</div>
+  
+
+<div class="mb-5">
+    <div class="row g-1">
+      <div class="col-md">
+        <div class="sm-container p-3">
+          <div class="table-responsive">
+            <table class="table ">
+              <thead>
+                <tr>
+                  <th>Шлюзь</th>
+                  <th>Статус</th>
+                  <th>Геопозиция</th>
+                  <th>Тип</th>
+                  <th>Трафик</th>
+                  <th>Точность</th>
+                </tr>
+              </thead>
+              <tbody id="device-table-body">
+                {% for device in devices %}
+                <tr id="device-row-{{device}}" class="device-tr {% if forloop.first %}selected{% endif %}" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
+                  <td>{{device}}</td>
+                  <td>Активен</td>
+                  <td>Алматы, Казахстан</td>
+                  <td>Датчик</td>
+                  <td>Нормальная</td>
+                  <td>95%</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="sm-container p-3">
+          <strong>Логи <span class="">Шлюзь 1</span></strong>
+          <hr>
+          <div class="col">
+            <code>
+              <span>Дата: 20</span><br>
+              <span>Трафик: benign</span><br>
+              <span>Вероятность: 0.9997</span>
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block include_scripts %}
+  <script src="{% static 'main/scripts/dashboard.js' %}"></script>
+{% endblock %}
