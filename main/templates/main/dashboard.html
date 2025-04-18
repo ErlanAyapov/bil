@@ -38,7 +38,7 @@
               </thead>
               <tbody id="device-table-body">
                 {% for device in devices %}
-                <tr id="device-row-{{device}}" class="device-tr {% if forloop.first %}selected{% endif %}" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
+                <tr id="device-row-{{device.id}}" class="device-tr {% if forloop.first %}selected{% endif %}" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
                   <td>{{device}}</td>
                   <td>Активен</td>
                   <td>Алматы, Казахстан</td>
