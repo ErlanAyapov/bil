@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const logEntry = document.createElement('div');
                 logEntry.innerHTML =
                     `<span>Дата: ${now}</span><br>` +
-                    `<span>Устройство: ${id}</span><br>` +
+                    `<span>Устройство: ${id -120}</span><br>` +
                     `<span>Трафик: ${prediction_label}</span><br>` +
                     `<span>Вероятность: ${(parseFloat(confidence) * 100).toFixed(1)}%</span><hr>`;
 
