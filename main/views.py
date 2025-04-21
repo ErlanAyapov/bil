@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 def main(request): 
-    return render(request, 'base.html')
+    return redirect('dashboard')
 
 def start_training(request):
     if request.method == 'POST':

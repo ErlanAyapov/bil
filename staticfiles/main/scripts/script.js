@@ -66,11 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Можно также обновить блок логов (правый блок)
             const logBlock = document.querySelector('.logs');
-            if (logBlock && selectedDeviceId === id) {
-                logBlock.innerHTML =
+            if (logBlock) {
+                const logEntry = document.createElement('div');
+                logEntry.innerHTML =
                     `<span>Дата: ${new Date().toLocaleString()}</span><br>` +
                     `<span>Трафик: ${prediction_label}</span><br>` +
-                    `<span>Вероятность: ${confidence}</span>`;
+                    `<span>Вероятность: ${confidence}</span><hr>`;
+                logBlock.appendChild(logEntry);
+
+                // Скроллим вниз к последнему добавленному элементу
+                logBlock.scrollTop = logBlock.scrollHeight;
             }
 
         } catch (error) {
