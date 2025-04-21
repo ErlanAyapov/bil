@@ -16,18 +16,21 @@ function selectDevice(rowId) {
     localStorage.setItem('selectedDeviceId', deviceId);
     selectedDeviceId = deviceId;
 }
-
 document.addEventListener("DOMContentLoaded", () => {
     const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
     const ws = new WebSocket(`${protocol}://${window.location.host}/ws/device_status/`);
 
     const maxLogs = 50;
-    const allLogs = [];  // Сохраняем все логи
+    const allLogs = [];
 
     const logBlock = document.querySelector('.logs');
     const downloadBtn = document.createElement('button');
     downloadBtn.innerText = "📥 Скачать CSV отчет";
     downloadBtn.style.margin = '10px';
+    downloadBtn.style.width = '100%';
+    downloadBtn.style.color = '#fff';
+    downloadBtn.style.backgroundColor = '#3570ab';
+    downloadBtn.classList.add('btn');
     downloadBtn.addEventListener('click', () => {
         if (allLogs.length === 0) return;
 
@@ -99,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const now = new Date().toLocaleString();
 
-            // Добавляем лог в массив
             allLogs.push({
                 date: now,
                 device_id: id,
@@ -108,21 +110,20 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (logBlock) {
-                // Удаляем лишние, если их больше 50
-                while (logBlock.children.length >= maxLogs) {
-                    logBlock.removeChild(logBlock.firstChild);
-                }
-
                 const logEntry = document.createElement('div');
                 logEntry.innerHTML =
                     `<span>Дата: ${now}</span><br>` +
                     `<span>Устройство: ${id}</span><br>` +
                     `<span>Трафик: ${prediction_label}</span><br>` +
                     `<span>Вероятность: ${(parseFloat(confidence) * 100).toFixed(1)}%</span><hr>`;
-                logBlock.appendChild(logEntry);
 
-                // Автоскролл вниз
-                logBlock.scrollTop = logBlock.scrollHeight;
+                logBlock.appendChild(logEntry); // ➕ добавляем в конец (вниз)
+
+                while (logBlock.children.length > maxLogs) {
+                    logBlock.removeChild(logBlock.firstChild); // ❌ удаляем сверху
+                }
+
+                logBlock.scrollTop = logBlock.scrollHeight; // 📜 автоскролл вниз
             }
 
         } catch (error) {
