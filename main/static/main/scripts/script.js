@@ -18,9 +18,43 @@ function selectDevice(rowId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Подключение к WebSocket
     const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
     const ws = new WebSocket(`${protocol}://${window.location.host}/ws/device_status/`);
+
+    const maxLogs = 50;
+    const allLogs = [];  // Сохраняем все логи
+
+    const logBlock = document.querySelector('.logs');
+    const downloadBtn = document.createElement('button');
+    downloadBtn.innerText = "📥 Скачать CSV отчет";
+    downloadBtn.style.margin = '10px';
+    downloadBtn.addEventListener('click', () => {
+        if (allLogs.length === 0) return;
+
+        const headers = ['Дата', 'Устройство', 'Трафик', 'Вероятность'];
+        const csvRows = [headers.join(',')];
+
+        allLogs.forEach(log => {
+            csvRows.push([
+                `"${log.date}"`,
+                `"${log.device_id}"`,
+                `"${log.prediction_label}"`,
+                `"${(parseFloat(log.confidence) * 100).toFixed(1)}%"`
+            ].join(','));
+        });
+
+        const csvContent = csvRows.join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'device_logs.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+
+    if (logBlock) logBlock.parentElement.insertBefore(downloadBtn, logBlock);
 
     ws.onopen = () => {
         console.log('✅ Соединение WebSocket установлено');
@@ -40,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 prediction_label
             } = data;
 
-            // Обновляем таблицу (можно доработать, если нужно более сложное отображение)
             const row = document.getElementById(`device-row-${id}`);
             if (row) {
                 const statusCell = row.cells[1];
@@ -64,17 +97,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.warn(`❗ Устройство с ID ${id} не найдено`);
             }
 
-            // Можно также обновить блок логов (правый блок)
-            const logBlock = document.querySelector('.logs');
+            const now = new Date().toLocaleString();
+
+            // Добавляем лог в массив
+            allLogs.push({
+                date: now,
+                device_id: id,
+                prediction_label,
+                confidence
+            });
+
             if (logBlock) {
+                // Удаляем лишние, если их больше 50
+                while (logBlock.children.length >= maxLogs) {
+                    logBlock.removeChild(logBlock.firstChild);
+                }
+
                 const logEntry = document.createElement('div');
                 logEntry.innerHTML =
-                    `<span>Дата: ${new Date().toLocaleString()}</span><br>` +
+                    `<span>Дата: ${now}</span><br>` +
+                    `<span>Устройство: ${id}</span><br>` +
                     `<span>Трафик: ${prediction_label}</span><br>` +
-                    `<span>Вероятность: ${confidence}</span><hr>`;
+                    `<span>Вероятность: ${(parseFloat(confidence) * 100).toFixed(1)}%</span><hr>`;
                 logBlock.appendChild(logEntry);
 
-                // Скроллим вниз к последнему добавленному элементу
+                // Автоскролл вниз
                 logBlock.scrollTop = logBlock.scrollHeight;
             }
 
