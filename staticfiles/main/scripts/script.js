@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Можно также обновить блок логов (правый блок)
-            const logBlock = document.querySelector('.col code');
+            const logBlock = document.querySelector('.logs');
             if (logBlock && selectedDeviceId === id) {
                 logBlock.innerHTML =
                     `<span>Дата: ${new Date().toLocaleString()}</span><br>` +
