@@ -6,15 +6,26 @@
 {% block main %}
 <div class="row g-1">
     <div class="col-6">
-      <div class="sm-container p-1">
+      <div class="sm-container p-1" >
         <h5 class=" text-muted">Трафик устройств</h5>
-        <canvas id="traffic-chart"></canvas>
+        <canvas id="traffic-chart" ></canvas>
       </div>
     </div>
     <div class="col-6">
       <div class="sm-container p-1">
         <h5 class=" text-muted">Глобальная активность</h5>
-        <canvas id="chart"></canvas>
+        <div id="active-users-card" class="row">
+          <div class="col">
+            <canvas id="active-users-map" height="365"></canvas>
+          </div>
+        
+          <div class="col-3">
+            <table  id="active-users-table" class="w-60">
+               <thead><tr><th class="w-30"> </th><th class="text-end">В сети</th></tr></thead>
+               <tbody></tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 </div>
@@ -38,7 +49,7 @@
               </thead>
               <tbody id="device-table-body">
                 {% for device in devices %}
-                <tr id="device-row-{{device.id}}" class="device-tr {% if forloop.first %}selected{% endif %}" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
+                <tr id="device-row-{{device.id}}" class="device-tr" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
                   <td>{{device}}</td>
                   <td>Активен</td>
                   <td>Алматы, Казахстан</td>

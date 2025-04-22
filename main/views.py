@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .models import Device, LocalData, AggregetedData, RoundResult, PredictResult
+from django.contrib.auth.decorators import login_required
 
 
 logger = logging.getLogger(__name__)
@@ -18,6 +19,15 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 def main(request): 
     return redirect('dashboard')
+
+@login_required(login_url='login')
+def training(request):
+    template = "main/training.html"
+    context = {
+        "active": "training",
+    }
+    return render(request, template, context)
+
 
 def start_training(request):
     if request.method == 'POST':
@@ -256,10 +266,16 @@ def dashboard(request):
     try:
         if request.method == 'GET':
             devices = Device.objects.all()
-            return render(request, 'main/dashboard.html', {'devices': devices})
+            context = {
+                'devices': devices,
+                'active': "dashboard",
+            }
+            return render(request, 'main/dashboard.html', context)
         return JsonResponse({'status': 'error', 'message': 'Not allowed method'}, status=400)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+    
+    
 class AggregatedDataListView(ListView):
     model = AggregetedData
     template_name = 'main/aggregated_data_list.html'

@@ -3,6 +3,7 @@ from .views import *
 
 urlpatterns = [
     path('', main, name='main'),
+    path('training/', training, name='training'),
     path('aggregated_data/', AggregatedDataListView.as_view(), name='aggregated_data_list'),
     path('save_local_weights/', AcceptWeightsView.as_view(), name='accept_weights'),
     path('get_global_weights/', AcceptWeightsView.as_view(), name='get_global_weights'),

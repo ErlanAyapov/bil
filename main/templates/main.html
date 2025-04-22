@@ -36,10 +36,16 @@
           <img src="{% static 'main/images/su-logo-text.png' %}" style="width: 100%;" />
         </h5>
         <ul class="nav flex-column px-3">
-          <li class="nav-item active">
-            <a class="nav-link active d-flex align-items-center" href="#">
+          <li class="nav-item {% if active == 'dashboard' %}active{% endif %}">
+            <a class="nav-link d-flex align-items-center" href="{% url 'dashboard' %}">
               <span class="flex-grow-1">Мониторинг</span>
               <i class="fa-solid fa-chart-line ms-2"></i>
+            </a>
+          </li>
+          <li class="nav-item {% if active == 'training' %}active{% endif %}">
+            <a class="nav-link  d-flex align-items-center" href="{% url 'training' %}">
+              <span class="flex-grow-1">Обучение</span>
+              <i class="fa-solid fa-graduation-cap ms-2"></i>
             </a>
           </li>
           <li class="nav-item">
@@ -60,12 +66,7 @@
               <i class="fa-solid fa-cog ms-2"></i>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="#">
-              <span class="flex-grow-1">Обучение</span>
-              <i class="fa-solid fa-graduation-cap ms-2"></i>
-            </a>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center" href="#">
               <span class="flex-grow-1">Помощь</span>
