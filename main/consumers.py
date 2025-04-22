@@ -1,7 +1,6 @@
 # consumers.py
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
-from .models import Device, AggregetedData, RoundResult, LocalData
 import json, pickle
 import numpy as np
 from django.utils.timezone import now 
@@ -172,6 +171,8 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def get_device(self, token):
+        from .models import Device
+
         try:
             return Device.objects.get(device_token=token)
         except Device.DoesNotExist:
@@ -179,14 +180,17 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def get_active_agg_data(self):
+        from .models import AggregetedData
         return AggregetedData.objects.filter(is_active=True).order_by("-created_at").first()
 
     @database_sync_to_async
     def get_or_create_local_data(self, device):
+        from .models import LocalData
         return LocalData.objects.get_or_create(device=device, created_at=now().date())[0]
 
     @database_sync_to_async
     def save_round_result(self, device, local_data, round_num, metrics):
+        from .models import RoundResult
         RoundResult.objects.create(
             device=device,
             local_data=local_data,
@@ -196,6 +200,7 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def write_local_data_to_agg(self):
+        from .models import LocalData, Device
         # Обновляем связь LocalData с AggregetedData
         for device_id, weights in self.round_weights.items():
             try:
