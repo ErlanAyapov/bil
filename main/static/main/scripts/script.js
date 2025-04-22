@@ -74,23 +74,44 @@ document.addEventListener("DOMContentLoaded", () => {
                 device_id: id,
                 prediction,
                 confidence,
-                prediction_label
+                prediction_label,
+                ip_data
             } = data;
 
             const row = document.getElementById(`device-row-${id}`);
             if (row) {
-                const statusCell = row.cells[1];
-                const trafficCell = row.cells[4];
-                const confidenceCell = row.cells[5];
+                const statusCell = row.cells[0];
+                const gatewayCell = row.cells[1];
+                const countryCell = row.cells[2];
+                const geoCell = row.cells[3];
+                const operatorCell = row.cells[4];
+                const typeCell = row.cells[5];
+                const timezoneCell = row.cells[6];
+                const trafficCell = row.cells[7];
+                const confidenceCell = row.cells[8];
 
                 if (statusCell) {
                     statusCell.innerText = status === 'danger' ? 'Опасен' : 'Активен';
                     statusCell.classList.toggle('text-danger', status === 'danger');
                     statusCell.classList.toggle('text-success', status === 'safe');
                 }
-
+                if (countryCell) {
+                    countryCell.innerText = `${ip_data.country}, ${ip_data.city}` || '-';
+                }
+                if (geoCell) {
+                    geoCell.innerText = `${ip_data.lat}, ${ip_data.lon}` || '-';
+                }
                 if (trafficCell) {
                     trafficCell.innerText = prediction_label + " (" + prediction + ")";
+                }
+                if (typeCell) {
+                    typeCell.innerText = 'Датчик';
+                }
+                if (timezoneCell) {
+                    timezoneCell.innerText = ip_data.timezone || '-';
+                }
+                if (operatorCell) {
+                    operatorCell.innerText = ip_data.org || '-';
                 }
 
                 if (confidenceCell) {

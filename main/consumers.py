@@ -60,6 +60,7 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
             prediction = data.get('prediction')
             confidence = data.get('confidence')
             prediction_label = data.get('prediction_label')
+            ip_data = data.get('ip_data')
 
             # Получаем устройство из БД
             device = await self.get_device(device_token)
@@ -80,7 +81,8 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
                 "device_id": device.id,
                 "prediction": prediction,
                 "confidence": confidence,
-                "prediction_label": prediction_label
+                "prediction_label": prediction_label,
+                "ip_data": ip_data
             })
 
         except json.JSONDecodeError:

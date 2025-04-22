@@ -13,7 +13,7 @@
     </div>
     <div class="col-6">
       <div class="sm-container p-1">
-        <h5 class=" text-muted">Глобальная активность</h5>
+        <h5 class="text-muted">Глобальная активность</h5>
         <div id="active-users-card" class="row">
           <div class="col">
             <canvas id="active-users-map" height="365"></canvas>
@@ -39,23 +39,29 @@
             <table class="table ">
               <thead>
                 <tr>
-                  <th>Шлюзь</th>
-                  <th>Статус</th>
-                  <th>Геопозиция</th>
-                  <th>Тип</th>
-                  <th>Трафик</th>
-                  <th>Точность</th>
+                    <th>Статус</th>
+                    <th>Шлюзь</th>
+                    <th>Страна</th>
+                    <th>Геопозиция</th>
+                    <th>Оператор</th>
+                    <th>Тип</th>
+                    <th>Часовой пояс</th>
+                    <th>Трафик</th>
+                    <th>Точность</th>
                 </tr>
               </thead>
               <tbody id="device-table-body">
                 {% for device in devices %}
                 <tr id="device-row-{{device.id}}" class="device-tr" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
+                  <td>Не активен</td>
                   <td>{{device}}</td>
-                  <td>Активен</td>
-                  <td>Алматы, Казахстан</td>
-                  <td>Датчик</td>
-                  <td>Нормальная</td>
-                  <td>95%</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                 </tr>
                 {% endfor %}
               </tbody>

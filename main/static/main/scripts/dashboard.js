@@ -171,15 +171,9 @@ const ActiveUsersMap = (() => {
   document.addEventListener('DOMContentLoaded', () => {
     ActiveUsersMap.init({
       canvasId:'active-users-map',
-      tableBodySelector:'#active-users-table tbody',
-      initialData:{
-        "Kazakhstan":103,"United States":3,"India":2,
-        "Canada":1,"China":1,"Egypt":1,"France":1
-      }
+      tableBodySelector:'#active-users-table tbody' 
     });
   
-    /* пример live‑апдейта
-    setTimeout(()=>ActiveUsersMap.update({"Kazakhstan":150,"Germany":7}), 4000);
-    */
+    // setTimeout(()=>ActiveUsersMap.update({}), 100);
   });
   
