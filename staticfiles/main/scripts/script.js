@@ -80,15 +80,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const row = document.getElementById(`device-row-${id}`);
             if (row) {
-                const statusCell = row.cells[0];
-                const gatewayCell = row.cells[1];
-                const countryCell = row.cells[2];
-                const geoCell = row.cells[3];
-                const operatorCell = row.cells[4];
-                const typeCell = row.cells[5];
-                const timezoneCell = row.cells[6];
-                const trafficCell = row.cells[7];
-                const confidenceCell = row.cells[8];
+                const statusCell = row.cells[1];
+                const gatewayCell = row.cells[2];
+                const countryCell = row.cells[3];
+                const geoCell = row.cells[4];
+                const operatorCell = row.cells[5];
+                const typeCell = row.cells[6];
+                const timezoneCell = row.cells[7];
+                const trafficCell = row.cells[8];
+                const confidenceCell = row.cells[9];
+
+                const device = new Device(
+                    id,
+                    device_token,
+                    "Устройство #" + id,
+                    "Датчик",
+                    prediction,
+                    status,
+                    confidence,
+                    ip_data.country || "Unknown"
+                );
+                device.setTraffic(prediction, confidence);
 
                 if (statusCell) {
                     statusCell.innerText = status === 'danger' ? 'Опасен' : 'Активен';
