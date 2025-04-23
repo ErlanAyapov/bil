@@ -1,6 +1,7 @@
 
 body {
   font-size: 0.9rem;
+  background: #dfdfdf !important;
 }
 .sidebar {
   height: 100vh;
@@ -28,7 +29,7 @@ nav ul li:hover {
   background-color: #e9ecef;
 }
 main {
-  background: #dfdfdf;
+  
   padding: 1rem;
 }
 .sm-container {

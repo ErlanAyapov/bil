@@ -46,11 +46,11 @@
           <li class="nav-item {% if active == 'training' %}active{% endif %}">
             <a class="nav-link d-flex align-items-center" href="{% url 'training' %}">
               <span class="flex-grow-1">Обучение</span>
-              <i class="fa-solid fa-graduation-cap ms-2"></i>
+              <i class="fa-solid fa-brain"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="#">
+            <a class="nav-link d-flex align-items-center disabled" href="#">
               <span class="flex-grow-1">Геоанализ</span>
               <i class="fa-solid fa-globe ms-2"></i>
             </a>
@@ -73,8 +73,7 @@
               <i class="fa-solid fa-question-circle ms-2"></i>
             </a>
           </li>
-        </ul>
-      
+        </ul> 
         <!-- 🔻 Логотип снизу -->
         <div class="mt-auto px-3">
           <img src="{% static 'main/images/su-logo-text.png' %}" alt="Secondary Logo" style="width: 100%; margin-top: 370px;" />
@@ -83,7 +82,7 @@
       
 
       <!-- Main content -->
-      <main class="col-md-5 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-5 ms-sm-auto col-lg-10 px-md-4" style="min-height: 100%;">
         {% block main %}
         {% endblock %}
       </main>
