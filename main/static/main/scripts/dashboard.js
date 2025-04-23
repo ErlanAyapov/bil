@@ -1,90 +1,175 @@
-// fetch('https://unpkg.com/world-atlas/countries-50m.json')
-//     .then((r) => r.json())
-//     .then((data) => {
-//       const countries = ChartGeo.topojson.feature(data, data.objects.countries).features;
 
-//       new Chart(document.getElementById("chart").getContext("2d"), {
-//         type: 'choropleth',
-//         data: {
-//           labels: countries.map((d) => d.properties.name),
-//             datasets: [{
-//             label: 'Countries',
-//             data: countries.filter((d) => d.properties.name !== 'Antarctica')
-//               .map((d) => ({
-//               feature: d,
-//               value: 0
-//               }))
-//           }]
-//         },
-//         options: {
-//           responsive: true,
-//           maintainAspectRatio: true,
-//           showOutline: false,
-//           showGraticule: false,
-//           plugins: {
-//             legend: { display: false }
-//           },
-//           scales: {
-//             projection: {
-//               axis: 'x',
-//               projection: 'mercator',
-//               display: false,
-//               // Увеличиваем масштаб
-//               scale: 500 // Увеличьте значение для большего масштаба
-//             }
-//           }
-//         }
-//     });
-// });
- 
-new Chart(document.getElementById("traffic-chart").getContext("2d"), {
-    type: 'line',
-    data: {
-        labels: Array.from({ length: 30 }, (_, i) => {
-            const date = new Date();
-            date.setDate(date.getDate() - (29 - i));
-            return date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
-        }),
+const labels = {
+  0: "Benign",
+  1: "Non DDoS",
+  2: "DDoS icmp flood",
+  3: "DDoS UDP flood",
+  4: "DDoS TCP flood",
+  5: "DDoS PSHACK",
+  6: "DDoS Syn flood",
+  7: "DDoS RSTFN flood",
+  8: "DDoS Synonymousip flood",
+  9: "DDoS ICMP fragmentation",
+  10: "DDoS UDP fragmentation",
+  11: "DDoS ACK Fragmentation",
+};
+
+const backgroundColors = [
+  '#008080', '#3cb44b', '#ffe119', '#4363d8', '#f58231',
+  '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe',
+  '#e6194b', '#e6beff'
+];
+const borderColors = backgroundColors.map(color => color.replace(')', ', 1)').replace('rgb', 'rgba'));
+
+const TrafficBarChart = (() => {
+
+  let chart;
+
+  function init(initialCounts = []) {
+    const ctx = document.getElementById("traffic-chart").getContext("2d");
+
+    chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: Object.values(labels),
         datasets: [{
-            label: 'Traffic Sources',
-            data: Array(30).fill(0).map(() => Math.floor(Math.random() * 11)), // Example data
-            borderColor: 'rgba(54, 235, 205, 0.81)',
-            backgroundColor: 'rgba(54, 235, 205, 0.2)',
-            fill: true
+          label: 'Traffic Type Counts',
+          data: initialCounts,
+          backgroundColor: backgroundColors.map(c => c + '80'),
+          borderColor: borderColors,
+          borderWidth: 2,
+          borderRadius: Number.MAX_VALUE,
+          borderSkipped: false
         }]
-    },
-    options: {
+      },
+      options: {
         responsive: true,
         maintainAspectRatio: true,
         plugins: {
-            legend: {
-                display: false // Remove legend
-            }
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'DDoS Traffic Type Distribution (with Colors)'
+          }
         },
         scales: {
-            x: {
-                display: false // Remove x-axis
+          x: {
+            title: {
+              display: true,
+              text: 'Traffic Type'
             },
-            y: {
-                title: {
-                    display: false,
-                    text: 'Attack Type'
-                },
-                ticks: {
-                    callback: function(value) {
-                        const attackTypes = {
-                            0: 'Benign',
-                            1: 'Non-DDoS',
-                            3: 'DDoS'
-                        };
-                        return attackTypes[value] || value;
-                    }
-                },
-                beginAtZero: true
+            ticks: {
+              autoSkip: false,
+              maxRotation: 45,
+              minRotation: 45
             }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Count'
+            }
+          }
         }
+      }
+    });
+  }
+
+  function update(newCounts = []) {
+    if (!chart) {
+      init(newCounts); // auto-init if not initialized
+    } else {
+      chart.data.datasets[0].data = newCounts;
+      chart.update();
     }
-});
+  }
+
+  return {
+    init,
+    update
+  };
+})();
+ 
+const TrafficRadarChart = (() => {
+  const labels = {
+    0: "Benign",
+    1: "Non DDoS",
+    2: "DDoS icmp flood",
+    3: "DDoS UDP flood",
+    4: "DDoS TCP flood",
+    5: "DDoS PSHACK",
+    6: "DDoS Syn flood",
+    7: "DDoS RSTFN flood",
+    8: "DDoS Synonymousip flood",
+    9: "DDoS ICMP fragmentation",
+    10: "DDoS UDP fragmentation",
+    11: "DDoS ACK Fragmentation",
+  };
+
+  const radarColor = 'rgba(75, 192, 192, 0.2)';
+  const radarBorderColor = 'rgba(75, 192, 192, 1)';
+
+  let chart;
+
+  function init(initialData = []) {
+    const ctx = document.getElementById("traffic-by-radar").getContext("2d");
+
+    chart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: Object.values(labels),
+        datasets: [{
+          label: 'Traffic Type Count',
+          data: initialData,
+          backgroundColor: radarColor,
+          borderColor: radarBorderColor,
+          pointBackgroundColor: radarBorderColor,
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: radarBorderColor
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Radar Chart of Traffic Types'
+          }
+        },
+        scales: {
+          r: {
+            angleLines: {
+              display: true
+            },
+            suggestedMin: 0,
+            suggestedMax: 100
+          }
+        }
+      }
+    });
+  }
+
+  function update(newData = []) {
+    if (!chart) {
+      init(newData); // fallback init
+    } else {
+      chart.data.datasets[0].data = newData;
+      chart.update();
+    }
+  }
+
+  return {
+    init,
+    update
+  };
+})();
 
 const ActiveUsersMap = (() => {
     let chart, countriesTopo, tableBody;
@@ -139,6 +224,7 @@ const ActiveUsersMap = (() => {
         }]},
         options:{
           responsive:true, maintainAspectRatio:false,
+          
   
           /* ==== интерактивность ==== */
           plugins:{
@@ -166,14 +252,83 @@ const ActiveUsersMap = (() => {
   
     return { init, update };
   })();
+
+const TrafficRegionChart = (() => {
+    let chart;
   
-  /* ----------  bootstrap  ---------- */
-  document.addEventListener('DOMContentLoaded', () => {
+    const defaultColors = [
+      '#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff',
+      '#ff9f40', '#c9cbcf', '#ff6666', '#66ff66', '#6666ff'
+    ];
+  
+    function init(regionLabels = [], regionData = [], regionColors = defaultColors) {
+      const ctx = document.getElementById("traffic-by-region").getContext("2d");
+  
+      chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: regionLabels,
+          datasets: [{
+            label: 'Traffic by Region',
+            data: regionData,
+            backgroundColor: regionColors,
+            borderColor: '#ffffff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 2.5,
+          plugins: {
+            legend: {
+              position: 'right'
+            },
+            title: {
+              display: true,
+              text: 'Traffic Distribution by Region (Countries)'
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  const label = context.label || '';
+                  const value = context.parsed || 0;
+                  return `${label}: ${value} events`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  
+    function update(regionStats = {}) {
+      if (!chart) {
+        const labels = Object.keys(regionStats);
+        const data = Object.values(regionStats);
+        init(labels, data); // fallback
+        return;
+      }
+  
+      chart.data.labels = Object.keys(regionStats);
+      chart.data.datasets[0].data = Object.values(regionStats);
+      chart.update();
+    }
+  
+    return {
+      init,
+      update
+    };
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
     ActiveUsersMap.init({
       canvasId:'active-users-map',
       tableBodySelector:'#active-users-table tbody' 
     });
-  
-    // setTimeout(()=>ActiveUsersMap.update({}), 100);
-  });
-  
+    const initialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    TrafficBarChart.init(initialCounts);
+    TrafficRadarChart.init(initialCounts);
+    TrafficRegionChart.init();
+
+});

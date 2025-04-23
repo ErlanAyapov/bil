@@ -4,32 +4,41 @@
 
 <!-- Используем класс g-1 для корректных промежутков между колонками -->
 {% block main %}
-<div class="row g-1">
-    <div class="col-6">
-      <div class="sm-container p-1" >
-        <h5 class=" text-muted">Трафик устройств</h5>
-        <canvas id="traffic-chart" ></canvas>
-      </div>
+<div class="row g-2 align-items-stretch">
+  <div class="col-md-6 d-flex flex-column gap-2">
+    <div class="sm-container canvas-container p-3 flex-fill">
+      <h5 class="text-muted">Трафик устройств</h5>
+      <canvas class="canvas" id="traffic-chart"></canvas>
     </div>
-    <div class="col-6">
-      <div class="sm-container p-1">
-        <h5 class="text-muted">Глобальная активность</h5>
-        <div id="active-users-card" class="row">
-          <div class="col">
-            <canvas id="active-users-map" height="365"></canvas>
-          </div>
-        
-          <div class="col-3">
-            <table  id="active-users-table" class="w-60">
-               <thead><tr><th class="w-30"> </th><th class="text-end">В сети</th></tr></thead>
-               <tbody></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+    <div class="sm-container canvas-container p-3 flex-fill">
+      <h5 class="text-muted">Трафик устройств</h5>
+      <canvas class="canvas" id="traffic-by-region" width="150" height="150"></canvas>
+    </div> 
+  </div>
+  <div class="col-md-6 d-flex align-items-center">
+    <div class="sm-container canvas-container p-3 w-100">
+      <h5 class="text-muted text-center">Типы трафика</h5>
+      <canvas class="canvas" id="traffic-by-radar"></canvas>
     </div>
+  </div>
 </div>
+
   
+<div class="sm-container p-1">
+  <h5 class="text-muted">Глобальная активность</h5>
+  <div id="active-users-card" class="row">
+    <div class="col w-100">
+      <canvas id="active-users-map" height="800"></canvas>
+    </div>
+  
+    <div class="col-3">
+      <table  id="active-users-table" class="w-60">
+         <thead><tr><th class="w-30"> </th><th class="text-end">В сети</th></tr></thead>
+         <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <div class="mb-5">
     <div class="row g-1">
@@ -39,6 +48,7 @@
             <table class="table ">
               <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Статус</th>
                     <th>Шлюзь</th>
                     <th>Страна</th>
@@ -53,7 +63,8 @@
               <tbody id="device-table-body">
                 {% for device in devices %}
                 <tr id="device-row-{{device.id}}" class="device-tr" onclick="selectDevice('device-row-{{device}}')" data-device-id="{{device}}">
-                  <td>Не активен</td>
+                  <td class="text-muted">{{device.id}}</td>
+                  <td>-</td>
                   <td>{{device}}</td>
                   <td>-</td>
                   <td>-</td>
@@ -82,4 +93,5 @@
 
 {% block include_scripts %}
   <script src="{% static 'main/scripts/dashboard.js' %}"></script>
+  <script src="{% static 'main/scripts/device.js' %}"></script>
 {% endblock %}
