@@ -31,10 +31,11 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Sidebar -->
-      <nav class="col-md-2 d-none d-md-block sidebar position-fixed h-100">
+      <nav class="col-md-2 d-none d-md-block sidebar position-fixed h-100 d-flex flex-column">
         <h5 class="text-center">
           <img src="{% static 'main/images/icon.png' %}" style="width: 100%;" />
         </h5>
+      
         <ul class="nav flex-column px-3">
           <li class="nav-item {% if active == 'dashboard' %}active{% endif %}">
             <a class="nav-link d-flex align-items-center" href="{% url 'dashboard' %}">
@@ -43,7 +44,7 @@
             </a>
           </li>
           <li class="nav-item {% if active == 'training' %}active{% endif %}">
-            <a class="nav-link  d-flex align-items-center" href="{% url 'training' %}">
+            <a class="nav-link d-flex align-items-center" href="{% url 'training' %}">
               <span class="flex-grow-1">Обучение</span>
               <i class="fa-solid fa-graduation-cap ms-2"></i>
             </a>
@@ -66,7 +67,6 @@
               <i class="fa-solid fa-cog ms-2"></i>
             </a>
           </li>
-         
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center" href="#">
               <span class="flex-grow-1">Помощь</span>
@@ -74,7 +74,13 @@
             </a>
           </li>
         </ul>
+      
+        <!-- 🔻 Логотип снизу -->
+        <div class="mt-auto px-3">
+          <img src="{% static 'main/images/su-logo-text.png' %}" alt="Secondary Logo" style="width: 100%; margin-top: 370px;" />
+        </div>
       </nav>
+      
 
       <!-- Main content -->
       <main class="col-md-5 ms-sm-auto col-lg-10 px-md-4">
