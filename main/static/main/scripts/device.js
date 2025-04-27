@@ -71,9 +71,4 @@ class Device {
     setConfidence(confidence) {
         this.confidence = confidence;
     }
-}
-
-
-setTimeout(() => {
-    dev1.setTraffic(50, 0.88); // ActiveUsersMap.update() вызовется автоматически
-}, 3000);
+} 

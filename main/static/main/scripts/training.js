@@ -94,3 +94,54 @@ const TrainingProgressChart = (() => {
     };
 })();
 TrainingProgressChart.init(10);
+
+
+// main/static/main/scripts/training.js
+const wsUi = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws/train_model/`);
+/* --------- WebSocket UI-канала --------- */
+
+wsUi.onopen    = () => log("🟢 UI WebSocket открыт");
+wsUi.onerror   = e  => log("🔴 WebSocket error: " + e.message);
+wsUi.onmessage = ({data}) => {
+
+  const m = JSON.parse(data);
+  if (m.type == "train_log") {
+    log(m.text);
+  } else if (m.type == "global_weights") {
+    TrainingProgressChart.addAccuracyPoint(m.round, m.accuracy || 0.0);
+
+    log(`Новые глобальные веса (Раунд ${m.round})`);
+  } else if (m.type == "subscribe") {
+    log(`Подключен ${m.device_name}`); 
+    
+    // TrainingProgressChart.updateRounds(m.round);
+  } else if (m.type == "start_training") { 
+    log(`✅ Команда запуска отправлен`);
+  }
+  else {
+    log(`Неизвестный тип сообщения: ${m.type} (${m.payload})`);
+  }
+};
+
+/* --------- Запуск обучения --------- */
+function startTraining() {
+  const model  = document.getElementById("model").value;
+  const rounds = +document.getElementById("rounds").value;
+  if (!model) return;
+
+  wsUi.send(JSON.stringify({
+    type: "start_training",
+    model,
+    rounds
+  }));
+
+  document.getElementById("start-btn").disabled = true;
+  log(`▶ Старт обучения: ${model}, ${rounds} раундов`);
+}
+
+/* --------- Логи --------- */
+function log(text) {
+  const box = document.querySelector("#training-logs .alert");
+  box.innerHTML += `<div>${new Date().toLocaleTimeString()} – ${text}</div>`;
+  box.scrollTop = box.scrollHeight;
+}

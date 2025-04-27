@@ -5,7 +5,8 @@ import random
 from django.conf import settings
 from cryptography.fernet import Fernet
 import json
-
+import base64
+import pickle
 
 class Device(models.Model):
     name = models.CharField(max_length=100)
@@ -116,16 +117,45 @@ class AggregetedData(models.Model):
         verbose_name_plural = 'Агрегированные данные'
 
     def aggregate_data(self):
-        local_weights = [local.data for local in self.local_datas.all()]
-        if local_weights:
-            aggregated_data = [
-                np.mean(np.array([np.array(w[layer_idx], dtype=np.float32) for w in local_weights]), axis=0).tolist()
-                for layer_idx in range(len(local_weights[0]))
-            ]
-            return aggregated_data
-        return []
 
-    
+
+        local_weights = []
+        for local in self.local_datas.all():
+            try:
+                raw_data = base64.b64decode(local.data.encode())
+                weights = pickle.loads(raw_data)
+                local_weights.append(weights)
+            except Exception as e:
+                print(f"[WARN] Skipping corrupted weight for device {local.device_id}: {e}")
+                continue
+
+        if not local_weights:
+            raise ValueError("No valid local weights found for aggregation.")
+
+        # Предполагаем, что все веса — это списки numpy-массивов
+        try:
+            num_layers = len(local_weights[0])
+            aggregated_data = []
+            for layer_idx in range(num_layers):
+                layer_weights = []
+                for w in local_weights:
+                    try:
+                        layer_arr = np.array(w[layer_idx], dtype=np.float32)
+                        layer_weights.append(layer_arr)
+                    except (ValueError, TypeError) as e:
+                        print(f"[WARN] Skipping invalid layer at index {layer_idx} for device: {e}")
+                if layer_weights:
+                    layer_mean = np.mean(layer_weights, axis=0).tolist()
+                    aggregated_data.append(layer_mean)
+                else:
+                    print(f"[WARN] No valid data for layer {layer_idx}, filling with zeros")
+                    shape = np.shape(local_weights[0][layer_idx])
+                    aggregated_data.append(np.zeros(shape).tolist())
+            return aggregated_data
+
+        except Exception as e:
+            raise ValueError(f"Failed to aggregate data: {e}")
+
     def save(self, aggregate=False, *args, **kwargs):
         if aggregate:
             aggregated_data = self.aggregate_data()
