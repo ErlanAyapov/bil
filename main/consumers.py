@@ -110,6 +110,8 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
 class TrainModelConsumer(AsyncWebsocketConsumer):
     # слабые ссылки, чтобы не удерживать объекты
     connected_clients = weakref.WeakSet()
+    aggregations = {}
+    agg_init_lock = asyncio.Lock()
 
     # параметры ожидания и синхронизации
     AGG_TIMEOUT_SEC = 20
@@ -122,7 +124,9 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
         self.round_weights = {}         # {device_id: [layer arrays]}
         self.round_deadline = None
         self.current_model = None       # 'dnn' | 'cnn' | ...
-        self.train = None               # текущая Train-сессия (сегодня + model_name)
+        self.train = None
+        self.timeout_task = None
+        # текущая Train-сессия (сегодня + model_name)
 
     async def connect(self):
         await self.accept()
@@ -200,10 +204,12 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             print(f"Training session ready: {self.train}")
             # зафиксируем участников (только реальные устройства с device)
             loop = asyncio.get_running_loop()
-            async with self.lock:
-                self.training_clients = {c.device.id for c in self.connected_clients if getattr(c, "device", None)}
-                self.round_weights.clear()
-                self.round_deadline = loop.time() + self.AGG_TIMEOUT_SEC
+            agg = await self._get_agg_state(self.train["id"])
+            async with agg["lock"]:
+                agg["training_clients"] = {c.device.id for c in self.connected_clients if getattr(c, "device", None)}
+                agg["round_weights"] = {}
+                agg["round_deadline"] = loop.time() + self.AGG_TIMEOUT_SEC
+            await self._schedule_timeout_shared(self.train["id"], self.train["round_count"])
 
             # разошлём клиентам команду (продолжить с текущего round_count)
             await self.broadcast_all({
@@ -257,11 +263,12 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
         await self.save_device_round_result(self.device, local_data, round_no, metrics, train_id=self.train["id"])
 
         # запишем веса в буфер текущего раунда
-        async with self.lock:
-            self.round_weights[self.device.id] = [np.asarray(a) for a in weights]
+        agg = await self._get_agg_state(self.train["id"])
+        async with agg["lock"]:
+            agg["round_weights"][self.device.id] = [np.asarray(a) for a in weights]
 
-            have = set(self.round_weights.keys())
-            goal = set(self.training_clients) if getattr(self, 'training_clients', None) is not None else set()
+            have = set(agg["round_weights"].keys())
+            goal = set(agg.get("training_clients") or [])
             # Fallback: если snapshot не зафиксирован, берём всех подписанных с устройством
             if not goal:
                 goal = {getattr(c.device, 'id', None) for c in list(self.connected_clients) if getattr(c, 'device', None)}
@@ -269,18 +276,21 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
 
             loop = asyncio.get_running_loop()
             # Инициализируем дедлайн раунда, если его ещё нет
-            if not self.round_deadline:
-                self.round_deadline = loop.time() + self.AGG_TIMEOUT_SEC
-            time_expired = bool(self.round_deadline) and (loop.time() >= self.round_deadline)
+            if not agg.get("round_deadline"):
+                agg["round_deadline"] = loop.time() + self.AGG_TIMEOUT_SEC
+                await self._schedule_timeout_shared(self.train["id"], self.train["round_count"]) 
+            time_expired = bool(agg.get("round_deadline")) and (loop.time() >= agg["round_deadline"])
             ready = (len(goal) > 0 and have >= goal) or time_expired
         
         print(f'ready to aggregate? {ready} (have {len(have)}/{len(goal)}, expired={time_expired})')
         if ready:
             await self.aggregate_and_broadcast_all(round_no, metrics)
             # подготовка к следующему сбору
-            async with self.lock:
-                self.round_weights.clear()
-                self.round_deadline = asyncio.get_running_loop().time() + self.AGG_TIMEOUT_SEC
+            agg = await self._get_agg_state(self.train["id"])
+            async with agg["lock"]:
+                agg["round_weights"].clear()
+                agg["round_deadline"] = asyncio.get_running_loop().time() + self.AGG_TIMEOUT_SEC
+            await self._schedule_timeout_shared(self.train["id"], self.train["round_count"]) 
 
     async def aggregate_and_broadcast_all(self, round_num, metrics):
         """
@@ -371,6 +381,58 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
     async def ui_log(self, text: str):
         if self.channel_layer:
             await self.channel_layer.group_send("ui_training", {"type": "ui.message", "message": {"type":"train_log","text": text}})
+
+    async def _get_agg_state(self, train_id: int):
+        if train_id in self.aggregations:
+            return self.aggregations[train_id]
+        async with self.agg_init_lock:
+            st = self.aggregations.get(train_id)
+            if st:
+                return st
+            self.aggregations[train_id] = {
+                "lock": asyncio.Lock(),
+                "training_clients": set(),
+                "round_weights": {},
+                "round_deadline": None,
+                "timeout_task": None,
+            }
+            return self.aggregations[train_id]
+
+    async def _schedule_timeout_shared(self, train_id: int, round_no: int):
+        st = await self._get_agg_state(train_id)
+        async with st["lock"]:
+            tt = st.get("timeout_task")
+            if tt and not tt.done():
+                tt.cancel()
+            st["timeout_task"] = asyncio.create_task(self._timeout_trigger_shared(train_id, round_no))
+
+    async def _timeout_trigger_shared(self, train_id: int, round_no: int):
+        try:
+            await asyncio.sleep(self.AGG_TIMEOUT_SEC)
+        except asyncio.CancelledError:
+            return
+        st = await self._get_agg_state(train_id)
+        # If round already advanced, nothing to do
+        current_round = self.train["round_count"] if self.train else None
+        if current_round != round_no:
+            return
+        if st["round_weights"]:
+            await self.ui_log(f"[timeout] Aggregating on timeout for round {round_no}. Collected: {len(st['round_weights'])} clients")
+            await self.aggregate_and_broadcast_all(round_no, {"timeout": True})
+
+    async def _timeout_trigger(self, round_no: int):
+        try:
+            await asyncio.sleep(self.AGG_TIMEOUT_SEC)
+        except asyncio.CancelledError:
+            return
+        # On timeout, aggregate whatever has been collected for this round
+        async with self.lock:
+            # If round already advanced, nothing to do
+            if not self.train or self.train.get("round_count") != round_no:
+                return
+        if self.round_weights:
+            await self.ui_log(f"[timeout] Aggregating on timeout for round {round_no}. Collected: {len(self.round_weights)} clients")
+            await self.aggregate_and_broadcast_all(round_no, {"timeout": True})
 
     # ---------------------- DB helpers ----------------------
 
@@ -530,7 +592,8 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def fedavg_current_round(self):
         import numpy as np
-        weights = [w for w in self.round_weights.values()]
+        st = self.aggregations.get(self.train["id"]) if self.train else None
+        weights = [w for w in (st["round_weights"].values() if st else self.round_weights.values())]
         if not weights:
             return None
         num_layers = len(weights[0])
@@ -567,3 +630,4 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 if isinstance(item, dict):
                     return self._normalize_metrics(item, round_no)
         return out
+
