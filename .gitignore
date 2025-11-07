@@ -2,3 +2,8 @@ logs/
 .pem
 .env
 .sqlite3
+
+# Ignore all media directories (user uploads)
+media/
+**/media/
+**/media/**

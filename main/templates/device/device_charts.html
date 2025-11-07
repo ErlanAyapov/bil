@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Графики — {{ device.name }}{% endblock %}
+
+{% block main %}
+<div class="container-xxl">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <!-- <h4 class="mb-0">Графики активности: {{ device.name }}</h4> -->
+    <a class="btn btn-outline-secondary" href="{% url 'profile' %}">К профилю</a>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-12 col-lg-6">
+      <div class="sm-container p-3">
+        <h6 class="text-muted">Активность (за 14 дней)</h6>
+        <div class="canvas-container p-2" style="height: 320px;">
+          <canvas id="device-activity-per-day" class="w-100 h-100"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="sm-container p-3">
+        <h6 class="text-muted">Точность по раундам</h6>
+        <div class="canvas-container p-2" style="height: 320px;">
+          <canvas id="device-rounds-accuracy" class="w-100 h-100"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="sm-container p-3">
+        <h6 class="text-muted">Потери по раундам</h6>
+        <div class="canvas-container p-2" style="height: 320px;">
+          <canvas id="device-rounds-loss" class="w-100 h-100"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block include_scripts %}
+  <script src="{% static 'main/scripts/device_edit.js' %}"></script>
+  <script>window.DEVICE_ID = {{ device.id }};</script>
+{% endblock %}
+

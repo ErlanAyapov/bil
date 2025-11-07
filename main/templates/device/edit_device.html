@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Редактирование — {{ device.name }}{% endblock %}
+
+{% block main %}
+<div class="row g-2">
+  <div class="col-12 col-lg-5">
+    <div class="sm-container p-3">
+      <h5 class="mb-3">Настройки устройства</h5>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Название</label>
+          {{ form.name }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">IP адрес</label>
+          {{ form.ip }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Порт</label>
+          {{ form.port }}
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary" type="submit">Сохранить</button>
+          <a class="btn btn-outline-secondary" href="{% url 'profile' %}">К списку устройств</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-7">
+    <div class="sm-container p-3 mb-2">
+      <h6 class="text-muted mb-2">Активность (за 14 дней)</h6>
+      <div class="canvas-container p-2">
+        <canvas id="device-activity-per-day" class="canvas"></canvas>
+      </div>
+    </div>
+    <div class="sm-container p-3">
+      <h6 class="text-muted mb-2">Результаты по раундам</h6>
+      <div class="canvas-container p-2">
+        <canvas id="device-rounds-accuracy" class="canvas"></canvas>
+      </div>
+      <div class="canvas-container p-2 mt-2">
+        <canvas id="device-rounds-loss" class="canvas"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block include_scripts %}
+  <script src="{% static 'main/scripts/device_edit.js' %}"></script>
+  <script>
+    window.DEVICE_ID = {{ device.id }};
+  </script>
+{% endblock %}
+

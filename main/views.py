@@ -7,10 +7,15 @@ from django.views import View
 from .utils import get_device_status
 from django.http import JsonResponse
 from django.views.generic import ListView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from .models import Device, LocalData, AggregetedData, RoundResult, PredictResult
+from .models import Device, LocalData, AggregetedData, RoundResult, PredictResult, Customer
+from .forms import DeviceForm, CustomerForm, UserRegisterForm, LoginForm, UserUpdateForm
+from django.core.paginator import Paginator
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
 
@@ -20,6 +25,7 @@ logger = logging.getLogger(__name__)
 def main(request): 
     return redirect('dashboard')
 
+@login_required(login_url='login')
 @login_required(login_url='login')
 def training(request):
     template = "main/training.html"
@@ -78,10 +84,12 @@ def get_train_status():
         pass
     return "STOP"
     
+@login_required(login_url='login')
 def list_container_load(request):
     agg_data = AggregetedData.objects.all()
     return render(request, 'main/list_content.html', {'object_list': agg_data})
 
+@login_required(login_url='login')
 def check_training_status(request):
     status = get_train_status()
     return JsonResponse({'train_status': status})
@@ -253,6 +261,7 @@ def check_device_status(request):
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
     
+@login_required(login_url='login')
 def monitoring_devices(request):
     try:
         if request.method == 'GET':
@@ -262,6 +271,7 @@ def monitoring_devices(request):
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
+@login_required(login_url='login')
 def dashboard(request):
     try:
         if request.method == 'GET':
@@ -274,7 +284,22 @@ def dashboard(request):
         return JsonResponse({'status': 'error', 'message': 'Not allowed method'}, status=400)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-    
+
+
+@login_required(login_url='login')
+def dashboard_for_device(request, token):
+    try:
+        if request.method == 'GET':
+            device = Device.objects.get(device_token=token)
+            context = {
+                'device': device,
+                'active': "dashboard",
+            }
+            return render(request, 'main/dashboard_device.html', context)
+        return JsonResponse({'status': 'error', 'message': 'Not allowed method'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+
     
 class AggregatedDataListView(ListView):
     model = AggregetedData
@@ -297,6 +322,196 @@ class AcceptWeightsView(View):
             except AggregetedData.DoesNotExist:
                 return JsonResponse({'status': 'error', 'message': 'Global weights not found'}, status=404)
         return JsonResponse({'status': 'error'}, status=400)
+
+
+@login_required(login_url='login')
+def profile(request):
+    # ensure customer exists
+    Customer.objects.get_or_create(user=request.user)
+    devices_qs = Device.objects.filter(user=request.user).order_by('-last_seen', 'name')
+    paginator = Paginator(devices_qs, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    device_form = DeviceForm()
+    customer_form = CustomerForm(instance=request.user.customer)
+    user_form = UserUpdateForm(instance=request.user)
+    password_form = PasswordChangeForm(request.user)
+
+    if request.method == 'POST':
+        if request.POST.get('form_name') == 'device_create':
+            device_form = DeviceForm(request.POST)
+            if device_form.is_valid():
+                new_device = device_form.save(commit=False)
+                new_device.user = request.user
+                new_device.save()
+                return redirect('profile')
+        elif request.POST.get('form_name') == 'customer_update':
+            customer_form = CustomerForm(request.POST, request.FILES, instance=request.user.customer)
+            if customer_form.is_valid():
+                customer_form.save()
+                return redirect('profile')
+        elif request.POST.get('form_name') == 'user_update':
+            user_form = UserUpdateForm(request.POST, instance=request.user)
+            if user_form.is_valid():
+                user_form.save()
+                return redirect('profile')
+        elif request.POST.get('form_name') == 'password_change':
+            password_form = PasswordChangeForm(request.user, request.POST)
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)
+                return redirect('profile')
+
+    devices_total = devices_qs.count()
+    devices_online = devices_qs.filter(is_online=True).count()
+    devices_offline = devices_total - devices_online
+    last_seen = devices_qs.order_by('-last_seen').first().last_seen if devices_total else None
+
+    context = {
+        'page_obj': page_obj,
+        'device_form': device_form,
+        'customer_form': customer_form,
+        'user_form': user_form,
+        'password_form': password_form,
+        'customer': request.user.customer,
+        'devices_online': devices_online,
+        'devices_offline': devices_offline,
+        'last_activity': last_seen,
+        'active': 'profile',
+    }
+    return render(request, 'main/profile.html', context)
+
+
+@login_required(login_url='login')
+def device_edit(request, pk):
+    device = get_object_or_404(Device, pk=pk, user=request.user)
+
+    if request.method == 'POST':
+        form = DeviceForm(request.POST, instance=device)
+        if form.is_valid():
+            form.save()
+            next_url = request.GET.get('next') or request.POST.get('next')
+            if next_url:
+                return redirect(next_url)
+            return redirect('device_edit', pk=device.pk)
+    else:
+        form = DeviceForm(instance=device)
+
+    context = {
+        'device': device,
+        'form': form,
+        'active': 'profile',
+    }
+    return render(request, 'device/edit_device.html', context)
+
+
+@login_required(login_url='login')
+def device_activity_data(request, pk):
+    device = get_object_or_404(Device, pk=pk, user=request.user)
+
+    today = datetime.date.today()
+    days = [today - datetime.timedelta(days=i) for i in range(13, -1, -1)]
+    per_day = {d.strftime('%Y-%m-%d'): 0 for d in days}
+
+    pr_qs = PredictResult.objects.filter(
+        device=device,
+        created_at__date__gte=days[0],
+        created_at__date__lte=days[-1]
+    )
+    for pr in pr_qs:
+        key = pr.created_at.strftime('%Y-%m-%d')
+        if key in per_day:
+            per_day[key] += 1
+
+    round_qs = RoundResult.objects.filter(device=device).order_by('round_number')
+    round_numbers = [rr.round_number for rr in round_qs]
+
+    def extract_metric(res, key):
+        if res is None:
+            return None
+        # common case: dict with metrics
+        if isinstance(res, dict):
+            return res.get(key)
+        # legacy: JSON string
+        if isinstance(res, str):
+            try:
+                parsed = json.loads(res)
+                if isinstance(parsed, dict):
+                    return parsed.get(key)
+                if isinstance(parsed, list):
+                    for item in parsed:
+                        if isinstance(item, dict) and key in item:
+                            return item[key]
+            except Exception:
+                return None
+        # legacy: list of dicts or values
+        if isinstance(res, list):
+            for item in res:
+                if isinstance(item, dict) and key in item:
+                    return item[key]
+        return None
+
+    acc_values = [extract_metric(rr.result, 'val_accuracy') for rr in round_qs]
+    loss_values = [extract_metric(rr.result, 'val_loss') for rr in round_qs]
+
+    return JsonResponse({
+        'per_day': {
+            'labels': list(per_day.keys()),
+            'values': list(per_day.values()),
+        },
+        'rounds': {
+            'labels': round_numbers,
+            'accuracy': acc_values,
+            'loss': loss_values,
+        }
+    })
+
+
+@login_required(login_url='login')
+def device_charts(request, pk):
+    device = get_object_or_404(Device, pk=pk, user=request.user)
+    context = { 'device': device, 'active': 'profile' }
+    return render(request, 'device/device_charts.html', context)
+
+
+def auth_landing(request):
+    if request.user.is_authenticated:
+        return redirect('profile')
+
+    register_form = UserRegisterForm()
+    login_form = LoginForm()
+
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        if action == 'register':
+            register_form = UserRegisterForm(request.POST)
+            if register_form.is_valid():
+                user = register_form.save(commit=False)
+                user.set_password(register_form.cleaned_data['password'])
+                user.save()
+                Customer.objects.get_or_create(user=user)
+                user = authenticate(username=user.username, password=register_form.cleaned_data['password'])
+                if user:
+                    login(request, user)
+                    return redirect('profile')
+        elif action == 'login':
+            login_form = LoginForm(request.POST)
+            if login_form.is_valid():
+                user = authenticate(username=login_form.cleaned_data['username'], password=login_form.cleaned_data['password'])
+                if user:
+                    login(request, user)
+                    return redirect('profile')
+
+    return render(request, 'main/auth.html', {
+        'register_form': register_form,
+        'login_form': login_form,
+    })
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
     def post(self, request):
         logger.info(f"Request path: {request.path}")

@@ -281,27 +281,26 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
     def write_local_data_to_agg(self):
         from .models import LocalData, Device
         import base64, pickle
-
         for dev_id, w in self.round_weights.items():
             dev = Device.objects.filter(id=dev_id).first()
             if not dev:
                 continue
             ld, _ = LocalData.objects.get_or_create(device=dev, created_at=now().date())
-
-            # сохраняем один раз, потом используем связь через m2m
-            if ld.data is None:
-                import pickle, base64
-                ld.data = base64.b64encode(pickle.dumps(w)).decode()
-                ld.save()
-
+            ld.data = base64.b64encode(pickle.dumps(w)).decode()
+            ld.save(update_fields=["data"])
             self.agg_data.local_datas.add(ld)
+
+
 
 
     @database_sync_to_async
     def aggregate_and_save(self, new_round):
-        # AggregetedData.save(aggregate=True) должен внутри выполнить FedAvg
-        self.agg_data.round_count = new_round
-        self.agg_data.save(aggregate=True)
+        from .models import AggregetedData
+        agg = AggregetedData.objects.get(pk=self.agg_data.pk)
+        agg.round_count = new_round
+        agg.save(aggregate=True)
+
+
 
     @database_sync_to_async
     def get_or_create_active_agg(self):

@@ -7,8 +7,15 @@ from cryptography.fernet import Fernet
 import json
 import base64
 import pickle
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
+
+
 
 class Device(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='devices', default=1)
     name = models.CharField(max_length=100)
     ip = models.GenericIPAddressField(blank=True, null=True)
     port = models.IntegerField(blank=True, null=True)
@@ -117,44 +124,62 @@ class AggregetedData(models.Model):
         verbose_name_plural = 'Агрегированные данные'
 
     def aggregate_data(self):
+        import base64, pickle, numpy as np
+        from django.utils.timezone import now
 
+        # 1) Собираем LocalData, по возможности ограничив по дате (если поле есть)
+        lds_qs = self.local_datas.all()
+        # Если у LocalData есть created_at (date), можно сузить:
+        # lds_qs = lds_qs.filter(created_at=now().date())
 
         local_weights = []
-        for local in self.local_datas.all():
+        bad = 0
+        for local in lds_qs:
             try:
-                raw_data = base64.b64decode(local.data.encode())
-                weights = pickle.loads(raw_data)
-                local_weights.append(weights)
+                raw = base64.b64decode((local.data or "").encode())
+                w = pickle.loads(raw)
+                # Ожидаем список/кортеж numpy-массивов
+                if not isinstance(w, (list, tuple)) or not w:
+                    raise TypeError("weights should be list/tuple of arrays")
+                local_weights.append([np.asarray(a) for a in w])
             except Exception as e:
-                print(f"[WARN] Skipping corrupted weight for device {local.device_id}: {e}")
-                continue
+                bad += 1
+                print(f"[WARN] Skipping corrupted weight for device {getattr(local, 'device_id', None)}: {e}")
 
         if not local_weights:
             raise ValueError("No valid local weights found for aggregation.")
 
-        # Предполагаем, что все веса — это списки numpy-массивов
-        try:
-            num_layers = len(local_weights[0])
-            aggregated_data = []
-            for layer_idx in range(num_layers):
-                layer_weights = []
-                for w in local_weights:
-                    try:
-                        layer_arr = np.array(w[layer_idx], dtype=np.float32)
-                        layer_weights.append(layer_arr)
-                    except (ValueError, TypeError) as e:
-                        print(f"[WARN] Skipping invalid layer at index {layer_idx} for device: {e}")
-                if layer_weights:
-                    layer_mean = np.mean(layer_weights, axis=0).tolist()
-                    aggregated_data.append(layer_mean)
-                else:
-                    print(f"[WARN] No valid data for layer {layer_idx}, filling with zeros")
-                    shape = np.shape(local_weights[0][layer_idx])
-                    aggregated_data.append(np.zeros(shape).tolist())
-            return aggregated_data
+        # 2) Если только один клиент — просто вернём его веса (FedAvg == идентичности)
+        if len(local_weights) == 1:
+            single = local_weights[0]
+            # Приведём к list of lists (если вы так храните), иначе можно вернуть как есть
+            return [arr.tolist() for arr in single]
 
-        except Exception as e:
-            raise ValueError(f"Failed to aggregate data: {e}")
+        # 3) Проверка совместимости слоёв
+        num_layers = len(local_weights[0])
+        for i, w in enumerate(local_weights):
+            if len(w) != num_layers:
+                raise ValueError(f"Inconsistent number of layers: sample 0 has {num_layers}, sample {i} has {len(w)}")
+
+        ref_shapes = [arr.shape for arr in local_weights[0]]
+        for i, w in enumerate(local_weights[1:], start=1):
+            for k, (a, s) in enumerate(zip(w, ref_shapes)):
+                if a.shape != s:
+                    raise ValueError(f"Incompatible shape at client {i}, layer {k}: {a.shape} != {s}")
+
+        # 4) Усреднение через stack (надёжнее, чем mean по списку объектов)
+        aggregated = []
+        for layer_idx in range(num_layers):
+            try:
+                layer_stack = np.stack([w[layer_idx] for w in local_weights], axis=0)  # (N, ...)
+                layer_mean  = layer_stack.mean(axis=0)
+                aggregated.append(layer_mean.tolist())
+            except Exception as e:
+                # fallback: нули той же формы, но логируем
+                print(f"[WARN] Aggregation failed at layer {layer_idx}: {e}. Filling zeros.")
+                aggregated.append(np.zeros(ref_shapes[layer_idx], dtype=np.float32).tolist())
+
+        return aggregated
 
     def save(self, aggregate=False, *args, **kwargs):
         if aggregate:
@@ -166,3 +191,18 @@ class AggregetedData(models.Model):
                 raise ValueError("Failed to aggregate data")
         else:
             super().save(*args, **kwargs)
+
+
+# Доп. профиль пользователя
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='customer')
+    photo = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Customer profile for {self.user.username}'
+
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'

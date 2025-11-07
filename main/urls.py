@@ -3,6 +3,8 @@ from .views import *
 
 urlpatterns = [
     path('', main, name='main'),
+    path('login/', auth_landing, name='login'),
+    path('logout/', logout_view, name='logout'),
     path('training/', training, name='training'),
     path('aggregated_data/', AggregatedDataListView.as_view(), name='aggregated_data_list'),
     path('save_local_weights/', AcceptWeightsView.as_view(), name='accept_weights'),
@@ -17,6 +19,13 @@ urlpatterns = [
     path('check_device_status/', check_device_status, name='check_device_status'),
     path('monitoring_devices/', monitoring_devices, name='monitoring_devices'),
     path('dashboard/', dashboard, name='dashboard'),
+    path('dashboard/device/<str:token>/', dashboard_for_device, name='dashboard_device'),
     path('check_predict_status/', check_predict_status, name='check_predict_status'),
-    path('save_predict_results/', save_predict_results, name='save_predict_results')
+    path('save_predict_results/', save_predict_results, name='save_predict_results'),
+
+    # Profile and device edit
+    path('profile/', profile, name='profile'),
+    path('device/<int:pk>/edit/', device_edit, name='device_edit'),
+    path('device/<int:pk>/activity/', device_activity_data, name='device_activity_data'),
+    path('device/<int:pk>/charts/', device_charts, name='device_charts'),
 ]

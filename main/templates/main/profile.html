@@ -1,0 +1,382 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Профиль — Мои устройства{% endblock %}
+
+{% block main %}
+<div class="profile-page container-xxl px-0">
+
+  <!-- Шапка профиля -->
+  <div class="card border-0 overflow-hidden mb-4 shadow-sm">
+    <div class="profile-cover"></div>
+    <div class="card-body position-relative">
+      <div class="d-flex align-items-end gap-3">
+        <!-- Аватар -->
+        <div class="avatar-xxl shadow-sm">
+          {% if customer and customer.photo %}
+            <img src="{{ customer.photo.url }}" alt="avatar">
+          {% else %}
+            <div class="avatar-fallback">
+              {{ request.user.username|first|default:"U" }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="flex-grow-1">
+          <h3 class="mb-1 d-flex align-items-center gap-2">
+            {{ request.user.get_full_name|default:request.user.username }}
+            <span class="chip chip-soft">Пользователь</span>
+          </h3>
+          <div class="text-muted d-flex flex-wrap gap-3 small">
+            <span><i class="fa-regular fa-envelope me-1"></i>{{ request.user.email|default:"нет email" }}</span>
+            <span><i class="fa-regular fa-clock me-1"></i>Последний вход: {{ request.user.last_login|date:"Y-m-d H:i"|default:"—" }}</span>
+          </div>
+        </div>
+
+        <!-- Быстрые метрики -->
+        <div class="d-none d-md-flex align-items-center gap-3 ms-auto">
+          <div class="kpi">
+            <div class="kpi-num">{{ page_obj.paginator.count }}</div>
+            <div class="kpi-label">Устройства</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-num text-success">
+              {{ devices_online|default:0 }}
+            </div>
+            <div class="kpi-label">Онлайн</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-num text-secondary">
+              {{ devices_offline|default:0 }}
+            </div>
+            <div class="kpi-label">Офлайн</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Вкладки -->
+  <ul class="nav nav-tabs nav-fill mb-3" id="profileTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-dark active" id="tab-devices" data-bs-toggle="tab" data-bs-target="#pane-devices" type="button" role="tab">
+        <i class="fa-solid fa-microchip me-2"></i>Устройства
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-dark" id="tab-profile" data-bs-toggle="tab" data-bs-target="#pane-profile" type="button" role="tab">
+        <i class="fa-regular fa-id-card me-2"></i>Профиль
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-dark" id="tab-account" data-bs-toggle="tab" data-bs-target="#pane-account" type="button" role="tab">
+        <i class="fa-regular fa-user me-2"></i>Аккаунт
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-dark" id="tab-password" data-bs-toggle="tab" data-bs-target="#pane-password" type="button" role="tab">
+        <i class="fa-solid fa-key me-2"></i>Пароль
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- Вкладка: Устройства -->
+    <div class="tab-pane fade show active" id="pane-devices" role="tabpanel" aria-labelledby="tab-devices">
+      <div class="row g-3">
+        <!-- Форма добавления -->
+        <div class="col-12 col-lg-5">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Добавить устройство</h5>
+              <form method="post" class="row g-3">
+                {% csrf_token %}
+                <input type="hidden" name="form_name" value="device_create" />
+                <div class="col-12">
+                  <label class="form-label">Название</label>
+                  {{ device_form.name }}
+                </div>
+                <div class="col-6">
+                  <label class="form-label">IP</label>
+                  {{ device_form.ip }}
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Порт</label>
+                  {{ device_form.port }}
+                </div>
+                <div class="col-12 d-grid">
+                  <button class="btn btn-success"><i class="fa-solid fa-plus me-2"></i>Добавить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Таблица устройств -->
+        <div class="col-12 col-lg-7">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="card-title mb-0">Мои устройства</h5>
+                <div class="input-group input-group-sm" style="max-width: 260px;">
+                  <span class="input-group-text bg-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input class="form-control" type="search" placeholder="Поиск по имени/IP" oninput="filterDeviceRows(this.value)">
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-modern align-middle">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Название</th>
+                      <th>IP</th>
+                      <th>Порт</th>
+                      <th>Статус</th>
+                      <th>Последняя активность</th>
+                      <th class="text-end">Действия</th>
+                    </tr>
+                  </thead>
+                  <tbody id="device-table-body">
+                    {% for device in page_obj.object_list %}
+                      <tr data-search="{{ device.name }} {{ device.ip }}">
+                        <td class="text-muted">{{ device.id }}</td>
+                        <td class="fw-medium">{{ device.name }}</td>
+                        <td><code>{{ device.ip|default:"—" }}</code></td>
+                        <td>{{ device.port|default:"—" }}</td>
+                        <td>
+                          {% if device.is_online %}
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">Онлайн</span>
+                          {% else %}
+                            <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">Офлайн</span>
+                          {% endif %}
+                        </td>
+                        <td class="text-muted small">{{ device.last_seen|date:"Y-m-d H:i"|default:"—" }}</td>
+                        <td class="text-end">
+                          <div class="btn-group btn-group-sm">
+                            <button type="button"
+                                    class="btn btn-outline-primary btn-edit-device"
+                                    data-bs-toggle="modal" data-bs-target="#deviceEditModal"
+                                    data-id="{{ device.id }}"
+                                    data-name="{{ device.name }}"
+                                    data-ip="{{ device.ip }}"
+                                    data-port="{{ device.port }}">
+                              <i class="fa-regular fa-pen-to-square"></i>
+                            </button>
+                            <a class="btn btn-outline-secondary" href="{% url 'device_charts' device.id %}">
+                              <i class="fa-solid fa-chart-line"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    {% empty %}
+                      <tr>
+                        <td colspan="7" class="text-center text-muted py-4">Устройств пока нет</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+              {% if page_obj.paginator.num_pages > 1 %}
+              <nav aria-label="Пагинация устройств" class="mt-2">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                    {% if page_obj.has_previous %}
+                      <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Назад</a>
+                    {% else %}
+                      <span class="page-link" tabindex="-1">Назад</span>
+                    {% endif %}
+                  </li>
+                  {% for num in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                      <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                  {% endfor %}
+                  <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                    {% if page_obj.has_next %}
+                      <a class="page-link" href="?page={{ page_obj.next_page_number }}">Вперёд</a>
+                    {% else %}
+                      <span class="page-link">Вперёд</span>
+                    {% endif %}
+                  </li>
+                </ul>
+              </nav>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка: Профиль -->
+    <div class="tab-pane fade" id="pane-profile" role="tabpanel" aria-labelledby="tab-profile">
+      <div class="row g-3">
+        <div class="col-12 col-xl-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Мой профиль</h5>
+              <form method="post" enctype="multipart/form-data" class="row g-3">
+                {% csrf_token %}
+                <input type="hidden" name="form_name" value="customer_update" />
+                <div class="col-12 col-md-4">
+                  <label class="form-label">Фото</label>
+                  {{ customer_form.photo }}
+                </div>
+                <div class="col-12 col-md-8">
+                  <label class="form-label">О себе</label>
+                  {{ customer_form.bio }}
+                </div>
+                <div class="col-12 d-grid d-md-inline">
+                  <button class="btn btn-primary"><i class="fa-regular fa-floppy-disk me-2"></i>Сохранить профиль</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="text-uppercase text-muted mb-3 small">Быстрая сводка</h6>
+              <div class="d-grid gap-2">
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Всего устройств</span><span class="fw-semibold">{{ page_obj.paginator.count }}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Онлайн</span><span class="text-success fw-semibold">{{ devices_online|default:0 }}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Офлайн</span><span class="text-secondary fw-semibold">{{ devices_offline|default:0 }}</span>
+                </div>
+              </div>
+              <hr>
+              <div class="small text-muted">
+                Последняя активность: {{ last_activity|date:"Y-m-d H:i"|default:"—" }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка: Аккаунт -->
+    <div class="tab-pane fade" id="pane-account" role="tabpanel" aria-labelledby="tab-account">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Настройки аккаунта</h5>
+          <form method="post" class="row g-3">
+            {% csrf_token %}
+            <input type="hidden" name="form_name" value="user_update" />
+            <div class="col-12 col-md-6">
+              <label class="form-label">Логин</label>
+              {{ user_form.username }}
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">Email</label>
+              {{ user_form.email }}
+            </div>
+            <div class="col-12 d-grid d-md-inline">
+              <button class="btn btn-outline-primary"><i class="fa-regular fa-floppy-disk me-2"></i>Обновить аккаунт</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка: Пароль -->
+    <div class="tab-pane fade" id="pane-password" role="tabpanel" aria-labelledby="tab-password">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Смена пароля</h5>
+          <form method="post" class="row g-3">
+            {% csrf_token %}
+            <input type="hidden" name="form_name" value="password_change" />
+            <div class="col-12 col-md-4">
+              <label class="form-label">Текущий пароль</label>
+              {{ password_form.old_password }}
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label">Новый пароль</label>
+              {{ password_form.new_password1 }}
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label">Повторите новый</label>
+              {{ password_form.new_password2 }}
+            </div>
+            <div class="col-12 d-grid d-md-inline">
+              <button class="btn btn-outline-danger"><i class="fa-solid fa-key me-2"></i>Изменить пароль</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Фильтр по таблице (клиентский) -->
+<script>
+  function filterDeviceRows(q='') {
+    const val = q.toLowerCase();
+    document.querySelectorAll('#device-table-body tr').forEach(tr=>{
+      const s = (tr.getAttribute('data-search')||'').toLowerCase();
+      tr.style.display = s.includes(val) ? '' : 'none';
+    });
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const formEl = document.getElementById('deviceEditForm');
+    if (!formEl) return;
+    const nameInput = formEl.querySelector('input[name="name"]');
+    const ipInput = formEl.querySelector('input[name="ip"]');
+    const portInput = formEl.querySelector('input[name="port"]');
+
+    document.querySelectorAll('.btn-edit-device').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        nameInput.value = btn.getAttribute('data-name') || '';
+        ipInput.value = btn.getAttribute('data-ip') || '';
+        portInput.value = btn.getAttribute('data-port') || '';
+        formEl.action = `/device/${id}/edit/?next=${encodeURIComponent('{% url 'profile' %}')}`;
+      });
+    });
+  });
+</script>
+
+<!-- Device Edit Modal -->
+<div class="modal fade" id="deviceEditModal" tabindex="-1" aria-labelledby="deviceEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deviceEditModalLabel">Редактировать устройство</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post" id="deviceEditForm">
+        <div class="modal-body">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Название</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">IP</label>
+            <input type="text" name="ip" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Порт</label>
+            <input type="number" name="port" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
