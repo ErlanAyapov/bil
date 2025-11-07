@@ -1,5 +1,6 @@
 {% extends "main.html" %}
 {% load static %}
+{% load pagination %}
 
 {% block title %}Профиль — Мои устройства{% endblock %}
 
@@ -179,7 +180,10 @@
                 </table>
               </div>
 
+              {% load pagination %}
+
               {% if page_obj.paginator.num_pages > 1 %}
+              {% page_window page_obj 7 as win %}
               <nav aria-label="Пагинация устройств" class="mt-2">
                 <ul class="pagination justify-content-center">
                   <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
@@ -189,11 +193,27 @@
                       <span class="page-link" tabindex="-1">Назад</span>
                     {% endif %}
                   </li>
-                  {% for num in page_obj.paginator.page_range %}
+
+                  {% if win.start > 1 %}
+                    <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                    {% if win.start > 2 %}
+                      <li class="page-item disabled"><span class="page-link">…</span></li>
+                    {% endif %}
+                  {% endif %}
+
+                  {% for num in win.range %}
                     <li class="page-item {% if page_obj.number == num %}active{% endif %}">
                       <a class="page-link" href="?page={{ num }}">{{ num }}</a>
                     </li>
                   {% endfor %}
+
+                  {% if win.end < win.total %}
+                    {% if win.end < win.total|add:"-1" %}
+                      <li class="page-item disabled"><span class="page-link">…</span></li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="?page={{ win.total }}">{{ win.total }}</a></li>
+                  {% endif %}
+
                   <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
                     {% if page_obj.has_next %}
                       <a class="page-link" href="?page={{ page_obj.next_page_number }}">Вперёд</a>
@@ -204,6 +224,7 @@
                 </ul>
               </nav>
               {% endif %}
+
 
             </div>
           </div>

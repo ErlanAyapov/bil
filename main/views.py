@@ -329,7 +329,7 @@ def profile(request):
     # ensure customer exists
     Customer.objects.get_or_create(user=request.user)
     devices_qs = Device.objects.filter(user=request.user).order_by('-last_seen', 'name')
-    paginator = Paginator(devices_qs, 20)
+    paginator = Paginator(devices_qs, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

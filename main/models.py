@@ -8,6 +8,8 @@ import json
 import base64
 import pickle
 from django.contrib.auth import get_user_model
+from django.db import models
+from django.utils.timezone import now
 
 
 User = get_user_model()
@@ -39,8 +41,8 @@ class Device(models.Model):
     def _get_device_token(self):
         data = {
             'device_id': self.id,
-            'device_name': self.name, 
-            'date': now().strftime('%Y-%m-%d %H:%M:%S')
+            'device_name': self.name,
+            'ts': int(now().timestamp())
         }
         cipher_suite = Fernet(settings.FERNET_KEY.encode())
         encrypted_data = cipher_suite.encrypt(json.dumps(data).encode())
@@ -74,7 +76,8 @@ class PredictResult(models.Model):
 class LocalData(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='local_datas')
     created_at = models.DateField(auto_now_add=True)
-    data = models.JSONField(blank=True, null=True)
+    # Store base64(pickle(weights)) as text for performance/compatibility
+    data = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f'Local data from {self.created_at} of {self.device}'
@@ -91,18 +94,66 @@ class LocalData(models.Model):
         verbose_name_plural = 'Данные из локальных сети'
 
 
-class RoundResult(models.Model):
-    device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='round_results')
-    local_data = models.ForeignKey(LocalData, on_delete=models.CASCADE, related_name='round_results')
-    round_number = models.IntegerField(default=0)
-    result = models.JSONField(blank=True, null=True)
-    
+
+class Train(models.Model):
+    date         = models.DateField(default=now, db_index=True)  # <-- без lambda
+    model_name   = models.CharField(max_length=32, db_index=True)   # 'dnn' | 'cnn' | 'cnn_lstm' ...
+    round_count  = models.IntegerField(default=0)                    # сколько раундов завершено
+    max_rounds   = models.IntegerField(default=50)
+    epochs       = models.IntegerField(default=10)
+
+    # текущие глобальные веса (последний снимок) — список списков чисел
+    global_weights = models.JSONField(blank=True, null=True)
+
+    is_active    = models.BooleanField(default=True)
+    ready        = models.BooleanField(default=False)
+    created_at   = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date', '-created_at']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['date', 'model_name'],
+                name='uniq_train_per_date_model'
+            )
+        ]
+
     def __str__(self):
-        return f'Result of round {self.round_number} from {self.device}'
-    
+        return f"Train {self.date} [{self.model_name}] r={self.round_count}/{self.max_rounds}"
+
+
+class RoundResult(models.Model):
+    # История раундов. Связываем с Train (можно оставить null=True, если будут старые записи без Train)
+    train        = models.ForeignKey('Train', on_delete=models.CASCADE,
+                                     related_name='round_results', null=True, blank=True)
+
+    # Пер-устройство/локальные данные — как у тебя
+    device       = models.ForeignKey('Device', on_delete=models.CASCADE, related_name='round_results')
+    local_data   = models.ForeignKey('LocalData', on_delete=models.CASCADE, related_name='round_results')
+
+    round_number = models.IntegerField(default=0)
+
+    # Оригинальный «сырой» результат клиента (как и раньше)
+    result       = models.JSONField(blank=True, null=True)
+
+    # Агрегированные метрики (на витрину/сводка)
+    avg_accuracy = models.FloatField(blank=True, null=True)
+    avg_loss     = models.FloatField(blank=True, null=True)
+
+    created_at   = models.DateTimeField(auto_now_add=True)  # <-- auto_now_add сам выставит
+
+    def __str__(self):
+        return f"Round {self.round_number} / {self.device}"
+
     class Meta:
         verbose_name = 'Результат раунда'
         verbose_name_plural = 'Результаты раунда'
+        indexes = [
+            models.Index(fields=['round_number']),
+            models.Index(fields=['created_at']),
+            models.Index(fields=['train', 'round_number']),
+        ]
+
 
 
 
@@ -122,6 +173,9 @@ class AggregetedData(models.Model):
     class Meta:
         verbose_name = 'Агрегированные данные'
         verbose_name_plural = 'Агрегированные данные'
+        indexes = [
+            models.Index(fields=["is_active", "-created_at"]),
+        ]
 
     def aggregate_data(self):
         import base64, pickle, numpy as np
@@ -191,12 +245,13 @@ class AggregetedData(models.Model):
                 raise ValueError("Failed to aggregate data")
         else:
             super().save(*args, **kwargs)
+ 
 
 
 # Доп. профиль пользователя
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='customer')
-    photo = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    photo = models.ImageField(upload_to='media/avatars/', blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

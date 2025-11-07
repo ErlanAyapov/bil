@@ -1,8 +1,16 @@
+**/logs/
+**/logs/**
 logs/
+logs/**
+*.sqlite3
+*.db
+*.db-journal
+*.env
+*.key
 .pem
 .env
 .sqlite3
-
+.log
 # Ignore all media directories (user uploads)
 media/
 **/media/

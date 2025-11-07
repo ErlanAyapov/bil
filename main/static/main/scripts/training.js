@@ -100,11 +100,22 @@ TrainingProgressChart.init(10);
 const wsUi = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws/train_model/`);
 /* --------- WebSocket UI-канала --------- */
 
-wsUi.onopen    = () => log("🟢 UI WebSocket открыт");
+wsUi.onopen = () => {
+  log("🟢 UI WebSocket открыт");
+  wsUi.send(JSON.stringify({ type: "ui_sync" })); // запросить текущих подписчиков
+};
 wsUi.onerror   = e  => log("🔴 WebSocket error: " + e.message);
 wsUi.onmessage = ({data}) => {
 
   const m = JSON.parse(data);
+
+  if (m.type === "full_subscribers") {
+    // первичная отрисовка списка
+    (m.items || []).forEach(it => log(`Подключен ${it.device_name || ('device#'+it.device_id)}`));
+    return;
+  }
+
+  
   if (m.type == "train_log") {
     log(m.text);
   } else if (m.type == "global_weights") {
