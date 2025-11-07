@@ -46,19 +46,21 @@
   <!-- ────────── Мониторинг ────────── -->
   <div class="col-md-6 d-flex flex-column">
     <div class="bg-white rounded shadow-sm p-4 flex-grow-1">
-      <h5 class="text-center">Процесс обучения</h5>
+      <div class="d-flex justify-content-between align-items-center mb-2"><h5 class="mb-0">�������� ��������</h5><div class="d-flex align-items-center gap-2"><label for="train-session-select" class="form-label mb-0 small text-muted">������</label><select id="train-session-select" class="form-select form-select-sm" style="min-width: 220px"></select></div></div>
       <canvas id="training-progress-chart" height="200"></canvas>
 
       <div id="training-logs" class="mt-3">
         <div class="alert alert-info" style="max-height: 300px; overflow-y:auto;">
           Пока нет подключённых шлюзов. Ждём…
-        </div>
-      </div>
-    </div>
+        </div>\r\n\r\n      <hr class='my-3' />\r\n      <h6 class='text-center'>Confusion Matrix</h6>\r\n      <canvas id='confusion-heatmap' height='300'></canvas>\r\n    </div>\r\n  </div>
   </div>
 </div>
 {% endblock %}
 
 {% block include_scripts %}
 <script src="{% static 'main/scripts/training.js' %}"></script>
+<script src="{% static 'main/scripts/training_confusion.js' %}"></script>
 {% endblock %}
+
+
+

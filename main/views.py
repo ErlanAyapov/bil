@@ -10,7 +10,7 @@ from django.views.generic import ListView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from .models import Device, LocalData, AggregetedData, RoundResult, PredictResult, Customer
+from .models import Device, LocalData, AggregetedData, RoundResult, PredictResult, Customer, Train
 from .forms import DeviceForm, CustomerForm, UserRegisterForm, LoginForm, UserUpdateForm
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
@@ -29,9 +29,8 @@ def main(request):
 @login_required(login_url='login')
 def training(request):
     template = "main/training.html"
-    context = {
-        "active": "training",
-    }
+    # Передаём базовый контекст; список сессий берём через AJAX
+    context = {"active": "training"}
     return render(request, template, context)
 
 
@@ -466,6 +465,108 @@ def device_activity_data(request, pk):
             'loss': loss_values,
         }
     })
+
+
+@login_required(login_url='login')
+def get_confusion_data(request):
+    try:
+        train_id = int(request.GET.get('train_id'))
+        round_no = int(request.GET.get('round'))
+    except Exception:
+        return JsonResponse({'success': False, 'error': 'train_id and round are required'}, status=400)
+
+    from .models import RoundResult
+    qs = RoundResult.objects.filter(train_id=train_id, round_number=round_no)
+    confusion_sum = None
+    support_sum = None
+    classes = None
+    import json as _json
+    try:
+        import numpy as _np
+    except Exception:
+        _np = None
+
+    for r in qs:
+        m = r.result or {}
+        if isinstance(m, str):
+            try:
+                m = _json.loads(m)
+            except Exception:
+                m = {}
+        conf = m.get('confusion')
+        supp = m.get('support')
+        cls = m.get('classes')
+        if conf is not None and _np is not None:
+            arr = _np.array(conf, dtype=float)
+            confusion_sum = arr if confusion_sum is None else (confusion_sum + arr)
+        if supp is not None and _np is not None:
+            arrs = _np.array(supp, dtype=float)
+            support_sum = arrs if support_sum is None else (support_sum + arrs)
+        if cls is not None and classes is None:
+            classes = cls
+
+    if confusion_sum is None:
+        return JsonResponse({'success': False, 'error': 'no data'}, status=404)
+
+    return JsonResponse({
+        'success': True,
+        'confusion': confusion_sum.tolist(),
+        'support': support_sum.tolist() if support_sum is not None else None,
+        'classes': classes,
+        'train_id': train_id,
+        'round': round_no,
+    })
+
+
+@login_required(login_url='login')
+def list_trains(request):
+    trains = (
+        Train.objects.all().order_by('-date', '-created_at')
+        .values('id', 'date', 'model_name', 'round_count', 'max_rounds', 'epochs', 'is_active', 'ready')
+    )
+    return JsonResponse({
+        'success': True,
+        'items': list(trains),
+    })
+
+
+@login_required(login_url='login')
+def get_train_rounds(request):
+    try:
+        train_id = int(request.GET.get('train_id'))
+    except Exception:
+        return JsonResponse({'success': False, 'error': 'train_id is required'}, status=400)
+
+    # Собираем среднюю точность по каждому раунду
+    qs = RoundResult.objects.filter(train_id=train_id)
+    acc_sum = {}
+    acc_cnt = {}
+    for r in qs:
+        rn = r.round_number
+        m = r.result or {}
+        if isinstance(m, str):
+            try:
+                m = json.loads(m)
+            except Exception:
+                m = {}
+        val = m.get('accuracy') or m.get('val_accuracy') or m.get('acc')
+        if isinstance(val, (int, float)):
+            acc_sum[rn] = acc_sum.get(rn, 0.0) + float(val)
+            acc_cnt[rn] = acc_cnt.get(rn, 0) + 1
+
+    if not acc_sum:
+        return JsonResponse({'success': True, 'rounds': [], 'accuracies': []})
+
+    max_round = max(acc_sum.keys())
+    rounds = list(range(0, max_round + 1))
+    accuracies = []
+    for rn in rounds:
+        if rn in acc_sum and acc_cnt.get(rn):
+            accuracies.append(acc_sum[rn] / acc_cnt[rn])
+        else:
+            accuracies.append(None)
+
+    return JsonResponse({'success': True, 'rounds': rounds, 'accuracies': accuracies, 'train_id': train_id})
 
 
 @login_required(login_url='login')

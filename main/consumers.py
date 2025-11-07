@@ -81,7 +81,7 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
             await database_sync_to_async(device.save)()
 
             # Рассылаем обновление ВСЕМ клиентам
-            await self.broadcast_all({
+            payload_msg = {
                 "type": "status_update",
                 "device_token": device_token,
                 "status": new_status,
@@ -91,8 +91,8 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
                 "confidence": confidence,
                 "prediction_label": prediction_label,
                 "ip_data": ip_data
-            })
-
+            };
+            await self.broadcast_all(payload_msg)
         except json.JSONDecodeError:
             await self.send_error("Invalid JSON")
 
@@ -212,26 +212,26 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             await self._schedule_timeout_shared(self.train["id"], self.train["round_count"])
 
             # разошлём клиентам команду (продолжить с текущего round_count)
-            await self.broadcast_all({
+            payload_msg = {
                 "type": "start_training",
                 "model": self.current_model,
                 "round": self.train["round_count"],
                 "rounds": self.train["max_rounds"],
                 "train_id": self.train["id"],
-            })
+            }
+            await self.broadcast_all(payload_msg)
             await self.ui_log(f"▶ Старт обучения: {self.current_model}, раунд с {self.train['round_count']}")
 
             # если у Train уже есть глобальные веса — полезно дёрнуть их рассылку для новых клиентов
             if self.train.get("global_weights"):
-                await self.broadcast_all({
+                payload_msg = {
                     "type": "global_weights",
                     "payload": pickle.dumps(self.train["global_weights"]).hex(),
                     "round":   self.train["round_count"],
                     "accuracy": None,
                     "model": self.current_model,
                     "train_id": self.train["id"],
-                })
-
+                };        await self.broadcast_all(payload_msg)
         elif t == "weights":
             # print(f'data weights: {data}')
             print(f"Received weights message from device_token={data.get('device_token')}")
@@ -324,14 +324,15 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
         )
 
         # 5) Разослать всем обновление
-        await self.broadcast_all({
+        payload_msg = {
             "type": "global_weights",
             "payload": pickle.dumps(new_weights).hex(),
             "round":   self.train["round_count"],   # уже инкрементирован
             "accuracy": avg_accuracy,
             "model": self.train["model_name"],
             "train_id": self.train["id"],
-        })
+        }
+        await self.broadcast_all(payload_msg)
         await self.ui_log(f"[agg] Раунд завершён → {self.train['round_count']} (avg_acc={avg_accuracy})")
 
 
@@ -339,24 +340,23 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
         # 6) Стоп/продолжить
         if self.train["round_count"] >= self.train["max_rounds"]:
             await self.mark_train_finished(self.train["id"])
-            await self.broadcast_all({
+            payload_msg = {
                 "type": "training_complete",
                 "rounds": self.train["max_rounds"],
                 "final_accuracy": avg_accuracy,
                 "train_id": self.train["id"],
-            })
+            }
+            await self.broadcast_all(payload_msg)
             await self.ui_log("✔ Обучение завершено")
             return
 
         # следующий раунд
-        await self.broadcast_all({
+        payload_msg = {
             "type": "start_training",
             "round": self.train["round_count"],   # теперь точно следующий
             "model": self.train["model_name"],
             "train_id": self.train["id"],
-        })
-
-
+        };        await self.broadcast_all(payload_msg)
     async def broadcast_all(self, message: dict):
         # клиентам-обучателям
         for c in list(self.connected_clients):
@@ -590,6 +590,48 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
         return sum(accs) / len(accs) if accs else 0.0
 
     @database_sync_to_async
+    def get_aggregated_confusion(self, train_id, round_num):
+        from .models import RoundResult
+        qs = RoundResult.objects.filter(train_id=train_id, round_number=round_num)
+        confusion_sum = None
+        support_sum = None
+        classes = None
+        for r in qs:
+            m = r.result or {}
+            if isinstance(m, str):
+                try:
+                    import json as _json
+                    m = _json.loads(m)
+                except Exception:
+                    m = {}
+            conf = m.get("confusion")
+            supp = m.get("support")
+            cls = m.get("classes")
+            if conf:
+                # normalize to list of lists of numbers
+                try:
+                    import numpy as _np
+                    arr = _np.array(conf, dtype=float)
+                    confusion_sum = arr if confusion_sum is None else (confusion_sum + arr)
+                except Exception:
+                    pass
+            if supp:
+                try:
+                    import numpy as _np
+                    arrs = _np.array(supp, dtype=float)
+                    support_sum = arrs if support_sum is None else (support_sum + arrs)
+                except Exception:
+                    pass
+            if cls and classes is None:
+                classes = cls
+        if confusion_sum is None:
+            return None
+        # convert numpy arrays back to lists
+        confusion_list = confusion_sum.tolist()
+        support_list = support_sum.tolist() if support_sum is not None else None
+        return {"confusion": confusion_list, "support": support_list, "classes": classes}
+
+    @database_sync_to_async
     def fedavg_current_round(self):
         import numpy as np
         st = self.aggregations.get(self.train["id"]) if self.train else None
@@ -618,6 +660,13 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 "val_loss": metrics.get("val_loss"),
                 "val_accuracy": metrics.get("val_accuracy"),
             })
+            # pass-through optional confusion matrix data
+            if "confusion" in metrics:
+                out["confusion"] = metrics.get("confusion")
+            if "support" in metrics:
+                out["support"] = metrics.get("support")
+            if "classes" in metrics:
+                out["classes"] = metrics.get("classes")
             return out
         if isinstance(metrics, str):
             try:
@@ -630,4 +679,6 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 if isinstance(item, dict):
                     return self._normalize_metrics(item, round_no)
         return out
+
+
 

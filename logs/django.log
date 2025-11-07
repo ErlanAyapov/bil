@@ -2882,3 +2882,831 @@ widont
 2025-11-07 19:12:01,464 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:58076][0m
 2025-11-07 19:13:38,383 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:49212]
 2025-11-07 19:13:38,383 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:49213]
+2025-11-07 19:37:05,866 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-07 19:37:06,370 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:37:35,068 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-07 19:37:35,570 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:39:42,805 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-07 19:39:43,324 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:40:04,961 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-07 19:40:05,437 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:42:03,289 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\views.py changed, reloading.
+2025-11-07 19:42:03,772 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:46:08,276 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-07 19:46:08,772 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:46:10,311 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:58325][0m
+2025-11-07 19:46:10,334 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 19:46:10,334 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:58325][0m
+2025-11-07 19:46:10,400 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.05, 127.0.0.1:58119][0m
+2025-11-07 19:46:10,401 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.04, 127.0.0.1:58325][0m
+2025-11-07 19:46:10,405 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:58119][0m
+2025-11-07 19:46:10,407 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:58119][0m
+2025-11-07 19:46:10,409 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:58119][0m
+2025-11-07 19:46:11,417 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:58119][0m
+2025-11-07 19:46:11,513 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:52117]
+2025-11-07 19:46:11,514 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:52117]
+2025-11-07 19:46:11,526 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51428]
+2025-11-07 19:46:11,526 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51428]
+2025-11-07 19:53:43,406 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\urls.py changed, reloading.
+2025-11-07 19:53:43,891 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 19:55:26,304 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:54678][0m
+2025-11-07 19:55:26,325 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 19:55:26,326 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:54678][0m
+2025-11-07 19:55:26,387 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.05, 127.0.0.1:65204][0m
+2025-11-07 19:55:26,388 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.05, 127.0.0.1:54678][0m
+2025-11-07 19:55:26,391 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:65204][0m
+2025-11-07 19:55:26,395 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:65204][0m
+2025-11-07 19:55:26,397 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:54678][0m
+2025-11-07 19:55:26,398 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:65204][0m
+2025-11-07 19:55:28,147 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:51227]
+2025-11-07 19:55:28,149 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:51227]
+2025-11-07 19:55:28,161 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63046]
+2025-11-07 19:55:28,162 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63046]
+2025-11-07 19:55:29,399 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:65204][0m
+2025-11-07 19:55:33,874 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:65204][0m
+2025-11-07 19:55:33,877 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:51227]
+2025-11-07 19:55:33,878 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:63046]
+2025-11-07 19:55:33,892 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 19:55:33,892 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65204][0m
+2025-11-07 19:55:33,900 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:54678][0m
+2025-11-07 19:55:33,910 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:55173][0m
+2025-11-07 19:55:33,911 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.01, 127.0.0.1:60035][0m
+2025-11-07 19:55:33,911 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:65204][0m
+2025-11-07 19:55:33,911 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:60985][0m
+2025-11-07 19:55:33,912 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.01, 127.0.0.1:56816][0m
+2025-11-07 19:55:34,593 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:60499]
+2025-11-07 19:55:34,594 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:60499]
+2025-11-07 19:55:34,605 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59033]
+2025-11-07 19:55:34,606 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59033]
+2025-11-07 19:55:34,918 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:60985][0m
+2025-11-07 20:00:03,339 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53496]
+2025-11-07 20:00:03,341 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53496]
+2025-11-07 20:06:50,385 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53496]
+2025-11-07 20:07:09,502 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:57428][0m
+2025-11-07 20:07:09,506 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:60499]
+2025-11-07 20:07:09,506 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59033]
+2025-11-07 20:07:09,524 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:07:09,524 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:57428][0m
+2025-11-07 20:07:09,533 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:51091][0m
+2025-11-07 20:07:09,543 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:51091][0m
+2025-11-07 20:07:09,544 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:57428][0m
+2025-11-07 20:07:09,712 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:51091][0m
+2025-11-07 20:07:09,713 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:57428][0m
+2025-11-07 20:07:09,716 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:51091][0m
+2025-11-07 20:07:10,251 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:55398]
+2025-11-07 20:07:10,252 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:55398]
+2025-11-07 20:07:10,264 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60872]
+2025-11-07 20:07:10,265 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60872]
+2025-11-07 20:07:12,354 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:51091][0m
+2025-11-07 20:08:00,339 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:57944]
+2025-11-07 20:08:00,340 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:57944]
+2025-11-07 20:14:44,143 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:57944]
+2025-11-07 20:15:41,087 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:54405][0m
+2025-11-07 20:15:41,091 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60872]
+2025-11-07 20:15:41,091 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:55398]
+2025-11-07 20:15:41,106 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:15:41,107 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:54405][0m
+2025-11-07 20:15:41,127 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:55409][0m
+2025-11-07 20:15:41,130 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:55409][0m
+2025-11-07 20:15:41,131 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:54405][0m
+2025-11-07 20:15:41,135 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:55409][0m
+2025-11-07 20:15:41,141 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:55409][0m
+2025-11-07 20:15:41,141 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:54405][0m
+2025-11-07 20:15:42,026 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62546]
+2025-11-07 20:15:42,028 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62546]
+2025-11-07 20:15:42,040 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51448]
+2025-11-07 20:15:42,040 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51448]
+2025-11-07 20:15:42,148 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:54405][0m
+2025-11-07 20:18:25,677 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\views.py changed, reloading.
+2025-11-07 20:18:26,192 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 20:18:35,688 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\urls.py changed, reloading.
+2025-11-07 20:18:36,178 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 20:21:57,087 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:21:57,090 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.04, 127.0.0.1:51322][0m
+2025-11-07 20:21:57,111 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:21:57,111 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:21:57,180 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:21:57,180 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:11,501 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:22:11,504 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.02, 127.0.0.1:51322][0m
+2025-11-07 20:22:11,520 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:11,520 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:11,570 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:22:11,571 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:12,307 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:22:12,309 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.02, 127.0.0.1:51322][0m
+2025-11-07 20:22:12,325 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:12,326 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:12,366 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:22:12,367 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:21,361 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:22:21,363 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.04, 127.0.0.1:51322][0m
+2025-11-07 20:22:21,380 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:21,380 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:21,424 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:22:21,424 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:21,823 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:22:21,825 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.02, 127.0.0.1:51322][0m
+2025-11-07 20:22:21,841 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:21,842 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:21,887 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:22:21,888 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51322][0m
+2025-11-07 20:22:27,156 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 20:22:29,043 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:22:29,046 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.03, 127.0.0.1:60122][0m
+2025-11-07 20:22:29,064 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:29,064 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60122][0m
+2025-11-07 20:22:40,376 - INFO - runserver - [32mHTTP GET / 302 [0.01, 127.0.0.1:60122][0m
+2025-11-07 20:22:40,395 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.02, 127.0.0.1:60122][0m
+2025-11-07 20:22:40,414 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:40,414 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60122][0m
+2025-11-07 20:22:40,828 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61506]
+2025-11-07 20:22:40,829 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61506]
+2025-11-07 20:22:41,810 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:60122][0m
+2025-11-07 20:22:41,815 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61506]
+2025-11-07 20:22:41,851 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:41,851 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.03, 127.0.0.1:60122][0m
+2025-11-07 20:22:41,902 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.08, 127.0.0.1:65061][0m
+2025-11-07 20:22:41,904 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.05, 127.0.0.1:60122][0m
+2025-11-07 20:22:41,905 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.08, 127.0.0.1:63477][0m
+2025-11-07 20:22:41,905 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:65061][0m
+2025-11-07 20:22:41,909 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:60122][0m
+2025-11-07 20:22:41,910 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:65061][0m
+2025-11-07 20:22:42,440 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52771]
+2025-11-07 20:22:42,441 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52771]
+2025-11-07 20:22:44,437 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:65061][0m
+2025-11-07 20:22:44,705 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:65061][0m
+2025-11-07 20:22:44,728 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:44,729 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65061][0m
+2025-11-07 20:22:44,744 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52771]
+2025-11-07 20:22:45,072 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60613]
+2025-11-07 20:22:45,073 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60613]
+2025-11-07 20:22:46,587 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:22:46,590 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.03, 127.0.0.1:65061][0m
+2025-11-07 20:22:46,614 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:22:46,615 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65061][0m
+2025-11-07 20:22:46,628 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60613]
+2025-11-07 20:22:46,661 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:22:46,662 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:65061][0m
+2025-11-07 20:23:16,364 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\views.py changed, reloading.
+2025-11-07 20:23:16,849 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-07 20:23:19,558 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xcf in position 2159: invalid continuation byte
+2025-11-07 20:23:19,561 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.03, 127.0.0.1:59779][0m
+2025-11-07 20:23:19,581 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:23:19,581 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59779][0m
+2025-11-07 20:23:19,627 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:23:19,628 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59779][0m
+2025-11-07 20:25:05,804 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:59611][0m
+2025-11-07 20:25:05,830 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:25:05,831 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59611][0m
+2025-11-07 20:25:05,872 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.04, 127.0.0.1:49578][0m
+2025-11-07 20:25:05,874 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.04, 127.0.0.1:59611][0m
+2025-11-07 20:25:05,875 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:49578][0m
+2025-11-07 20:25:05,879 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:49578][0m
+2025-11-07 20:25:05,881 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:59611][0m
+2025-11-07 20:25:05,882 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:49578][0m
+2025-11-07 20:25:05,884 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:59611][0m
+2025-11-07 20:25:06,500 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:59611][0m
+2025-11-07 20:25:06,512 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=5 200 [0.01, 127.0.0.1:59611][0m
+2025-11-07 20:25:06,518 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=5&round=16 200 [0.00, 127.0.0.1:59611][0m
+2025-11-07 20:25:06,793 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62316]
+2025-11-07 20:25:06,794 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62316]
+2025-11-07 20:25:06,808 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64795]
+2025-11-07 20:25:06,808 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64795]
+2025-11-07 20:25:14,499 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:59611][0m
+2025-11-07 20:25:14,502 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:62316]
+2025-11-07 20:25:14,503 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64795]
+2025-11-07 20:25:14,521 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:25:14,521 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:65046][0m
+2025-11-07 20:25:14,522 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.01, 127.0.0.1:49578][0m
+2025-11-07 20:25:14,522 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59611][0m
+2025-11-07 20:25:14,524 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:60364][0m
+2025-11-07 20:25:14,529 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.01, 127.0.0.1:56622][0m
+2025-11-07 20:25:14,530 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.01, 127.0.0.1:61802][0m
+2025-11-07 20:25:14,530 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.01, 127.0.0.1:49578][0m
+2025-11-07 20:25:14,530 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:65046][0m
+2025-11-07 20:25:15,226 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:65046][0m
+2025-11-07 20:25:15,236 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=5 200 [0.01, 127.0.0.1:65046][0m
+2025-11-07 20:25:15,242 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=5&round=16 200 [0.00, 127.0.0.1:65046][0m
+2025-11-07 20:25:15,371 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:65046][0m
+2025-11-07 20:25:15,519 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53568]
+2025-11-07 20:25:15,520 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53568]
+2025-11-07 20:25:15,533 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52758]
+2025-11-07 20:25:15,533 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52758]
+2025-11-07 20:27:47,079 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,083 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53568]
+2025-11-07 20:27:47,083 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52758]
+2025-11-07 20:27:47,101 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:27:47,101 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,108 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:63870][0m
+2025-11-07 20:27:47,116 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:63870][0m
+2025-11-07 20:27:47,117 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,120 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:63870][0m
+2025-11-07 20:27:47,122 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,125 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:63870][0m
+2025-11-07 20:27:47,126 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,564 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,575 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=5 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,584 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=5&round=16 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:47,854 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:56785]
+2025-11-07 20:27:47,856 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:56785]
+2025-11-07 20:27:47,869 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56768]
+2025-11-07 20:27:47,870 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56768]
+2025-11-07 20:27:48,052 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:49,526 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:65471][0m
+2025-11-07 20:27:49,550 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:27:49,550 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:49,582 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:56785]
+2025-11-07 20:27:49,582 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:56768]
+2025-11-07 20:27:49,895 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54468]
+2025-11-07 20:27:49,896 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54468]
+2025-11-07 20:27:51,001 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:51,022 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:27:51,023 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:51,071 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54468]
+2025-11-07 20:27:51,339 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60124]
+2025-11-07 20:27:51,341 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60124]
+2025-11-07 20:27:51,660 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:51,684 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:27:51,684 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:51,709 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60124]
+2025-11-07 20:27:52,000 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54047]
+2025-11-07 20:27:52,001 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54047]
+2025-11-07 20:27:53,000 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:53,023 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:27:53,023 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:53,047 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54047]
+2025-11-07 20:27:53,062 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:65471][0m
+2025-11-07 20:27:53,069 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=5 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:53,077 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=5&round=16 200 [0.00, 127.0.0.1:65471][0m
+2025-11-07 20:27:53,341 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:59014]
+2025-11-07 20:27:53,342 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:59014]
+2025-11-07 20:27:53,358 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53159]
+2025-11-07 20:27:53,359 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53159]
+2025-11-07 20:29:51,873 - ERROR - log - Internal Server Error: /training/
+Traceback (most recent call last):
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\project\main\views.py", line 34, in training
+    return render(request, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\base.py", line 23, in get_template
+    contents = self.get_contents(origin)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\cached.py", line 26, in get_contents
+    return origin.loader.get_contents(origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTs\autodetect\venv\Lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    return fp.read()
+           ^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xce in position 65: invalid continuation byte
+2025-11-07 20:29:51,875 - ERROR - runserver - [35;1mHTTP GET /training/ 500 [0.02, 127.0.0.1:56857][0m
+2025-11-07 20:29:51,879 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:59014]
+2025-11-07 20:29:51,880 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53159]
+2025-11-07 20:29:52,326 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:29:52,327 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:56857][0m
+2025-11-07 20:29:52,330 - WARNING - log - Not Found: /favicon.ico
+2025-11-07 20:29:52,331 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:52900][0m
+2025-11-07 20:30:08,791 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:52900][0m
+2025-11-07 20:30:08,812 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_confusion.js 304 [0.00, 127.0.0.1:56857][0m
+2025-11-07 20:30:08,814 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-07 20:30:08,814 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:52900][0m
+2025-11-07 20:30:09,140 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:52788]
+2025-11-07 20:30:09,141 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:52788]
+2025-11-07 20:30:09,153 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58008]
+2025-11-07 20:30:09,153 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58008]
+2025-11-07 20:30:20,363 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62044]
+2025-11-07 20:30:20,365 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62044]
