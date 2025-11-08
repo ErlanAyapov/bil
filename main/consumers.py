@@ -100,6 +100,8 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
         confidence = data.get("confidence")
         prediction_label = data.get("prediction_label", "-")
         raw_ip = data.get("ip_data") or {}
+        if isinstance(raw_ip.get("ip_data"), dict):
+            raw_ip = raw_ip["ip_data"]
         ip_data = {
             "ip": raw_ip.get("ip") or raw_ip.get("query"),
             "country": raw_ip.get("country") or "Unknown",

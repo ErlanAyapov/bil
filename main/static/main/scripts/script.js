@@ -53,7 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ws.onmessage = (event) => {
     try {
-      const data = JSON.parse(event.data);
+      const message = JSON.parse(event.data);
+      if (message.type && message.type !== "status_update") {
+        if (message.type === "full_update") {
+          console.log("[Monitor] full_update received", message.devices?.length || 0);
+        }
+        return;
+      }
+
+      const payload = message.type === "status_update" ? message : message || {};
       const {
         device_token,
         status,
@@ -61,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
         prediction,
         confidence,
         prediction_label,
-      } = data;
+      } = payload;
 
-      const ipData = data.ip_data || {};
+      const ipData = payload.ip_data || {};
       const ipCountry = ipData.country || "Unknown";
       const ipCity = ipData.city || "";
       const ipLat = ipData.lat ?? ipData.latitude;

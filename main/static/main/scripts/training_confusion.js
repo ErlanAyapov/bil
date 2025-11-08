@@ -57,6 +57,11 @@
     const thead = table.querySelector('thead');
     const tbody = table.querySelector('tbody');
     const cls = (Array.isArray(classes) && classes.length) ? classes : (Array.isArray(matrix) && matrix[0] ? matrix[0].map((_, i) => i) : []);
+    const formatValue = (val) => {
+      const num = Number(val);
+      return Number.isFinite(num) ? num.toFixed(3) : "0.000";
+    };
+
     let headHtml = '<tr><th></th>' + cls.map(c => `<th class="text-center">${c}</th>`).join('') + '<th class="text-center">Σ</th></tr>';
     thead.innerHTML = headHtml;
     let bodyHtml = '';
@@ -64,12 +69,12 @@
       const row = matrix[i] || [];
       const sum = row.reduce((a,b)=>a+Number(b||0),0);
       bodyHtml += `<tr><th class="text-center">${cls[i] ?? i}</th>` +
-        row.map(v => `<td class="text-end">${Number(v||0)}</td>`).join('') +
-        `<td class="text-end fw-semibold">${sum}</td></tr>`;
+        row.map(v => `<td class="text-end">${formatValue(v)}</td>`).join('') +
+        `<td class="text-end fw-semibold">${formatValue(sum)}</td></tr>`;
     }
     if (Array.isArray(support) && support.length) {
       const total = support.reduce((a,b)=>a+Number(b||0),0);
-      bodyHtml += '<tr><th>support</th>' + support.map(v => `<td class="text-end">${Number(v||0)}</td>`).join('') + `<td class="text-end fw-semibold">${total}</td></tr>`;
+      bodyHtml += '<tr><th>support</th>' + support.map(v => `<td class="text-end">${formatValue(v)}</td>`).join('') + `<td class="text-end fw-semibold">${formatValue(total)}</td></tr>`;
     }
     tbody.innerHTML = bodyHtml;
   }
