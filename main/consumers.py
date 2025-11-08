@@ -99,7 +99,16 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
         status = "danger" if prediction not in (0, "0", None) else "safe"
         confidence = data.get("confidence")
         prediction_label = data.get("prediction_label", "-")
-        ip_data = data.get("ip_data") or {}
+        raw_ip = data.get("ip_data") or {}
+        ip_data = {
+            "ip": raw_ip.get("ip") or raw_ip.get("query"),
+            "country": raw_ip.get("country") or "Unknown",
+            "city": raw_ip.get("city") or "",
+            "lat": raw_ip.get("lat") if "lat" in raw_ip else raw_ip.get("latitude"),
+            "lon": raw_ip.get("lon") if "lon" in raw_ip else raw_ip.get("longitude"),
+            "timezone": raw_ip.get("timezone"),
+            "org": raw_ip.get("org") or raw_ip.get("isp"),
+        }
 
         await self._touch_device(device)
         await self._store_prediction(device, data)

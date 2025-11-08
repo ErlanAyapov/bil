@@ -12,6 +12,10 @@ const labels = {
   9: "DDoS ICMP fragmentation",
   10: "DDoS UDP fragmentation",
   11: "DDoS ACK Fragmentation",
+  13: "Mirai",
+  14: "MiTM",
+  15: "Reconnaissance",
+  16: "Vulnerablityi scan"
 };
 
 const backgroundColors = [
@@ -107,6 +111,10 @@ const TrafficRadarChart = (() => {
     9: "DDoS ICMP fragmentation",
     10: "DDoS UDP fragmentation",
     11: "DDoS ACK Fragmentation",
+    13: "Mirai",
+    14: "MiTM",
+    15: "Reconnaissance",
+    16: "Vulnerablityi scan"
   };
 
   const radarColor = 'rgba(75, 192, 192, 0.2)';
@@ -177,6 +185,15 @@ const ActiveUsersMap = (() => {
     /* ----------  init  ---------- */
     async function init(opts) {
       tableBody = document.querySelector(opts.tableBodySelector);
+      const canvas = document.getElementById(opts.canvasId);
+      if (!canvas) return;
+      if (!canvas.width || canvas.width === 0) {
+        canvas.width = canvas.clientWidth || canvas.parentElement?.clientWidth || 600;
+      }
+      if (!canvas.height || canvas.height === 0) {
+        canvas.height = canvas.clientHeight || canvas.parentElement?.clientHeight || 400;
+        canvas.style.minHeight = canvas.height + "px";
+      }
   
       /* 1. topojson */
       const topo = await fetch('https://unpkg.com/world-atlas/countries-50m.json')
@@ -186,10 +203,7 @@ const ActiveUsersMap = (() => {
                      .features.filter(f => f.properties.name !== 'Antarctica');
   
       /* 2. карта */
-      chart = new Chart(
-        document.getElementById(opts.canvasId).getContext('2d'),
-        makeChartConfig([], topo)
-      );
+      chart = new Chart(canvas.getContext('2d'), makeChartConfig([], topo));
   
       /* 3. первичная заливка */
       update(opts.initialData || {});
