@@ -605,6 +605,11 @@ def device_charts(request, pk):
     return render(request, 'device/device_charts.html', context)
 
 
+@login_required(login_url='login')
+def device_control(request):
+    return render(request, "main/device_control.html", {"active": "control"})
+
+
 def auth_landing(request):
     if request.user.is_authenticated:
         return redirect('profile')

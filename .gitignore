@@ -15,3 +15,4 @@ logs/**
 media/
 **/media/
 **/media/**
+/client_sample

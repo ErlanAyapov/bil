@@ -1,15 +1,18 @@
 # consumers.py
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
-import json, pickle, asyncio
+
+
+import json, pickle, asyncio, logging
 import numpy as np
-from django.utils.timezone import now 
+from django.utils.timezone import now
 from django.conf import settings
 from cryptography.fernet import Fernet, InvalidToken
 import weakref
 from django.db import transaction
 from channels.db import database_sync_to_async
 
+logger = logging.getLogger(__name__)
 
 class DeviceStatusConsumer(AsyncWebsocketConsumer):
     # Список всех подключенных клиентов
@@ -36,13 +39,16 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def get_device(self, device_token):
         from .models import Device
-        try:
-            f = Fernet(settings.FERNET_KEY.encode())
-            payload = f.decrypt(device_token.encode(), ttl=3600)
-            data = json.loads(payload.decode())
-            return Device.objects.filter(id=data.get('device_id')).first()
+        try: 
+            return Device.objects.get(device_token=device_token)
         except (InvalidToken, Exception):
             return None
+        
+    async def send_error(self, message):
+        await self.send(json.dumps({
+            "type": "error",
+            "message": message
+        }))
 
     @database_sync_to_async
     def get_all_devices(self):
@@ -54,51 +60,297 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data):
         try:
-            data = json.loads(text_data)
-            msg_type = data.get("type")
-
-            # Обработка heartbeat
-            if msg_type == "heartbeat":
-                await self.send(json.dumps({"type": "pong"}))
-                return
-
-            
-
-            device_token = data.get('device_token')
-            prediction = data.get('prediction')
-            confidence = data.get('confidence')
-            prediction_label = data.get('prediction_label')
-            ip_data = data.get('ip_data')
-
-            # Получаем устройство из БД
-            device = await self.get_device(device_token)
-            if not device:
-                await self.send_error("Device not found")
-                return
-
-            # Обновляем статус
-            new_status = "danger" if prediction != 0 else "safe"
-            await database_sync_to_async(device.save)()
-
-            # Рассылаем обновление ВСЕМ клиентам
-            payload_msg = {
-                "type": "status_update",
-                "device_token": device_token,
-                "status": new_status,
-                "device_name": device.name,
-                "device_id": device.id,
-                "prediction": prediction,
-                "confidence": confidence,
-                "prediction_label": prediction_label,
-                "ip_data": ip_data
-            };
-            await self.broadcast_all(payload_msg)
+            data = json.loads(text_data or "{}")
         except json.JSONDecodeError:
             await self.send_error("Invalid JSON")
+            return
+
+        msg_type = data.get("type")
+
+        if msg_type == "heartbeat":
+            await self.send(json.dumps({"type": "pong"}))
+            return
+
+        if msg_type == "prediction" or "prediction" in data:
+            await self._handle_prediction(data)
+            return
+
+        await self.send_error("Unsupported message type")
 
     async def broadcast_all(self, message):
-        for client in self.connected_clients:
-            await client.send(json.dumps(message))
+        for client in list(self.connected_clients):
+            try:
+                await client.send(json.dumps(message))
+            except Exception:
+                continue
+
+    async def _handle_prediction(self, data):
+        device_token = data.get("device_token")
+        if not device_token:
+            await self.send_error("device_token is required")
+            return
+
+        device = await self.get_device(device_token)
+        if not device:
+            await self.send_error("Device not found")
+            return
+
+        prediction = data.get("prediction", 0)
+        status = "danger" if prediction not in (0, "0", None) else "safe"
+        confidence = data.get("confidence")
+        prediction_label = data.get("prediction_label", "-")
+        ip_data = data.get("ip_data") or {}
+
+        await self._touch_device(device)
+        await self._store_prediction(device, data)
+
+        await self.send(json.dumps({"type": "ack", "status": "ok"}))
+
+        payload_msg = {
+            "type": "status_update",
+            "device_token": device_token,
+            "status": status,
+            "device_name": device.name,
+            "device_id": device.id,
+            "prediction": prediction,
+            "confidence": confidence,
+            "prediction_label": prediction_label,
+            "ip_data": ip_data,
+            "mode": data.get("mode"),
+            "samples": data.get("samples"),
+            "source": data.get("source"),
+        }
+        await self.broadcast_all(payload_msg)
+
+    @database_sync_to_async
+    def _touch_device(self, device):
+        device.last_seen = now()
+        device.is_online = True
+        device.save(update_fields=["last_seen", "is_online"])
+
+    @database_sync_to_async
+    def _store_prediction(self, device, payload):
+        from .models import PredictResult
+
+        PredictResult.objects.create(
+            device=device,
+            results={
+                "prediction": payload.get("prediction"),
+                "prediction_label": payload.get("prediction_label"),
+                "confidence": payload.get("confidence"),
+                "samples": payload.get("samples"),
+                "ip_data": payload.get("ip_data"),
+                "mode": payload.get("mode"),
+                "source": payload.get("source"),
+                "timestamp": payload.get("timestamp"),
+            }
+        )
+
+
+class DeviceControlConsumer(AsyncWebsocketConsumer):
+    """Control plane for advanced device agents (see client_sample/device_agent.py)."""
+
+    device_clients = {}
+    device_lock = asyncio.Lock()
+    ui_clients = weakref.WeakSet()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.device = None
+        self.current_mode = None
+        self.is_ui = False
+
+    async def connect(self):
+        await self.accept()
+
+    async def disconnect(self, close_code):
+        if self.device:
+            await self._deregister_device(self.device.id)
+            await self._broadcast_ui({
+                "type": "device_offline",
+                "device_id": self.device.id,
+                "device_name": getattr(self.device, "name", ""),
+            })
+        if self in self.ui_clients:
+            self.ui_clients.discard(self)
+
+    async def receive(self, text_data):
+        try:
+            data = json.loads(text_data or "{}")
+        except json.JSONDecodeError:
+            await self.send(json.dumps({"type": "error", "message": "Invalid JSON"}))
+            return
+
+        msg_type = data.get("type")
+
+        if msg_type == "heartbeat":
+            await self.send(json.dumps({"type": "pong"}))
+            return
+        if msg_type == "hello":
+            await self._handle_hello(data)
+            return
+        if msg_type == "inference_event":
+            await self._handle_inference_event(data)
+            return
+        if msg_type == "status":
+            await self._handle_status_payload(data)
+            return
+        if msg_type == "mode_changed":
+            self.current_mode = data.get("mode")
+            await self._broadcast_ui({
+                "type": "mode_changed",
+                "device_id": getattr(self.device, "id", None),
+                "mode": self.current_mode,
+            })
+            return
+        if msg_type == "run_ack":
+            await self._broadcast_ui({
+                "type": "run_ack",
+                "device_id": getattr(self.device, "id", None),
+                "mode": data.get("mode"),
+            })
+            return
+        if msg_type == "ui_subscribe":
+            self.is_ui = True
+            self.ui_clients.add(self)
+            await self._send_ui_snapshot()
+            return
+        if msg_type == "command":
+            await self._handle_ui_command(data)
+            return
+
+        await self.send(json.dumps({"type": "error", "message": f"Unknown command: {msg_type}"}))
+
+    async def _handle_hello(self, data):
+        device = await self.get_device(data.get("device_token"))
+        if not device:
+            await self.send(json.dumps({"type": "error", "message": "Device not found"}))
+            return
+
+        self.device = device
+        self.current_mode = data.get("mode")
+        await self._touch_device(device)
+        await self._register_device(device.id)
+
+        await self.send(json.dumps({
+            "type": "hello_ack",
+            "device_id": device.id,
+            "device_name": device.name,
+            "mode": self.current_mode,
+            "capabilities": data.get("capabilities") or {},
+        }))
+        await self._broadcast_ui({
+            "type": "device_online",
+            "device_id": device.id,
+            "device_name": device.name,
+            "mode": self.current_mode,
+            "capabilities": data.get("capabilities") or {},
+        })
+
+    async def _handle_status_payload(self, data):
+        if not self.device:
+            await self.send(json.dumps({"type": "error", "message": "Device not authenticated"}))
+            return
+
+        await self._touch_device(self.device)
+        await self.send(json.dumps({"type": "ack", "status": "ok"}))
+        await self._broadcast_ui({
+            "type": "status",
+            "device_id": self.device.id,
+            "payload": data,
+        })
+
+    async def _handle_inference_event(self, data):
+        await self._broadcast_ui({
+            "type": "inference_event",
+            "device_id": getattr(self.device, "id", None),
+            "event": data.get("event"),
+            "mode": data.get("mode"),
+            "payload": data.get("payload"),
+            "ts": data.get("ts"),
+        })
+        await self.send(json.dumps({"type": "ack", "status": "event_received"}))
+
+    async def _handle_ui_command(self, data):
+        if not self.is_ui:
+            await self.send(json.dumps({"type": "error", "message": "Commands available only for UI subscribers"}))
+            return
+        try:
+            device_id = int(data.get("device_id"))
+        except (TypeError, ValueError):
+            await self.send(json.dumps({"type": "error", "message": "device_id is required"}))
+            return
+        command = (data.get("command") or "").strip()
+        if not command:
+            await self.send(json.dumps({"type": "error", "message": "command is required"}))
+            return
+        params = data.get("params") or {}
+        message = {"type": command}
+        if isinstance(params, dict):
+            message.update(params)
+
+        success = await self.send_command(device_id, message)
+        await self.send(json.dumps({
+            "type": "command_response",
+            "device_id": device_id,
+            "command": command,
+            "success": bool(success),
+        }))
+
+    async def _send_ui_snapshot(self):
+        summary = []
+        async with self.device_lock:
+            for dev_id, consumer in self.device_clients.items():
+                summary.append({
+                    "device_id": dev_id,
+                    "device_name": getattr(consumer.device, "name", ""),
+                    "mode": consumer.current_mode,
+                })
+        await self.send(json.dumps({"type": "devices_snapshot", "items": summary}))
+
+    async def _broadcast_ui(self, message):
+        for client in list(self.ui_clients):
+            try:
+                await client.send(json.dumps(message))
+            except Exception:
+                continue
+
+    @classmethod
+    async def send_command(cls, device_id, payload):
+        async with cls.device_lock:
+            consumer = cls.device_clients.get(device_id)
+        if not consumer:
+            return False
+        try:
+            await consumer.send(json.dumps(payload))
+            return True
+        except Exception:
+            return False
+
+    async def _register_device(self, device_id):
+        async with self.device_lock:
+            self.device_clients[device_id] = self
+
+    async def _deregister_device(self, device_id):
+        async with self.device_lock:
+            if self.device_clients.get(device_id) is self:
+                self.device_clients.pop(device_id, None)
+
+    @database_sync_to_async
+    def _touch_device(self, device):
+        device.last_seen = now()
+        device.is_online = True
+        device.save(update_fields=["last_seen", "is_online"])
+
+    @database_sync_to_async
+    def get_device(self, token):
+        from .models import Device
+        if not token:
+            return None
+        try:
+            return Device.objects.get(device_token=token)
+        except (InvalidToken, Exception):
+            return None
 
     async def send_error(self, message):
         await self.send(json.dumps({

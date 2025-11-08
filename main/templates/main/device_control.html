@@ -1,0 +1,69 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Управление устройствами{% endblock %}
+
+{% block main %}
+<div class="row g-3">
+  <div class="col-lg-4 d-flex flex-column gap-3">
+    <div class="sm-container p-3">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div>
+          <h5 class="mb-0">Устройства</h5>
+          <small class="text-muted">Подключённые агенты</small>
+        </div>
+        <span class="badge bg-secondary" id="control-device-count">0</span>
+      </div>
+      <div class="list-group small" id="control-device-list" style="max-height: 420px; overflow-y: auto;">
+        <div class="text-muted text-center py-4" id="control-device-empty">Нет активных агентов</div>
+      </div>
+    </div>
+
+    <div class="sm-container p-3">
+      <h6 class="mb-3">Команды</h6>
+      <div class="btn-group w-100 mb-2" role="group" aria-label="mode">
+        <button class="btn btn-outline-secondary" data-command="set_mode" data-mode="file">Режим: файлы</button>
+        <button class="btn btn-outline-secondary" data-command="set_mode" data-mode="live">Режим: live</button>
+      </div>
+      <div class="btn-group w-100 mb-2" role="group" aria-label="run">
+        <button class="btn btn-outline-primary" data-command="run_inference" data-mode="file">Запустить файл</button>
+        <button class="btn btn-outline-primary" data-command="run_inference" data-mode="live">Запустить live</button>
+      </div>
+      <button class="btn btn-outline-dark w-100 mb-2" data-command="status">Запросить статус</button>
+      <small class="text-muted d-block">Выберите устройство в списке и нажмите команду.</small>
+    </div>
+  </div>
+
+  <div class="col-lg-8 d-flex flex-column gap-3">
+    <div class="sm-container p-3">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <h5 class="mb-0" id="control-detail-name">Устройство не выбрано</h5>
+          <small class="text-muted" id="control-detail-id">—</small>
+        </div>
+        <span class="badge bg-secondary" id="control-detail-status">offline</span>
+      </div>
+      <dl class="row mb-0 small">
+        <dt class="col-sm-3">Режим</dt>
+        <dd class="col-sm-9" id="control-detail-mode">—</dd>
+        <dt class="col-sm-3">Последний ответ</dt>
+        <dd class="col-sm-9" id="control-detail-last-status">—</dd>
+        <dt class="col-sm-3">Последнее событие</dt>
+        <dd class="col-sm-9" id="control-detail-last-event">—</dd>
+      </dl>
+    </div>
+
+    <div class="sm-container p-3 flex-grow-1 d-flex flex-column">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0">Журнал</h6>
+        <button class="btn btn-sm btn-outline-secondary" id="control-log-clear">Очистить</button>
+      </div>
+      <div id="control-log" class="log-box small flex-grow-1"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block include_scripts %}
+<script src="{% static 'main/scripts/control.js' %}"></script>
+{% endblock %}

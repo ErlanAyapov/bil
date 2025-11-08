@@ -42,7 +42,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column">
-      <ul class="nav flex-column">
+            <ul class="nav flex-column">
         <li class="nav-item {% if active == 'dashboard' %}active{% endif %}">
           <a class="nav-link {% if active == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}">
             <span class="flex-grow-1">Мониторинг</span>
@@ -61,9 +61,15 @@
             <i class="fa-solid fa-brain ms-2"></i>
           </a>
         </li>
-        <li class="nav-item"><a class="nav-link disabled" href="#"><span class="flex-grow-1">Геоанализ</span><i class="fa-solid fa-globe ms-2"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Управление</span><i class="fa-solid fa-cogs ms-2"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Настройки</span><i class="fa-solid fa-cog ms-2"></i></a></li>
+        <li class="nav-item {% if active == 'control' %}active{% endif %}">
+          <a class="nav-link {% if active == 'control' %}active{% endif %}" href="{% url 'device_control' %}">
+            <span class="flex-grow-1">Управление</span>
+            <i class="fa-solid fa-robot ms-2"></i>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link disabled" href="#"><span class="flex-grow-1">Сеть</span><i class="fa-solid fa-globe ms-2"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Настройки</span><i class="fa-solid fa-cogs ms-2"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Сервис</span><i class="fa-solid fa-cog ms-2"></i></a></li>
         <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Помощь</span><i class="fa-solid fa-question-circle ms-2"></i></a></li>
       </ul>
       <div class="mt-auto">
@@ -78,7 +84,7 @@
       <img src="{% static 'main/images/logo.png' %}" alt="Logo" class="img-fluid"/>
     </h5>
 
-    <ul class="nav flex-column px-3 gap-1">
+        <ul class="nav flex-column px-3 gap-1">
       <li class="nav-item {% if active == 'dashboard' %}active{% endif %}">
         <a class="nav-link {% if active == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}">
           <span class="flex-grow-1">Мониторинг</span>
@@ -97,9 +103,15 @@
           <i class="fa-solid fa-brain"></i>
         </a>
       </li>
-      <li class="nav-item"><a class="nav-link disabled" href="#"><span class="flex-grow-1">Геоанализ</span><i class="fa-solid fa-globe ms-2"></i></a></li>
-      <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Управление</span><i class="fa-solid fa-cogs ms-2"></i></a></li>
-      <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Настройки</span><i class="fa-solid fa-cog ms-2"></i></a></li>
+      <li class="nav-item {% if active == 'control' %}active{% endif %}">
+        <a class="nav-link {% if active == 'control' %}active{% endif %}" href="{% url 'device_control' %}">
+          <span class="flex-grow-1">Управление</span>
+          <i class="fa-solid fa-robot"></i>
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link disabled" href="#"><span class="flex-grow-1">Сеть</span><i class="fa-solid fa-globe ms-2"></i></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Настройки</span><i class="fa-solid fa-cogs ms-2"></i></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Сервис</span><i class="fa-solid fa-cog ms-2"></i></a></li>
       <li class="nav-item"><a class="nav-link" href="#"><span class="flex-grow-1">Помощь</span><i class="fa-solid fa-question-circle ms-2"></i></a></li>
     </ul>
 

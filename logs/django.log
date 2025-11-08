@@ -5339,3 +5339,1685 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0xce in position 65: invalid
 2025-11-08 12:22:07,058 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:57568][0m
 2025-11-08 12:22:07,273 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53297]
 2025-11-08 12:22:07,274 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53297]
+2025-11-08 12:32:20,960 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:56362][0m
+2025-11-08 12:32:20,966 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53297]
+2025-11-08 12:32:20,982 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 12:32:20,982 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:56362][0m
+2025-11-08 12:32:20,990 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:65005][0m
+2025-11-08 12:32:21,001 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:65005][0m
+2025-11-08 12:32:21,002 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:56362][0m
+2025-11-08 12:32:21,007 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:65005][0m
+2025-11-08 12:32:21,010 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:56362][0m
+2025-11-08 12:32:21,011 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:65005][0m
+2025-11-08 12:32:21,460 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:65005][0m
+2025-11-08 12:32:21,628 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64681]
+2025-11-08 12:32:21,630 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64681]
+2025-11-08 12:43:18,948 - INFO - runserver - [mHTTP GET /admin/ 200 [0.02, 127.0.0.1:50751][0m
+2025-11-08 12:43:18,972 - INFO - runserver - [36mHTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:18,972 - INFO - runserver - [36mHTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:18,976 - INFO - runserver - [36mHTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:18,976 - INFO - runserver - [36mHTTP GET /static/admin/css/dashboard.css 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:18,979 - INFO - runserver - [36mHTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:18,979 - INFO - runserver - [36mHTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:18,982 - INFO - runserver - [36mHTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:18,986 - INFO - runserver - [36mHTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:18,986 - INFO - runserver - [36mHTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:18,988 - INFO - runserver - [36mHTTP GET /static/admin/img/icon-deletelink.svg 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:19,029 - WARNING - log - Not Found: /favicon.ico
+2025-11-08 12:43:19,029 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:65499][0m
+2025-11-08 12:43:20,072 - INFO - runserver - [mHTTP GET /admin/main/device/ 200 [0.05, 127.0.0.1:65499][0m
+2025-11-08 12:43:20,094 - INFO - runserver - [36mHTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:65499][0m
+2025-11-08 12:43:20,095 - INFO - runserver - [36mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:52380][0m
+2025-11-08 12:43:20,095 - INFO - runserver - [36mHTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:49515][0m
+2025-11-08 12:43:20,096 - INFO - runserver - [36mHTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:54592][0m
+2025-11-08 12:43:20,096 - INFO - runserver - [36mHTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:60125][0m
+2025-11-08 12:43:20,103 - INFO - runserver - [36mHTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49515][0m
+2025-11-08 12:43:20,104 - INFO - runserver - [36mHTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:52380][0m
+2025-11-08 12:43:20,104 - INFO - runserver - [36mHTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:65499][0m
+2025-11-08 12:43:20,106 - INFO - runserver - [36mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:54592][0m
+2025-11-08 12:43:20,109 - INFO - runserver - [mHTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:50751][0m
+2025-11-08 12:43:20,111 - INFO - runserver - [36mHTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:54592][0m
+2025-11-08 12:43:20,125 - INFO - runserver - [36mHTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:54592][0m
+2025-11-08 12:43:21,118 - INFO - runserver - [mHTTP GET /admin/main/device/221/change/ 200 [0.02, 127.0.0.1:54592][0m
+2025-11-08 12:43:21,138 - INFO - runserver - [36mHTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:21,138 - INFO - runserver - [36mHTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:54592][0m
+2025-11-08 12:43:21,139 - INFO - runserver - [36mHTTP GET /static/admin/js/calendar.js 304 [0.00, 127.0.0.1:52380][0m
+2025-11-08 12:43:21,139 - INFO - runserver - [36mHTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:49515][0m
+2025-11-08 12:43:21,146 - INFO - runserver - [36mHTTP GET /static/admin/img/icon-viewlink.svg 304 [0.00, 127.0.0.1:54592][0m
+2025-11-08 12:43:21,146 - INFO - runserver - [36mHTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 12:43:21,147 - INFO - runserver - [mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:50751][0m
+2025-11-08 12:43:21,149 - INFO - runserver - [36mHTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:21,167 - INFO - runserver - [36mHTTP GET /static/admin/img/icon-calendar.svg 304 [0.00, 127.0.0.1:50751][0m
+2025-11-08 12:43:21,167 - INFO - runserver - [36mHTTP GET /static/admin/img/icon-clock.svg 304 [0.00, 127.0.0.1:65499][0m
+2025-11-08 13:14:26,333 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:65388]
+2025-11-08 13:14:26,335 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:65389]
+2025-11-08 13:14:26,336 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:65389]
+2025-11-08 13:14:26,653 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65390]
+2025-11-08 13:14:26,654 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65390]
+2025-11-08 13:14:26,656 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65390]
+2025-11-08 13:14:26,970 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:65388]
+2025-11-08 13:14:29,945 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50868]
+2025-11-08 13:14:29,946 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50868]
+2025-11-08 13:14:29,948 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50868]
+2025-11-08 13:14:33,967 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54131]
+2025-11-08 13:14:33,975 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54131]
+2025-11-08 13:14:36,824 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:60500][0m
+2025-11-08 13:14:36,829 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64681]
+2025-11-08 13:14:36,844 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:14:36,845 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60500][0m
+2025-11-08 13:14:36,854 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:14:36,862 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:14:36,863 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:60500][0m
+2025-11-08 13:14:36,867 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:14:36,871 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:60500][0m
+2025-11-08 13:14:36,871 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:14:37,343 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:14:37,594 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56579]
+2025-11-08 13:14:37,596 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56579]
+2025-11-08 13:14:40,980 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49418]
+2025-11-08 13:14:41,980 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49418]
+2025-11-08 13:14:43,376 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:64259][0m
+2025-11-08 13:14:43,410 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:14:43,410 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:43,436 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:56579]
+2025-11-08 13:14:43,764 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60708]
+2025-11-08 13:14:43,765 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60708]
+2025-11-08 13:14:45,466 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:45,507 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_confusion.js 304 [0.00, 127.0.0.1:51312][0m
+2025-11-08 13:14:45,507 - INFO - runserver - [36mHTTP GET /static/main/scripts/training.js 304 [0.00, 127.0.0.1:60500][0m
+2025-11-08 13:14:45,509 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_overview.js 304 [0.00, 127.0.0.1:62798][0m
+2025-11-08 13:14:45,509 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:14:45,510 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60708]
+2025-11-08 13:14:45,511 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.02, 127.0.0.1:64259][0m
+2025-11-08 13:14:45,546 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:45,559 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=8 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:45,590 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=8&round=14 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:45,827 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:55774]
+2025-11-08 13:14:45,828 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:55774]
+2025-11-08 13:14:45,841 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53848]
+2025-11-08 13:14:45,842 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53848]
+2025-11-08 13:14:48,988 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54751]
+2025-11-08 13:14:49,990 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54751]
+2025-11-08 13:14:56,993 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52433]
+2025-11-08 13:14:57,151 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:57,155 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:55774]
+2025-11-08 13:14:57,156 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53848]
+2025-11-08 13:14:57,178 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:14:57,178 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:57,206 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:57,219 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=8 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:57,242 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=8&round=14 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:14:57,488 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:49297]
+2025-11-08 13:14:57,489 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:49297]
+2025-11-08 13:14:57,503 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50611]
+2025-11-08 13:14:57,503 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50611]
+2025-11-08 13:14:57,996 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52433]
+2025-11-08 13:15:03,380 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:03,411 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:15:03,412 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:03,452 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:49297]
+2025-11-08 13:15:03,452 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50611]
+2025-11-08 13:15:03,722 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58461]
+2025-11-08 13:15:03,723 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58461]
+2025-11-08 13:15:05,005 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58462]
+2025-11-08 13:15:06,002 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58462]
+2025-11-08 13:15:07,923 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:07,950 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:15:07,950 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:07,974 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58461]
+2025-11-08 13:15:08,262 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61781]
+2025-11-08 13:15:08,263 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61781]
+2025-11-08 13:15:09,654 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:09,678 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:15:09,679 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:09,704 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:15:09,707 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61781]
+2025-11-08 13:15:09,730 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=8 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:09,754 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=8&round=14 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:15:09,989 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:51383]
+2025-11-08 13:15:09,991 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:51383]
+2025-11-08 13:15:10,004 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58305]
+2025-11-08 13:15:10,005 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58305]
+2025-11-08 13:15:13,005 - INFO - runserver - [mHTTP POST /training/delete/ 200 [0.03, 127.0.0.1:64259][0m
+2025-11-08 13:15:13,007 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52849]
+2025-11-08 13:15:13,013 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:15:13,019 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:15:13,034 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.00, 127.0.0.1:64259][0m
+2025-11-08 13:15:14,006 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52849]
+2025-11-08 13:15:14,908 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:14,912 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:51383]
+2025-11-08 13:15:14,912 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58305]
+2025-11-08 13:15:14,928 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:15:14,929 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:14,969 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:14,988 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:15,010 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:15,247 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:54969]
+2025-11-08 13:15:15,248 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:54969]
+2025-11-08 13:15:15,260 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52103]
+2025-11-08 13:15:15,261 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52103]
+2025-11-08 13:15:17,657 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:17,679 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:15:17,680 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64259][0m
+2025-11-08 13:15:17,725 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:54969]
+2025-11-08 13:15:17,726 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52103]
+2025-11-08 13:15:17,992 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59165]
+2025-11-08 13:15:17,993 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59165]
+2025-11-08 13:15:21,011 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63711]
+2025-11-08 13:15:22,008 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63711]
+2025-11-08 13:15:29,018 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63563]
+2025-11-08 13:15:30,015 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63563]
+2025-11-08 13:15:37,022 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51729]
+2025-11-08 13:15:38,020 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51729]
+2025-11-08 13:15:45,027 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64337]
+2025-11-08 13:15:46,023 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64337]
+2025-11-08 13:15:53,038 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60854]
+2025-11-08 13:15:54,028 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60854]
+2025-11-08 13:16:01,036 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50895]
+2025-11-08 13:16:02,034 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50895]
+2025-11-08 13:16:09,028 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63274]
+2025-11-08 13:16:09,036 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63274]
+2025-11-08 13:16:16,041 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58021]
+2025-11-08 13:16:17,040 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58021]
+2025-11-08 13:16:23,727 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:55863][0m
+2025-11-08 13:16:23,751 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:16:23,752 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:55863][0m
+2025-11-08 13:16:23,762 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59165]
+2025-11-08 13:16:23,806 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:55863][0m
+2025-11-08 13:16:23,822 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:55863][0m
+2025-11-08 13:16:23,842 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:55863][0m
+2025-11-08 13:16:24,046 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62777]
+2025-11-08 13:16:24,089 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53787]
+2025-11-08 13:16:24,090 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53787]
+2025-11-08 13:16:24,103 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55694]
+2025-11-08 13:16:24,104 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55694]
+2025-11-08 13:16:25,050 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62777]
+2025-11-08 13:16:32,051 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56517]
+2025-11-08 13:16:32,053 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56517]
+2025-11-08 13:16:39,063 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50298]
+2025-11-08 13:16:40,060 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50298]
+2025-11-08 13:16:47,086 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52461]
+2025-11-08 13:16:48,067 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52461]
+2025-11-08 13:16:55,081 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55395]
+2025-11-08 13:16:56,073 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55395]
+2025-11-08 13:17:03,081 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54235]
+2025-11-08 13:17:04,079 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54235]
+2025-11-08 13:17:11,084 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49699]
+2025-11-08 13:17:12,084 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49699]
+2025-11-08 13:17:19,089 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64243]
+2025-11-08 13:17:20,088 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64243]
+2025-11-08 13:17:27,095 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53255]
+2025-11-08 13:17:28,096 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53255]
+2025-11-08 13:17:35,105 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60217]
+2025-11-08 13:17:36,098 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60217]
+2025-11-08 13:17:43,104 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55534]
+2025-11-08 13:17:44,102 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55534]
+2025-11-08 13:17:51,116 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58288]
+2025-11-08 13:17:52,106 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58288]
+2025-11-08 13:17:59,114 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49625]
+2025-11-08 13:18:00,110 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49625]
+2025-11-08 13:18:07,117 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63835]
+2025-11-08 13:18:08,113 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63835]
+2025-11-08 13:18:15,121 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50817]
+2025-11-08 13:18:16,121 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50817]
+2025-11-08 13:18:23,128 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54121]
+2025-11-08 13:18:24,125 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54121]
+2025-11-08 13:18:31,123 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56699]
+2025-11-08 13:18:31,126 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56699]
+2025-11-08 13:18:38,135 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62707]
+2025-11-08 13:18:39,131 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62707]
+2025-11-08 13:18:46,141 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62492]
+2025-11-08 13:18:47,136 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62492]
+2025-11-08 13:18:54,143 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55324]
+2025-11-08 13:18:55,143 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55324]
+2025-11-08 13:19:02,154 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63318]
+2025-11-08 13:19:03,150 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63318]
+2025-11-08 13:19:10,156 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:65299]
+2025-11-08 13:19:11,152 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:65299]
+2025-11-08 13:19:18,164 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55014]
+2025-11-08 13:19:19,158 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55014]
+2025-11-08 13:19:26,164 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58156]
+2025-11-08 13:19:27,164 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58156]
+2025-11-08 13:19:32,268 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65472]
+2025-11-08 13:19:32,269 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65472]
+2025-11-08 13:19:32,274 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65472]
+2025-11-08 13:19:34,176 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57212]
+2025-11-08 13:19:35,168 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57212]
+2025-11-08 13:19:36,201 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:57215]
+2025-11-08 13:19:36,202 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:57215]
+2025-11-08 13:19:36,206 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:57215]
+2025-11-08 13:19:42,179 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51011]
+2025-11-08 13:19:43,178 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51011]
+2025-11-08 13:19:50,199 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52074]
+2025-11-08 13:19:51,185 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52074]
+2025-11-08 13:19:58,194 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49277]
+2025-11-08 13:19:59,186 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49277]
+2025-11-08 13:20:06,192 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53785]
+2025-11-08 13:20:07,193 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53785]
+2025-11-08 13:20:14,202 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64008]
+2025-11-08 13:20:15,201 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64008]
+2025-11-08 13:20:22,210 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56545]
+2025-11-08 13:20:23,208 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56545]
+2025-11-08 13:20:30,224 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55513]
+2025-11-08 13:20:31,215 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55513]
+2025-11-08 13:20:38,224 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53962]
+2025-11-08 13:20:39,222 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53962]
+2025-11-08 13:20:46,235 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59328]
+2025-11-08 13:20:47,225 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59328]
+2025-11-08 13:20:54,236 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56832]
+2025-11-08 13:20:55,231 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56832]
+2025-11-08 13:21:02,238 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57840]
+2025-11-08 13:21:03,234 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57840]
+2025-11-08 13:21:10,251 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52254]
+2025-11-08 13:21:11,238 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52254]
+2025-11-08 13:21:18,245 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53482]
+2025-11-08 13:21:19,247 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53482]
+2025-11-08 13:21:26,252 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62812]
+2025-11-08 13:21:27,251 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62812]
+2025-11-08 13:21:34,259 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51256]
+2025-11-08 13:21:35,256 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51256]
+2025-11-08 13:21:42,264 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51258]
+2025-11-08 13:21:43,263 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51258]
+2025-11-08 13:21:50,275 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57497]
+2025-11-08 13:21:51,268 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57497]
+2025-11-08 13:21:58,277 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62181]
+2025-11-08 13:21:59,273 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62181]
+2025-11-08 13:22:06,284 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58932]
+2025-11-08 13:22:07,279 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58932]
+2025-11-08 13:22:14,289 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61774]
+2025-11-08 13:22:15,283 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61774]
+2025-11-08 13:22:22,289 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56784]
+2025-11-08 13:22:23,290 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56784]
+2025-11-08 13:22:30,300 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53663]
+2025-11-08 13:22:31,296 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53663]
+2025-11-08 13:22:38,303 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50806]
+2025-11-08 13:22:39,302 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50806]
+2025-11-08 13:22:46,310 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63305]
+2025-11-08 13:22:47,310 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63305]
+2025-11-08 13:22:54,318 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63442]
+2025-11-08 13:22:55,315 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63442]
+2025-11-08 13:23:02,329 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55260]
+2025-11-08 13:23:03,321 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55260]
+2025-11-08 13:23:10,330 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53068]
+2025-11-08 13:23:11,326 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53068]
+2025-11-08 13:23:18,328 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52608]
+2025-11-08 13:23:18,329 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52608]
+2025-11-08 13:23:25,336 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53035]
+2025-11-08 13:23:26,338 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53035]
+2025-11-08 13:23:33,353 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63651]
+2025-11-08 13:23:34,347 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63651]
+2025-11-08 13:23:41,353 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63775]
+2025-11-08 13:23:42,352 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63775]
+2025-11-08 13:23:49,359 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58912]
+2025-11-08 13:23:50,357 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58912]
+2025-11-08 13:23:57,368 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59661]
+2025-11-08 13:23:58,362 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59661]
+2025-11-08 13:24:05,368 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51447]
+2025-11-08 13:24:06,365 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51447]
+2025-11-08 13:24:13,383 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51906]
+2025-11-08 13:24:14,374 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51906]
+2025-11-08 13:24:21,385 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64360]
+2025-11-08 13:24:22,380 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64360]
+2025-11-08 13:24:29,389 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55213]
+2025-11-08 13:24:30,388 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55213]
+2025-11-08 13:24:37,395 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52128]
+2025-11-08 13:24:38,395 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52128]
+2025-11-08 13:24:38,545 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51153]
+2025-11-08 13:24:38,545 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51153]
+2025-11-08 13:24:38,548 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51153]
+2025-11-08 13:24:42,171 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56359]
+2025-11-08 13:24:42,174 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56359]
+2025-11-08 13:24:42,179 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:56359]
+2025-11-08 13:24:45,408 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55992]
+2025-11-08 13:24:46,399 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55992]
+2025-11-08 13:24:53,420 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50113]
+2025-11-08 13:24:54,404 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50113]
+2025-11-08 13:25:01,415 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58108]
+2025-11-08 13:25:02,410 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58108]
+2025-11-08 13:25:09,422 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57037]
+2025-11-08 13:25:10,417 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57037]
+2025-11-08 13:25:17,428 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58635]
+2025-11-08 13:25:18,423 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58635]
+2025-11-08 13:25:25,437 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55482]
+2025-11-08 13:25:26,427 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55482]
+2025-11-08 13:25:33,440 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50405]
+2025-11-08 13:25:34,430 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50405]
+2025-11-08 13:25:41,445 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58031]
+2025-11-08 13:25:42,434 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58031]
+2025-11-08 13:25:49,447 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57323]
+2025-11-08 13:25:50,439 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57323]
+2025-11-08 13:25:57,447 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62516]
+2025-11-08 13:25:58,443 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62516]
+2025-11-08 13:26:05,451 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53281]
+2025-11-08 13:26:06,449 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53281]
+2025-11-08 13:26:13,462 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52447]
+2025-11-08 13:26:14,458 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52447]
+2025-11-08 13:26:21,466 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60484]
+2025-11-08 13:26:22,458 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60484]
+2025-11-08 13:26:28,931 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:65017][0m
+2025-11-08 13:26:28,936 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53787]
+2025-11-08 13:26:28,937 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55694]
+2025-11-08 13:26:28,956 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:26:28,956 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65017][0m
+2025-11-08 13:26:28,963 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:59906][0m
+2025-11-08 13:26:28,972 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:59906][0m
+2025-11-08 13:26:28,973 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:65017][0m
+2025-11-08 13:26:28,977 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:59906][0m
+2025-11-08 13:26:28,982 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:59906][0m
+2025-11-08 13:26:28,984 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:65017][0m
+2025-11-08 13:26:28,987 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:59906][0m
+2025-11-08 13:26:29,291 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:26:29,307 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:26:29,326 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:26:29,403 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:59906][0m
+2025-11-08 13:26:29,477 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61663]
+2025-11-08 13:26:29,571 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:60659]
+2025-11-08 13:26:29,572 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:60659]
+2025-11-08 13:26:29,584 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50365]
+2025-11-08 13:26:29,584 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50365]
+2025-11-08 13:26:30,232 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:26:30,261 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:26:30,262 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:26:30,278 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:60659]
+2025-11-08 13:26:30,278 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50365]
+2025-11-08 13:26:30,465 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61663]
+2025-11-08 13:26:30,616 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:49738]
+2025-11-08 13:26:30,618 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:49738]
+2025-11-08 13:26:37,470 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53311]
+2025-11-08 13:26:38,467 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53311]
+2025-11-08 13:26:45,473 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56857]
+2025-11-08 13:26:46,473 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56857]
+2025-11-08 13:26:53,484 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53993]
+2025-11-08 13:26:54,478 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53993]
+2025-11-08 13:27:01,485 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55547]
+2025-11-08 13:27:02,484 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55547]
+2025-11-08 13:27:09,486 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52466]
+2025-11-08 13:27:10,486 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52466]
+2025-11-08 13:27:17,498 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59772]
+2025-11-08 13:27:18,492 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59772]
+2025-11-08 13:27:18,717 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:18,748 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:27:18,748 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:18,772 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:49738]
+2025-11-08 13:27:19,061 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63139]
+2025-11-08 13:27:19,062 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63139]
+2025-11-08 13:27:19,146 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:19,170 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:27:19,171 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:19,200 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:63139]
+2025-11-08 13:27:19,201 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:19,222 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:19,248 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:59906][0m
+2025-11-08 13:27:19,481 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:54526]
+2025-11-08 13:27:19,482 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:54526]
+2025-11-08 13:27:19,495 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64871]
+2025-11-08 13:27:19,496 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64871]
+2025-11-08 13:27:25,497 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59651]
+2025-11-08 13:27:26,498 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59651]
+2025-11-08 13:30:06,912 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:65389]
+2025-11-08 13:30:08,917 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:57162]
+2025-11-08 13:30:08,918 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:57162]
+2025-11-08 13:30:08,921 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:57162]
+2025-11-08 13:30:13,927 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:55964]
+2025-11-08 13:30:13,928 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55965]
+2025-11-08 13:30:13,929 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:55964]
+2025-11-08 13:30:14,598 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55965]
+2025-11-08 13:30:21,603 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60813]
+2025-11-08 13:30:22,602 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60813]
+2025-11-08 13:30:29,610 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51556]
+2025-11-08 13:30:30,608 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51556]
+2025-11-08 13:30:32,621 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:55964]
+2025-11-08 13:31:19,807 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:19,811 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:54526]
+2025-11-08 13:31:19,811 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64871]
+2025-11-08 13:31:19,827 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:31:19,827 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:19,875 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:19,891 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=9 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:19,906 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=9&round=5 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:20,153 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:63411]
+2025-11-08 13:31:20,154 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:63411]
+2025-11-08 13:31:20,167 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59081]
+2025-11-08 13:31:20,167 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59081]
+2025-11-08 13:31:26,512 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:26,542 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:31:26,542 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:26,562 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:63411]
+2025-11-08 13:31:26,562 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59081]
+2025-11-08 13:31:26,851 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52714]
+2025-11-08 13:31:26,852 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52714]
+2025-11-08 13:31:43,240 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:43,267 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:31:43,268 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:43,309 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52714]
+2025-11-08 13:31:43,576 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56180]
+2025-11-08 13:31:43,577 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56180]
+2025-11-08 13:31:44,284 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:44,311 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:31:44,311 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64405][0m
+2025-11-08 13:31:44,332 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:56180]
+2025-11-08 13:31:44,619 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53696]
+2025-11-08 13:31:44,620 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53696]
+2025-11-08 13:43:52,508 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:55578][0m
+2025-11-08 13:43:52,517 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53696]
+2025-11-08 13:43:52,532 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:43:52,533 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:55578][0m
+2025-11-08 13:43:52,872 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54157]
+2025-11-08 13:43:52,872 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54157]
+2025-11-08 13:43:53,671 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:55578][0m
+2025-11-08 13:43:53,678 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54157]
+2025-11-08 13:43:53,691 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:43:53,691 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:55578][0m
+2025-11-08 13:43:54,008 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63222]
+2025-11-08 13:43:54,009 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63222]
+2025-11-08 13:48:11,924 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 13:48:12,451 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 13:48:15,862 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 13:48:16,389 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 13:49:50,895 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 13:49:51,439 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 13:50:11,039 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 13:50:11,545 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 13:53:08,236 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 13:53:08,738 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 13:53:16,112 - INFO - runserver - [mHTTP GET /profile/ 200 [0.03, 127.0.0.1:51103][0m
+2025-11-08 13:53:16,137 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:16,137 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:16,180 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.04, 127.0.0.1:56447][0m
+2025-11-08 13:53:16,182 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:56447][0m
+2025-11-08 13:53:16,184 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:56447][0m
+2025-11-08 13:53:16,186 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.03, 127.0.0.1:51103][0m
+2025-11-08 13:53:16,723 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:16,747 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54856]
+2025-11-08 13:53:16,748 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54856]
+2025-11-08 13:53:21,426 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:21,447 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:21,448 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_confusion.js 304 [0.00, 127.0.0.1:51296][0m
+2025-11-08 13:53:21,449 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:21,449 - INFO - runserver - [36mHTTP GET /static/main/scripts/training.js 304 [0.00, 127.0.0.1:56447][0m
+2025-11-08 13:53:21,452 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_overview.js 304 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:21,462 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54856]
+2025-11-08 13:53:21,512 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:21,525 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=9 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:21,543 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=9&round=5 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:21,786 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:60111]
+2025-11-08 13:53:21,787 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:60111]
+2025-11-08 13:53:21,800 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51869]
+2025-11-08 13:53:21,800 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51869]
+2025-11-08 13:53:26,545 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:26,572 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:26,572 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:26,645 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:60111]
+2025-11-08 13:53:26,645 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51869]
+2025-11-08 13:53:26,886 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54428]
+2025-11-08 13:53:26,887 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54428]
+2025-11-08 13:53:37,937 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:37,965 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:37,965 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:38,024 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54428]
+2025-11-08 13:53:38,027 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.03, 127.0.0.1:51103][0m
+2025-11-08 13:53:38,038 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=9 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:38,063 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=9&round=5 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:38,277 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53323]
+2025-11-08 13:53:38,278 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53323]
+2025-11-08 13:53:38,290 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59854]
+2025-11-08 13:53:38,291 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59854]
+2025-11-08 13:53:39,530 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:39,553 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:39,554 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:39,577 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53323]
+2025-11-08 13:53:39,577 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59854]
+2025-11-08 13:53:39,865 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60106]
+2025-11-08 13:53:39,866 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60106]
+2025-11-08 13:53:40,336 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:40,357 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:40,357 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:40,388 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:40,390 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60106]
+2025-11-08 13:53:40,408 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=9 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:40,427 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=9&round=5 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:40,667 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:51531]
+2025-11-08 13:53:40,667 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:51531]
+2025-11-08 13:53:40,680 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58768]
+2025-11-08 13:53:40,681 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58768]
+2025-11-08 13:53:43,727 - INFO - runserver - [mHTTP POST /training/delete/ 200 [0.03, 127.0.0.1:51103][0m
+2025-11-08 13:53:43,736 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:43,742 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:43,757 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:46,568 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:46,572 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:51531]
+2025-11-08 13:53:46,573 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58768]
+2025-11-08 13:53:46,586 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:46,587 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:46,619 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:53:46,641 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:46,671 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:46,900 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53120]
+2025-11-08 13:53:46,901 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53120]
+2025-11-08 13:53:46,913 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64371]
+2025-11-08 13:53:46,914 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64371]
+2025-11-08 13:53:57,254 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:57,277 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:53:57,278 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:53:57,302 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53120]
+2025-11-08 13:53:57,302 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64371]
+2025-11-08 13:53:57,591 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65229]
+2025-11-08 13:53:57,592 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65229]
+2025-11-08 13:54:04,028 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 13:54:04,030 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:54:04,056 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65229]
+2025-11-08 13:54:05,374 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 13:54:05,376 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:54:34,481 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 13:54:34,483 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:55:18,461 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:55:18,462 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:55:18,826 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53201]
+2025-11-08 13:55:18,827 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53201]
+2025-11-08 13:55:19,004 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:55:19,007 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53201]
+2025-11-08 13:55:19,022 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:55:19,023 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51103][0m
+2025-11-08 13:55:19,030 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:53528][0m
+2025-11-08 13:55:19,037 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:53528][0m
+2025-11-08 13:55:19,038 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:55:19,041 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:53528][0m
+2025-11-08 13:55:19,541 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:53528][0m
+2025-11-08 13:55:19,628 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63970]
+2025-11-08 13:55:19,629 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63970]
+2025-11-08 13:55:20,467 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:53528][0m
+2025-11-08 13:55:20,492 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:55:20,493 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53528][0m
+2025-11-08 13:55:20,506 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:63970]
+2025-11-08 13:55:20,851 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51340]
+2025-11-08 13:55:20,852 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51340]
+2025-11-08 13:55:35,704 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58939]
+2025-11-08 13:55:35,705 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:58940]
+2025-11-08 13:55:35,705 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:58939]
+2025-11-08 13:55:35,706 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:58940]
+2025-11-08 13:55:35,707 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58939]
+2025-11-08 13:55:36,008 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58941]
+2025-11-08 13:55:36,009 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58941]
+2025-11-08 13:55:36,011 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58941]
+2025-11-08 13:55:39,338 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61728]
+2025-11-08 13:55:39,340 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61728]
+2025-11-08 13:55:39,344 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61728]
+2025-11-08 13:55:42,725 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55661]
+2025-11-08 13:55:42,726 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55661]
+2025-11-08 13:55:42,727 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55661]
+2025-11-08 13:55:49,731 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59876]
+2025-11-08 13:55:49,732 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59876]
+2025-11-08 13:55:49,732 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59876]
+2025-11-08 13:55:56,739 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53771]
+2025-11-08 13:55:56,739 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53771]
+2025-11-08 13:55:56,741 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53771]
+2025-11-08 13:55:57,811 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:53528][0m
+2025-11-08 13:55:57,816 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51340]
+2025-11-08 13:55:57,831 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:55:57,832 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53528][0m
+2025-11-08 13:55:57,839 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:59962][0m
+2025-11-08 13:55:57,840 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:55:57,840 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:64273][0m
+2025-11-08 13:55:57,848 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:52986][0m
+2025-11-08 13:55:57,848 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:53528][0m
+2025-11-08 13:55:57,850 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:55:58,448 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:51103][0m
+2025-11-08 13:55:58,530 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65131]
+2025-11-08 13:55:58,531 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65131]
+2025-11-08 13:56:03,754 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50502]
+2025-11-08 13:56:03,755 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:50502]
+2025-11-08 13:56:03,755 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50502]
+2025-11-08 13:56:10,761 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60337]
+2025-11-08 13:56:10,762 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:60337]
+2025-11-08 13:56:10,763 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60337]
+2025-11-08 13:56:17,773 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61163]
+2025-11-08 13:56:17,775 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61163]
+2025-11-08 13:56:17,776 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61163]
+2025-11-08 13:56:24,779 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55221]
+2025-11-08 13:56:24,781 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55221]
+2025-11-08 13:56:24,782 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55221]
+2025-11-08 13:56:31,785 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53621]
+2025-11-08 13:56:31,786 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53621]
+2025-11-08 13:56:31,787 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53621]
+2025-11-08 13:56:38,797 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59231]
+2025-11-08 13:56:38,799 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59231]
+2025-11-08 13:56:38,800 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59231]
+2025-11-08 13:56:45,806 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64911]
+2025-11-08 13:56:45,807 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64911]
+2025-11-08 13:56:45,808 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64911]
+2025-11-08 13:56:52,814 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57542]
+2025-11-08 13:56:52,815 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:57542]
+2025-11-08 13:56:52,815 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57542]
+2025-11-08 13:56:59,811 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51427]
+2025-11-08 13:56:59,811 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:51427]
+2025-11-08 13:56:59,812 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51427]
+2025-11-08 13:57:06,819 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59642]
+2025-11-08 13:57:06,820 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59642]
+2025-11-08 13:57:06,821 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59642]
+2025-11-08 13:57:13,827 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49323]
+2025-11-08 13:57:13,828 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:49323]
+2025-11-08 13:57:13,829 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49323]
+2025-11-08 13:57:20,833 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59000]
+2025-11-08 13:57:20,834 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59000]
+2025-11-08 13:57:20,834 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59000]
+2025-11-08 13:57:27,841 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52664]
+2025-11-08 13:57:27,842 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:52664]
+2025-11-08 13:57:27,843 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52664]
+2025-11-08 13:57:34,851 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62744]
+2025-11-08 13:57:34,852 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62744]
+2025-11-08 13:57:34,853 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62744]
+2025-11-08 13:57:41,853 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51325]
+2025-11-08 13:57:41,854 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:51325]
+2025-11-08 13:57:41,854 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51325]
+2025-11-08 13:57:48,858 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59905]
+2025-11-08 13:57:48,859 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59905]
+2025-11-08 13:57:48,860 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59905]
+2025-11-08 13:57:55,867 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60289]
+2025-11-08 13:57:55,869 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:60289]
+2025-11-08 13:57:55,870 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60289]
+2025-11-08 13:58:02,879 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55620]
+2025-11-08 13:58:02,880 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55620]
+2025-11-08 13:58:02,881 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55620]
+2025-11-08 13:58:09,887 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58976]
+2025-11-08 13:58:09,888 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:58976]
+2025-11-08 13:58:09,889 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58976]
+2025-11-08 13:58:16,896 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63967]
+2025-11-08 13:58:16,897 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:63967]
+2025-11-08 13:58:16,898 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63967]
+2025-11-08 13:58:23,912 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51814]
+2025-11-08 13:58:23,912 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:51814]
+2025-11-08 13:58:23,912 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51814]
+2025-11-08 13:58:25,921 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:62795][0m
+2025-11-08 13:58:25,927 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65131]
+2025-11-08 13:58:25,944 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 13:58:25,945 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:62795][0m
+2025-11-08 13:58:25,967 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:56498][0m
+2025-11-08 13:58:25,970 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:62795][0m
+2025-11-08 13:58:25,972 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:56498][0m
+2025-11-08 13:58:25,976 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:56498][0m
+2025-11-08 13:58:25,978 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:62795][0m
+2025-11-08 13:58:25,980 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:56498][0m
+2025-11-08 13:58:26,495 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:56498][0m
+2025-11-08 13:58:26,597 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53870]
+2025-11-08 13:58:26,598 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53870]
+2025-11-08 13:58:30,917 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53228]
+2025-11-08 13:58:30,918 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53228]
+2025-11-08 13:58:30,919 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53228]
+2025-11-08 13:58:34,855 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:58940]
+2025-11-08 13:58:42,393 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62311]
+2025-11-08 13:58:42,394 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62312]
+2025-11-08 13:58:42,394 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62311]
+2025-11-08 13:58:42,394 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62312]
+2025-11-08 13:58:42,395 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62311]
+2025-11-08 13:58:42,702 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:62313]
+2025-11-08 13:58:42,704 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:62313]
+2025-11-08 13:58:42,707 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:62313]
+2025-11-08 13:58:46,012 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58919]
+2025-11-08 13:58:46,013 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58919]
+2025-11-08 13:58:46,016 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58919]
+2025-11-08 13:58:49,419 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55688]
+2025-11-08 13:58:49,421 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55688]
+2025-11-08 13:58:49,422 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55688]
+2025-11-08 13:58:56,427 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64951]
+2025-11-08 13:58:56,428 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64951]
+2025-11-08 13:58:56,428 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64951]
+2025-11-08 13:59:03,438 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:58026]
+2025-11-08 13:59:03,439 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:58026]
+2025-11-08 13:59:03,440 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:58026]
+2025-11-08 13:59:10,444 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64575]
+2025-11-08 13:59:10,445 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64575]
+2025-11-08 13:59:10,446 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64575]
+2025-11-08 13:59:17,452 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59944]
+2025-11-08 13:59:17,453 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59944]
+2025-11-08 13:59:17,454 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59944]
+2025-11-08 13:59:24,460 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63979]
+2025-11-08 13:59:24,461 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:63979]
+2025-11-08 13:59:24,462 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63979]
+2025-11-08 13:59:31,468 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61992]
+2025-11-08 13:59:31,469 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61992]
+2025-11-08 13:59:31,470 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61992]
+2025-11-08 13:59:38,475 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50722]
+2025-11-08 13:59:38,476 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:50722]
+2025-11-08 13:59:38,477 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50722]
+2025-11-08 13:59:45,487 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53262]
+2025-11-08 13:59:45,488 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53262]
+2025-11-08 13:59:45,489 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53262]
+2025-11-08 13:59:52,494 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61700]
+2025-11-08 13:59:52,496 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61700]
+2025-11-08 13:59:52,497 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61700]
+2025-11-08 13:59:59,502 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59101]
+2025-11-08 13:59:59,503 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59101]
+2025-11-08 13:59:59,503 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59101]
+2025-11-08 14:00:06,507 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52582]
+2025-11-08 14:00:06,508 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:52582]
+2025-11-08 14:00:06,509 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52582]
+2025-11-08 14:00:13,513 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52617]
+2025-11-08 14:00:13,514 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:52617]
+2025-11-08 14:00:13,515 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:52617]
+2025-11-08 14:00:20,523 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55184]
+2025-11-08 14:00:20,525 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55184]
+2025-11-08 14:00:20,526 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55184]
+2025-11-08 14:00:27,533 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61318]
+2025-11-08 14:00:27,534 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61318]
+2025-11-08 14:00:27,535 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61318]
+2025-11-08 14:00:34,539 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62844]
+2025-11-08 14:00:34,540 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62844]
+2025-11-08 14:00:34,540 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62844]
+2025-11-08 14:00:41,547 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55093]
+2025-11-08 14:00:41,548 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55093]
+2025-11-08 14:00:41,548 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55093]
+2025-11-08 14:00:47,932 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:62312]
+2025-11-08 14:00:52,040 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:59749][0m
+2025-11-08 14:00:52,046 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53870]
+2025-11-08 14:00:52,063 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:00:52,064 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59749][0m
+2025-11-08 14:00:52,071 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:52,072 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:59749][0m
+2025-11-08 14:00:52,080 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:52,082 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:52,085 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:59749][0m
+2025-11-08 14:00:52,087 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:52,554 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:52,676 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64294]
+2025-11-08 14:00:52,677 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64294]
+2025-11-08 14:00:54,028 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:53703][0m
+2025-11-08 14:00:54,062 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:00:54,062 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53703][0m
+2025-11-08 14:00:54,086 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64294]
+2025-11-08 14:00:54,413 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59882]
+2025-11-08 14:00:54,413 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59882]
+2025-11-08 14:00:55,535 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:55,566 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:00:55,567 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53703][0m
+2025-11-08 14:00:55,577 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59882]
+2025-11-08 14:00:55,614 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53703][0m
+2025-11-08 14:00:55,622 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:53703][0m
+2025-11-08 14:00:55,642 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.00, 127.0.0.1:53703][0m
+2025-11-08 14:00:55,885 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:57906]
+2025-11-08 14:00:55,888 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:57906]
+2025-11-08 14:00:55,901 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63415]
+2025-11-08 14:00:55,901 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63415]
+2025-11-08 14:01:07,989 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53228]
+2025-11-08 14:01:07,992 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53229]
+2025-11-08 14:01:07,992 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53228]
+2025-11-08 14:01:07,993 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53229]
+2025-11-08 14:01:07,995 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53229]
+2025-11-08 14:01:08,311 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53230]
+2025-11-08 14:01:08,312 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53230]
+2025-11-08 14:01:08,314 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53230]
+2025-11-08 14:01:11,608 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61309]
+2025-11-08 14:01:11,608 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61309]
+2025-11-08 14:01:11,611 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61309]
+2025-11-08 14:01:15,012 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51930]
+2025-11-08 14:01:15,015 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:51930]
+2025-11-08 14:01:15,016 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51930]
+2025-11-08 14:01:22,021 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61346]
+2025-11-08 14:01:22,022 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61346]
+2025-11-08 14:01:22,023 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61346]
+2025-11-08 14:01:29,027 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51401]
+2025-11-08 14:01:29,029 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:51401]
+2025-11-08 14:01:29,030 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51401]
+2025-11-08 14:01:36,035 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56508]
+2025-11-08 14:01:36,036 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:56508]
+2025-11-08 14:01:36,037 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56508]
+2025-11-08 14:01:43,042 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54613]
+2025-11-08 14:01:43,043 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:54613]
+2025-11-08 14:01:43,043 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54613]
+2025-11-08 14:01:50,050 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57378]
+2025-11-08 14:01:50,052 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:57378]
+2025-11-08 14:01:50,053 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57378]
+2025-11-08 14:01:57,058 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:65262]
+2025-11-08 14:01:57,059 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:65262]
+2025-11-08 14:01:57,060 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:65262]
+2025-11-08 14:02:04,064 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55478]
+2025-11-08 14:02:04,065 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55478]
+2025-11-08 14:02:04,065 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55478]
+2025-11-08 14:02:11,057 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57993]
+2025-11-08 14:02:11,058 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:57993]
+2025-11-08 14:02:11,059 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:57993]
+2025-11-08 14:02:18,063 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:55119]
+2025-11-08 14:02:18,065 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:55119]
+2025-11-08 14:02:18,066 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:55119]
+2025-11-08 14:02:25,074 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61451]
+2025-11-08 14:02:25,075 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61451]
+2025-11-08 14:02:25,076 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61451]
+2025-11-08 14:02:32,078 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61538]
+2025-11-08 14:02:32,079 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61538]
+2025-11-08 14:02:32,080 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61538]
+2025-11-08 14:02:39,083 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61215]
+2025-11-08 14:02:39,084 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61215]
+2025-11-08 14:02:39,085 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61215]
+2025-11-08 14:02:46,090 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62304]
+2025-11-08 14:02:46,091 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62304]
+2025-11-08 14:02:46,092 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62304]
+2025-11-08 14:02:53,096 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60271]
+2025-11-08 14:02:53,097 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:60271]
+2025-11-08 14:02:53,098 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60271]
+2025-11-08 14:03:00,102 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53566]
+2025-11-08 14:03:00,103 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53566]
+2025-11-08 14:03:00,103 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53566]
+2025-11-08 14:03:07,108 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61779]
+2025-11-08 14:03:07,109 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61779]
+2025-11-08 14:03:07,109 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61779]
+2025-11-08 14:03:14,118 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54436]
+2025-11-08 14:03:14,119 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:54436]
+2025-11-08 14:03:14,120 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54436]
+2025-11-08 14:03:21,126 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:51906]
+2025-11-08 14:03:21,127 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:51906]
+2025-11-08 14:03:21,127 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:51906]
+2025-11-08 14:03:24,316 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53228]
+2025-11-08 14:03:31,762 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:31,766 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:57906]
+2025-11-08 14:03:31,766 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:63415]
+2025-11-08 14:03:31,784 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:03:31,785 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:31,791 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:51340][0m
+2025-11-08 14:03:31,801 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:51340][0m
+2025-11-08 14:03:31,801 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:31,803 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:51340][0m
+2025-11-08 14:03:31,807 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:51340][0m
+2025-11-08 14:03:31,807 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:31,810 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:32,112 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:32,121 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:32,144 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:32,202 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:03:32,379 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:49490]
+2025-11-08 14:03:32,380 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:49490]
+2025-11-08 14:03:32,392 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:62812]
+2025-11-08 14:03:32,392 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:62812]
+2025-11-08 14:03:33,171 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:59344]
+2025-11-08 14:03:33,172 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59345]
+2025-11-08 14:03:33,172 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:59344]
+2025-11-08 14:03:33,173 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59345]
+2025-11-08 14:03:33,488 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59346]
+2025-11-08 14:03:33,489 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59346]
+2025-11-08 14:03:33,491 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59346]
+2025-11-08 14:03:37,077 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59509]
+2025-11-08 14:03:37,078 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59509]
+2025-11-08 14:03:37,080 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59509]
+2025-11-08 14:03:39,076 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:39,102 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:03:39,103 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:39,121 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:49490]
+2025-11-08 14:03:39,121 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:62812]
+2025-11-08 14:03:39,451 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64970]
+2025-11-08 14:03:39,452 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64970]
+2025-11-08 14:03:53,076 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:03:53,107 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:03:53,108 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:53,126 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64970]
+2025-11-08 14:03:53,418 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65433]
+2025-11-08 14:03:53,419 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65433]
+2025-11-08 14:03:56,151 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:56,179 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:03:56,180 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:56,207 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:56,208 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65433]
+2025-11-08 14:03:56,233 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:56,255 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:56,489 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62947]
+2025-11-08 14:03:56,490 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62947]
+2025-11-08 14:03:56,502 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61530]
+2025-11-08 14:03:56,502 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61530]
+2025-11-08 14:03:57,147 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:03:57,178 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:03:57,179 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:03:57,191 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:62947]
+2025-11-08 14:03:57,193 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61530]
+2025-11-08 14:03:57,484 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52498]
+2025-11-08 14:03:57,485 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52498]
+2025-11-08 14:04:23,026 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:23,052 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:04:23,053 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:23,076 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52498]
+2025-11-08 14:04:23,080 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:23,106 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:23,128 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:23,360 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:65232]
+2025-11-08 14:04:23,361 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:65232]
+2025-11-08 14:04:23,373 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55864]
+2025-11-08 14:04:23,374 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55864]
+2025-11-08 14:04:35,095 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,099 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:65232]
+2025-11-08 14:04:35,099 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55864]
+2025-11-08 14:04:35,117 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:04:35,118 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,131 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,135 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,141 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,148 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,151 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,158 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,162 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,441 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,457 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,480 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,562 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:35,717 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:59445]
+2025-11-08 14:04:35,718 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:59445]
+2025-11-08 14:04:35,731 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50302]
+2025-11-08 14:04:35,731 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50302]
+2025-11-08 14:04:38,541 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:04:38,574 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:04:38,575 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:04:38,585 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:59445]
+2025-11-08 14:04:38,586 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50302]
+2025-11-08 14:04:38,919 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65202]
+2025-11-08 14:04:38,920 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65202]
+2025-11-08 14:04:40,852 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:40,854 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:40,881 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65202]
+2025-11-08 14:04:42,210 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:42,212 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:42,566 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:42,568 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:42,780 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:42,782 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:42,972 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:42,974 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:43,162 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:43,164 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:43,360 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:43,362 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:43,546 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:43,548 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:43,736 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:43,738 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:60844][0m
+2025-11-08 14:04:48,061 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:04:48,061 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:48,413 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56615]
+2025-11-08 14:04:48,414 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56615]
+2025-11-08 14:04:50,269 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:04:50,272 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:50,300 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:56615]
+2025-11-08 14:04:51,829 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:04:51,829 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:04:52,190 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51203]
+2025-11-08 14:04:52,190 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51203]
+2025-11-08 14:04:59,425 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:04:59,462 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:04:59,463 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:04:59,523 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51203]
+2025-11-08 14:04:59,768 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59743]
+2025-11-08 14:04:59,769 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59743]
+2025-11-08 14:05:03,587 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:60844][0m
+2025-11-08 14:05:03,618 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:05:03,618 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:03,634 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59743]
+2025-11-08 14:05:03,926 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51892]
+2025-11-08 14:05:03,927 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51892]
+2025-11-08 14:05:04,443 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:04,472 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:05:04,472 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:04,476 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51892]
+2025-11-08 14:05:04,519 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:04,536 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:04,560 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:04,777 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:55448]
+2025-11-08 14:05:04,778 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:55448]
+2025-11-08 14:05:04,797 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58702]
+2025-11-08 14:05:04,797 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58702]
+2025-11-08 14:05:05,967 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:05,972 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:55448]
+2025-11-08 14:05:05,972 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58702]
+2025-11-08 14:05:05,988 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:05:05,989 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:06,000 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:53047][0m
+2025-11-08 14:05:06,001 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:55761][0m
+2025-11-08 14:05:06,011 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.01, 127.0.0.1:64609][0m
+2025-11-08 14:05:06,011 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.01, 127.0.0.1:60844][0m
+2025-11-08 14:05:06,011 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.01, 127.0.0.1:59736][0m
+2025-11-08 14:05:06,012 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.01, 127.0.0.1:59262][0m
+2025-11-08 14:05:06,013 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:06,208 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:06,222 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:06,245 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:06,385 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:53047][0m
+2025-11-08 14:05:06,483 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:55816]
+2025-11-08 14:05:06,484 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:55816]
+2025-11-08 14:05:06,496 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58355]
+2025-11-08 14:05:06,505 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58355]
+2025-11-08 14:05:19,382 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:19,387 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:55816]
+2025-11-08 14:05:19,387 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58355]
+2025-11-08 14:05:19,408 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:05:19,409 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:19,471 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.02, 127.0.0.1:53047][0m
+2025-11-08 14:05:19,494 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.02, 127.0.0.1:53047][0m
+2025-11-08 14:05:19,521 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:19,742 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:50328]
+2025-11-08 14:05:19,743 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:50328]
+2025-11-08 14:05:19,756 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60571]
+2025-11-08 14:05:19,757 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60571]
+2025-11-08 14:05:21,778 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:21,782 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:50328]
+2025-11-08 14:05:21,782 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60571]
+2025-11-08 14:05:21,798 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:05:21,799 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:21,836 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:21,850 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:21,885 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.02, 127.0.0.1:53047][0m
+2025-11-08 14:05:22,115 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:57534]
+2025-11-08 14:05:22,115 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:57534]
+2025-11-08 14:05:22,128 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55094]
+2025-11-08 14:05:22,131 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55094]
+2025-11-08 14:05:25,397 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:53047][0m
+2025-11-08 14:05:25,428 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:05:25,429 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53047][0m
+2025-11-08 14:05:25,442 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:57534]
+2025-11-08 14:05:25,442 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55094]
+2025-11-08 14:05:25,733 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56046]
+2025-11-08 14:05:25,734 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56046]
+2025-11-08 14:08:21,707 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 14:08:22,248 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:08:28,810 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61626]
+2025-11-08 14:08:28,811 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:61627]
+2025-11-08 14:08:28,812 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61626]
+2025-11-08 14:08:28,812 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:61627]
+2025-11-08 14:08:37,049 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\views.py changed, reloading.
+2025-11-08 14:08:37,555 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:08:39,499 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:49938]
+2025-11-08 14:08:39,501 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:49938]
+2025-11-08 14:08:39,503 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:49938]
+2025-11-08 14:08:43,201 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55603]
+2025-11-08 14:08:43,202 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55603]
+2025-11-08 14:08:43,203 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55603]
+2025-11-08 14:08:44,128 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64064]
+2025-11-08 14:08:44,130 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:64065]
+2025-11-08 14:08:44,131 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64064]
+2025-11-08 14:08:44,132 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:64065]
+2025-11-08 14:09:00,729 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\urls.py changed, reloading.
+2025-11-08 14:09:01,259 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:09:08,115 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:09:08,344 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:60855]
+2025-11-08 14:09:08,346 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:60856]
+2025-11-08 14:09:08,346 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:60855]
+2025-11-08 14:09:08,347 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:60856]
+2025-11-08 14:09:12,454 - INFO - runserver - [mHTTP GET /profile/ 200 [0.04, 127.0.0.1:61002][0m
+2025-11-08 14:09:12,480 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:09:12,481 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:61002][0m
+2025-11-08 14:09:12,545 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.05, 127.0.0.1:60511][0m
+2025-11-08 14:09:12,549 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:60511][0m
+2025-11-08 14:09:12,550 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.05, 127.0.0.1:61002][0m
+2025-11-08 14:09:12,553 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:60511][0m
+2025-11-08 14:09:13,275 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:61002][0m
+2025-11-08 14:09:13,371 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:49731]
+2025-11-08 14:09:13,373 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:49731]
+2025-11-08 14:09:14,253 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:61002][0m
+2025-11-08 14:09:14,278 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:09:14,279 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:61002][0m
+2025-11-08 14:09:14,295 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:49731]
+2025-11-08 14:09:14,628 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61564]
+2025-11-08 14:09:14,629 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61564]
+2025-11-08 14:09:18,302 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:60856]
+2025-11-08 14:09:18,302 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:60855]
+2025-11-08 14:09:24,952 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:54312]
+2025-11-08 14:09:24,953 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54313]
+2025-11-08 14:09:24,954 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:54312]
+2025-11-08 14:09:24,955 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:54313]
+2025-11-08 14:09:25,272 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54314]
+2025-11-08 14:09:25,272 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54314]
+2025-11-08 14:09:25,274 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54314]
+2025-11-08 14:09:28,882 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52285]
+2025-11-08 14:09:28,883 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52285]
+2025-11-08 14:09:28,886 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52285]
+2025-11-08 14:09:52,370 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:52,406 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:09:52,406 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:52,426 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61564]
+2025-11-08 14:09:52,714 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:57434]
+2025-11-08 14:09:52,715 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:57434]
+2025-11-08 14:09:53,019 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.03, 127.0.0.1:52325][0m
+2025-11-08 14:09:53,050 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:09:53,051 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:53,126 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:57434]
+2025-11-08 14:09:53,371 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53696]
+2025-11-08 14:09:53,372 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53696]
+2025-11-08 14:09:53,783 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:53,811 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:09:53,813 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:53,843 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53696]
+2025-11-08 14:09:54,127 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60256]
+2025-11-08 14:09:54,127 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60256]
+2025-11-08 14:09:55,603 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:55,626 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:09:55,626 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:55,666 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:55,666 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60256]
+2025-11-08 14:09:55,693 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:55,722 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:52325][0m
+2025-11-08 14:09:55,942 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:57162]
+2025-11-08 14:09:55,943 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:57162]
+2025-11-08 14:09:55,954 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55891]
+2025-11-08 14:09:55,955 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55891]
+2025-11-08 14:12:38,776 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:12:38,780 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:57162]
+2025-11-08 14:12:38,780 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55891]
+2025-11-08 14:12:38,806 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:12:38,806 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:49882][0m
+2025-11-08 14:12:38,807 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.02, 127.0.0.1:57908][0m
+2025-11-08 14:12:38,815 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:49882][0m
+2025-11-08 14:12:38,816 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:57908][0m
+2025-11-08 14:12:38,821 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:49882][0m
+2025-11-08 14:12:38,822 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:57908][0m
+2025-11-08 14:12:38,825 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:49882][0m
+2025-11-08 14:12:38,826 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:57908][0m
+2025-11-08 14:12:39,155 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:12:39,166 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:12:39,198 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:12:39,388 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:57908][0m
+2025-11-08 14:12:39,429 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:51566]
+2025-11-08 14:12:39,430 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:51566]
+2025-11-08 14:12:39,443 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60776]
+2025-11-08 14:12:39,444 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60776]
+2025-11-08 14:12:45,273 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:12:45,297 - INFO - runserver - [mHTTP GET /static/main/scripts/control.js 200 [0.01, 127.0.0.1:49882][0m
+2025-11-08 14:12:45,298 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:12:45,300 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:12:45,317 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:51566]
+2025-11-08 14:12:45,318 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60776]
+2025-11-08 14:12:45,640 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49249]
+2025-11-08 14:12:45,641 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:49249]
+2025-11-08 14:12:45,653 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64027]
+2025-11-08 14:12:45,653 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64027]
+2025-11-08 14:13:10,599 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:13:10,602 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49249]
+2025-11-08 14:13:10,603 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64027]
+2025-11-08 14:13:10,619 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:13:10,619 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:57908][0m
+2025-11-08 14:13:10,626 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:49882][0m
+2025-11-08 14:13:10,635 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:49729][0m
+2025-11-08 14:13:10,636 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:49321][0m
+2025-11-08 14:13:10,637 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:10,637 - INFO - runserver - [mHTTP GET /static/main/scripts/control.js 200 [0.00, 127.0.0.1:56339][0m
+2025-11-08 14:13:11,211 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:60766][0m
+2025-11-08 14:13:11,342 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61224]
+2025-11-08 14:13:11,343 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61224]
+2025-11-08 14:13:11,355 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55972]
+2025-11-08 14:13:11,355 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55972]
+2025-11-08 14:13:12,548 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:12,576 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:13:12,577 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:12,637 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55972]
+2025-11-08 14:13:12,638 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61224]
+2025-11-08 14:13:12,915 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53990]
+2025-11-08 14:13:12,915 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53990]
+2025-11-08 14:13:13,235 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:60766][0m
+2025-11-08 14:13:13,261 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:13:13,261 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:13,284 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53990]
+2025-11-08 14:13:13,574 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55301]
+2025-11-08 14:13:13,574 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55301]
+2025-11-08 14:13:13,807 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:13,833 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:13:13,833 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:13,863 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55301]
+2025-11-08 14:13:13,864 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:13,886 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:13,907 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:14,140 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:64846]
+2025-11-08 14:13:14,141 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:64846]
+2025-11-08 14:13:14,153 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:62074]
+2025-11-08 14:13:14,154 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:62074]
+2025-11-08 14:13:14,415 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:14,439 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:13:14,439 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:60766][0m
+2025-11-08 14:13:14,458 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:64846]
+2025-11-08 14:13:14,458 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:62074]
+2025-11-08 14:13:14,752 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53819]
+2025-11-08 14:13:14,753 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53819]
+2025-11-08 14:13:14,765 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50718]
+2025-11-08 14:13:14,765 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50718]
+2025-11-08 14:14:31,197 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50517]
+2025-11-08 14:14:31,198 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50517]
+2025-11-08 14:14:31,199 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50517]
+2025-11-08 14:14:34,712 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:49903]
+2025-11-08 14:14:34,713 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:49903]
+2025-11-08 14:14:34,715 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:49903]
+2025-11-08 14:15:27,248 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 14:15:27,748 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:15:30,382 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57578]
+2025-11-08 14:15:30,383 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:57578]
+2025-11-08 14:15:38,797 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:15:40,420 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:59365]
+2025-11-08 14:15:40,420 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:59365]
+2025-11-08 14:15:43,342 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50826]
+2025-11-08 14:15:43,344 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:50827]
+2025-11-08 14:15:43,347 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:50826]
+2025-11-08 14:15:43,347 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:50827]
+2025-11-08 14:15:50,917 - INFO - runserver - [mHTTP GET /control/ 200 [0.02, 127.0.0.1:57249][0m
+2025-11-08 14:15:50,921 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:59365]
+2025-11-08 14:15:50,941 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:15:50,942 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:57249][0m
+2025-11-08 14:15:50,982 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.04, 127.0.0.1:51546][0m
+2025-11-08 14:15:50,985 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:51546][0m
+2025-11-08 14:15:50,988 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:51546][0m
+2025-11-08 14:15:50,989 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.04, 127.0.0.1:57249][0m
+2025-11-08 14:15:50,992 - INFO - runserver - [mHTTP GET /static/main/scripts/control.js 200 [0.00, 127.0.0.1:51546][0m
+2025-11-08 14:15:51,358 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:51546][0m
+2025-11-08 14:15:51,543 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64737]
+2025-11-08 14:15:51,544 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64737]
+2025-11-08 14:15:51,556 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53655]
+2025-11-08 14:15:51,557 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53655]
+2025-11-08 14:16:04,958 - INFO - runserver - [mHTTP GET /profile/ 200 [0.03, 127.0.0.1:51546][0m
+2025-11-08 14:16:04,987 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:16:04,988 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:04,997 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53655]
+2025-11-08 14:16:04,997 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:64737]
+2025-11-08 14:16:05,322 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51634]
+2025-11-08 14:16:05,322 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51634]
+2025-11-08 14:16:06,088 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:06,112 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:16:06,113 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:06,144 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51634]
+2025-11-08 14:16:06,146 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:06,169 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:06,188 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:06,421 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:56061]
+2025-11-08 14:16:06,421 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:56061]
+2025-11-08 14:16:06,435 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50970]
+2025-11-08 14:16:06,435 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50970]
+2025-11-08 14:16:10,904 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:51546][0m
+2025-11-08 14:16:10,935 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:16:10,936 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:10,953 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:56061]
+2025-11-08 14:16:10,954 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50970]
+2025-11-08 14:16:11,247 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59440]
+2025-11-08 14:16:11,247 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59440]
+2025-11-08 14:16:12,782 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:12,811 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:16:12,812 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:12,878 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59440]
+2025-11-08 14:16:13,124 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55062]
+2025-11-08 14:16:13,125 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55062]
+2025-11-08 14:16:13,815 - INFO - runserver - [mHTTP GET /profile/ 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:13,844 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:16:13,845 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:13,863 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55062]
+2025-11-08 14:16:14,151 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:62385]
+2025-11-08 14:16:14,151 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:62385]
+2025-11-08 14:16:14,374 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:14,398 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:16:14,399 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:14,429 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:14,430 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:62385]
+2025-11-08 14:16:14,457 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:14,487 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:51546][0m
+2025-11-08 14:16:14,705 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:56931]
+2025-11-08 14:16:14,706 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:56931]
+2025-11-08 14:16:14,718 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:58326]
+2025-11-08 14:16:14,718 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:58326]
+2025-11-08 14:17:35,247 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:35,276 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:17:35,277 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:35,279 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:56931]
+2025-11-08 14:17:35,281 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:58326]
+2025-11-08 14:17:35,282 - INFO - runserver - [36mHTTP GET /static/main/scripts/control.js 304 [0.00, 127.0.0.1:58949][0m
+2025-11-08 14:17:35,596 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:54012]
+2025-11-08 14:17:35,597 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:54012]
+2025-11-08 14:17:35,610 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55381]
+2025-11-08 14:17:35,610 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55381]
+2025-11-08 14:17:36,786 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:36,809 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:17:36,810 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:36,840 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:54012]
+2025-11-08 14:17:36,841 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55381]
+2025-11-08 14:17:36,842 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:36,864 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:36,887 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:37,116 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:54798]
+2025-11-08 14:17:37,117 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:54798]
+2025-11-08 14:17:37,129 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61860]
+2025-11-08 14:17:37,129 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61860]
+2025-11-08 14:17:37,273 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:58949][0m
+2025-11-08 14:17:37,308 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:17:37,309 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.02, 127.0.0.1:58949][0m
+2025-11-08 14:17:37,320 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:54798]
+2025-11-08 14:17:37,321 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61860]
+2025-11-08 14:17:37,609 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61783]
+2025-11-08 14:17:37,610 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61783]
+2025-11-08 14:17:37,823 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.02, 127.0.0.1:58949][0m
+2025-11-08 14:17:37,851 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:17:37,851 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:58949][0m
+2025-11-08 14:17:37,894 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61783]
+2025-11-08 14:17:38,158 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:50291]
+2025-11-08 14:17:38,159 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:50291]
+2025-11-08 14:19:37,054 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60465]
+2025-11-08 14:19:37,055 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60465]
+2025-11-08 14:19:37,057 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60465]
+2025-11-08 14:19:40,886 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55669]
+2025-11-08 14:19:40,887 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55669]
+2025-11-08 14:19:40,888 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55669]
+2025-11-08 14:24:43,267 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64890]
+2025-11-08 14:24:43,268 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64890]
+2025-11-08 14:24:43,270 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64890]
+2025-11-08 14:24:47,222 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52544]
+2025-11-08 14:24:47,223 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52544]
+2025-11-08 14:24:47,224 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52544]
+2025-11-08 14:25:38,720 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:25:38,750 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:25:38,751 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:25:38,754 - INFO - runserver - [36mHTTP GET /static/main/scripts/control.js 304 [0.00, 127.0.0.1:65480][0m
+2025-11-08 14:25:38,768 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:50291]
+2025-11-08 14:25:39,087 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53892]
+2025-11-08 14:25:39,088 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53892]
+2025-11-08 14:25:39,101 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51776]
+2025-11-08 14:25:39,102 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51776]
+2025-11-08 14:26:00,993 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:50826]
+2025-11-08 14:26:00,993 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:50827]
+2025-11-08 14:26:07,950 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53233]
+2025-11-08 14:26:07,951 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53234]
+2025-11-08 14:26:07,952 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53233]
+2025-11-08 14:26:07,952 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53234]
+2025-11-08 14:26:08,263 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53235]
+2025-11-08 14:26:08,264 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53235]
+2025-11-08 14:26:08,266 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53235]
+2025-11-08 14:26:11,849 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60043]
+2025-11-08 14:26:11,850 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60043]
+2025-11-08 14:26:11,852 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60043]
+2025-11-08 14:26:16,725 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:26:16,751 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:26:16,752 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:26:16,767 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53892]
+2025-11-08 14:26:16,767 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51776]
+2025-11-08 14:26:17,103 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54894]
+2025-11-08 14:26:17,104 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54894]
+2025-11-08 14:26:22,583 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:26:22,611 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:26:22,612 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:26:22,626 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54894]
+2025-11-08 14:26:22,920 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:53825]
+2025-11-08 14:26:22,921 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:53825]
+2025-11-08 14:26:22,934 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:57819]
+2025-11-08 14:26:22,934 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:57819]
+2025-11-08 14:26:47,968 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:53234]
+2025-11-08 14:26:47,968 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53233]
+2025-11-08 14:26:50,326 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:26:50,331 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:53825]
+2025-11-08 14:26:50,331 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:57819]
+2025-11-08 14:26:50,347 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:26:50,347 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:65480][0m
+2025-11-08 14:26:50,666 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:49445]
+2025-11-08 14:26:50,666 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:49445]
+2025-11-08 14:26:50,678 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64878]
+2025-11-08 14:26:50,679 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64878]
+2025-11-08 14:27:01,419 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63806]
+2025-11-08 14:27:01,421 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:63807]
+2025-11-08 14:27:01,422 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:63806]
+2025-11-08 14:27:01,423 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:63807]
+2025-11-08 14:27:01,720 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63808]
+2025-11-08 14:27:01,721 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63808]
+2025-11-08 14:27:01,723 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:63808]
+2025-11-08 14:27:05,282 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64308]
+2025-11-08 14:27:05,283 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64308]
+2025-11-08 14:27:05,285 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64308]
+2025-11-08 14:28:03,800 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:61841][0m
+2025-11-08 14:28:03,805 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:49445]
+2025-11-08 14:28:03,805 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64878]
+2025-11-08 14:28:03,824 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:28:03,825 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:61841][0m
+2025-11-08 14:28:03,846 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:56759][0m
+2025-11-08 14:28:03,850 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:61841][0m
+2025-11-08 14:28:03,851 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:56759][0m
+2025-11-08 14:28:03,858 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:56759][0m
+2025-11-08 14:28:03,860 - INFO - runserver - [mHTTP GET /static/main/scripts/control.js 200 [0.01, 127.0.0.1:61841][0m
+2025-11-08 14:28:04,226 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:61841][0m
+2025-11-08 14:28:04,464 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:61247]
+2025-11-08 14:28:04,466 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:61247]
+2025-11-08 14:28:04,478 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55091]
+2025-11-08 14:28:04,478 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55091]
+2025-11-08 14:28:10,835 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63806]
+2025-11-08 14:28:10,835 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:63807]
+2025-11-08 14:28:20,269 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:56527]
+2025-11-08 14:28:20,270 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:56528]
+2025-11-08 14:28:20,270 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:56527]
+2025-11-08 14:28:20,271 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:56528]
+2025-11-08 14:28:20,580 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:56529]
+2025-11-08 14:28:20,581 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:56529]
+2025-11-08 14:28:20,583 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:56529]
+2025-11-08 14:28:24,164 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52845]
+2025-11-08 14:28:24,166 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52845]
+2025-11-08 14:28:24,168 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52845]
+2025-11-08 14:33:26,514 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52296]
+2025-11-08 14:33:26,514 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52296]
+2025-11-08 14:33:26,518 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52296]
+2025-11-08 14:33:30,389 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59771]
+2025-11-08 14:33:30,390 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59771]
+2025-11-08 14:33:30,393 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59771]
+2025-11-08 14:36:35,812 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:56527]
+2025-11-08 14:36:35,813 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:56528]
+2025-11-08 14:36:45,071 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:57545][0m
+2025-11-08 14:36:45,075 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:61247]
+2025-11-08 14:36:45,075 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55091]
+2025-11-08 14:36:45,107 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:57545][0m
+2025-11-08 14:36:45,108 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:64693][0m
+2025-11-08 14:36:45,111 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:57545][0m
+2025-11-08 14:36:45,115 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:64693][0m
+2025-11-08 14:36:45,118 - INFO - runserver - [mHTTP GET /static/main/scripts/control.js 200 [0.00, 127.0.0.1:57545][0m
+2025-11-08 14:36:45,124 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:36:45,124 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:64693][0m
+2025-11-08 14:36:45,554 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:64693][0m
+2025-11-08 14:36:45,694 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64606]
+2025-11-08 14:36:45,695 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64606]
+2025-11-08 14:36:45,709 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55824]
+2025-11-08 14:36:45,709 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55824]
+2025-11-08 14:36:54,881 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:64319]
+2025-11-08 14:36:54,882 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:64320]
+2025-11-08 14:36:54,883 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:64319]
+2025-11-08 14:36:54,883 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:64320]
+2025-11-08 14:36:55,197 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64321]
+2025-11-08 14:36:55,198 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64321]
+2025-11-08 14:36:55,200 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64321]
+2025-11-08 14:36:58,544 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65424]
+2025-11-08 14:36:58,545 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65424]
+2025-11-08 14:36:58,549 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65424]
+2025-11-08 14:38:54,714 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 14:38:55,201 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:38:57,385 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:50648]
+2025-11-08 14:38:57,386 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:50648]
+2025-11-08 14:39:01,803 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62346]
+2025-11-08 14:39:01,804 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62347]
+2025-11-08 14:39:01,806 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62346]
+2025-11-08 14:39:01,806 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62347]
+2025-11-08 14:39:12,822 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 14:39:13,318 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:39:15,384 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:57591]
+2025-11-08 14:39:15,386 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:57591]
+2025-11-08 14:39:15,726 - INFO - autoreload - D:\PROJECTs\autodetect\project\main\consumers.py changed, reloading.
+2025-11-08 14:39:16,187 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:39:18,383 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52431]
+2025-11-08 14:39:18,385 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:52431]
+2025-11-08 14:39:26,129 - INFO - autoreload - Watching for file changes with StatReloader
+2025-11-08 14:39:26,393 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62154]
+2025-11-08 14:39:26,394 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62154]
+2025-11-08 14:39:33,187 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:52164]
+2025-11-08 14:39:33,190 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:52165]
+2025-11-08 14:39:33,192 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:52164]
+2025-11-08 14:39:33,192 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:52165]
+2025-11-08 14:39:33,496 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:52166]
+2025-11-08 14:39:33,497 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:52166]
+2025-11-08 14:39:33,500 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:52166]
+2025-11-08 14:39:36,863 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:53299]
+2025-11-08 14:39:36,866 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:53299]
+2025-11-08 14:39:36,871 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:53299]
+2025-11-08 14:39:42,931 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.02, 127.0.0.1:65422][0m
+2025-11-08 14:39:43,286 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:54862]
+2025-11-08 14:39:43,287 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:54862]
+2025-11-08 14:40:15,104 - INFO - runserver - [mHTTP GET /profile/ 200 [0.02, 127.0.0.1:50375][0m
+2025-11-08 14:40:15,145 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:54862]
+2025-11-08 14:40:15,436 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:65198]
+2025-11-08 14:40:15,437 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:65198]
+2025-11-08 14:40:19,202 - WARNING - log - Method Not Allowed (GET): /device/221/charts/
+2025-11-08 14:40:19,204 - WARNING - runserver - [31;1mHTTP GET /device/221/charts/ 405 [0.00, 127.0.0.1:50375][0m
+2025-11-08 14:40:19,224 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:65198]
+2025-11-08 14:40:46,798 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.02, 127.0.0.1:50375][0m
+2025-11-08 14:40:47,143 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:59530]
+2025-11-08 14:40:47,144 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:59530]
+2025-11-08 14:40:49,223 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.03, 127.0.0.1:50375][0m
+2025-11-08 14:40:49,227 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:59530]
+2025-11-08 14:40:49,306 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.05, 127.0.0.1:51806][0m
+2025-11-08 14:40:49,308 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.06, 127.0.0.1:50375][0m
+2025-11-08 14:40:49,309 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.06, 127.0.0.1:49626][0m
+2025-11-08 14:40:49,311 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:51806][0m
+2025-11-08 14:40:49,313 - INFO - runserver - [mHTTP GET /static/main/scripts/dashboard.js 200 [0.00, 127.0.0.1:50375][0m
+2025-11-08 14:40:49,314 - INFO - runserver - [mHTTP GET /static/main/scripts/device.js 200 [0.00, 127.0.0.1:51806][0m
+2025-11-08 14:40:49,809 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:51806][0m
+2025-11-08 14:40:49,905 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:51874]
+2025-11-08 14:40:49,905 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:51874]
+2025-11-08 14:40:54,646 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61753]
+2025-11-08 14:40:54,647 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61753]
+2025-11-08 14:40:54,649 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61753]
+2025-11-08 14:41:00,323 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64634]
+2025-11-08 14:41:00,325 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64634]
+2025-11-08 14:41:00,329 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64634]
+2025-11-08 14:41:46,718 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64593]
+2025-11-08 14:41:46,719 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64593]
+2025-11-08 14:41:46,721 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64593]
+2025-11-08 14:42:11,793 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61421]
+2025-11-08 14:42:11,794 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61421]
+2025-11-08 14:42:11,796 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61421]
+2025-11-08 14:42:34,576 - INFO - runserver - [mHTTP GET /dashboard/ 200 [0.01, 127.0.0.1:57319][0m
+2025-11-08 14:42:34,591 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:51874]
+2025-11-08 14:42:34,939 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63552]
+2025-11-08 14:42:34,940 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63552]
+2025-11-08 14:42:43,612 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:62982]
+2025-11-08 14:42:43,613 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:62982]
+2025-11-08 14:42:43,615 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:62982]
+2025-11-08 14:42:48,672 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:57319][0m
+2025-11-08 14:42:48,676 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62154]
+2025-11-08 14:42:48,687 - INFO - runserver - [36mHTTP GET /static/main/scripts/control.js 304 [0.00, 127.0.0.1:57319][0m
+2025-11-08 14:42:48,705 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:42:48,705 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:57319][0m
+2025-11-08 14:42:49,031 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:63756]
+2025-11-08 14:42:49,034 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:63756]
+2025-11-08 14:42:49,047 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:57668]
+2025-11-08 14:42:49,047 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:57668]
+2025-11-08 14:42:49,977 - INFO - runserver - [mHTTP GET /control/ 200 [0.01, 127.0.0.1:57319][0m
+2025-11-08 14:42:49,980 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:63756]
+2025-11-08 14:42:49,981 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:57668]
+2025-11-08 14:42:49,998 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:42:49,999 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:57319][0m
+2025-11-08 14:42:50,305 - INFO - runserver - WebSocket HANDSHAKING /ws/device_control/ [127.0.0.1:62310]
+2025-11-08 14:42:50,306 - INFO - runserver - WebSocket CONNECT /ws/device_control/ [127.0.0.1:62310]
+2025-11-08 14:42:50,319 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:61884]
+2025-11-08 14:42:50,320 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:61884]
+2025-11-08 14:43:08,670 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:57319][0m
+2025-11-08 14:43:08,692 - INFO - runserver - [36mHTTP GET /static/main/scripts/training.js 304 [0.00, 127.0.0.1:57319][0m
+2025-11-08 14:43:08,692 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_confusion.js 304 [0.00, 127.0.0.1:50876][0m
+2025-11-08 14:43:08,702 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:43:08,702 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:49861][0m
+2025-11-08 14:43:08,702 - INFO - runserver - [36mHTTP GET /static/main/scripts/training_overview.js 304 [0.00, 127.0.0.1:57319][0m
+2025-11-08 14:43:08,707 - INFO - runserver - WebSocket DISCONNECT /ws/device_control/ [127.0.0.1:62310]
+2025-11-08 14:43:08,707 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:61884]
+2025-11-08 14:43:08,767 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:49861][0m
+2025-11-08 14:43:08,778 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:49861][0m
+2025-11-08 14:43:08,804 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:49861][0m
+2025-11-08 14:43:09,009 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:49447]
+2025-11-08 14:43:09,010 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:49447]
+2025-11-08 14:43:09,038 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:64339]
+2025-11-08 14:43:09,039 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:64339]
+2025-11-08 14:52:06,919 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:52165]
+2025-11-08 14:52:11,816 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:59915][0m
+2025-11-08 14:52:11,821 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:49447]
+2025-11-08 14:52:11,822 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:64339]
+2025-11-08 14:52:11,841 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:52:11,841 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:11,877 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:11,905 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=10 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:11,938 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=10&round=19 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:12,150 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:57936]
+2025-11-08 14:52:12,151 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:57936]
+2025-11-08 14:52:12,164 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:63027]
+2025-11-08 14:52:12,164 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:63027]
+2025-11-08 14:52:13,878 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:13,883 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:57936]
+2025-11-08 14:52:13,883 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:63027]
+2025-11-08 14:52:13,907 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:59915][0m
+2025-11-08 14:52:13,908 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.00, 127.0.0.1:59393][0m
+2025-11-08 14:52:13,914 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:52:13,916 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.00, 127.0.0.1:59915][0m
+2025-11-08 14:52:13,918 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:52:13,921 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.00, 127.0.0.1:59915][0m
+2025-11-08 14:52:13,922 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:52:13,932 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:53311]
+2025-11-08 14:52:13,932 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:52:13,933 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:53311]
+2025-11-08 14:52:13,933 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:14,250 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:14,266 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=10 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:14,310 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=10&round=19 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:14,462 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:59915][0m
+2025-11-08 14:52:14,528 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:55808]
+2025-11-08 14:52:14,529 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:55808]
+2025-11-08 14:52:14,542 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60813]
+2025-11-08 14:52:14,542 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60813]
+2025-11-08 14:52:16,770 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:16,790 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:18,582 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=10 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:18,608 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=10&round=19 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:20,974 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:20,993 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:35,248 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=10 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:52:35,305 - WARNING - log - Not Found: /favicon.ico
+2025-11-08 14:52:35,306 - WARNING - runserver - [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:53:11,474 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:53:11,480 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:55808]
+2025-11-08 14:53:11,480 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:60813]
+2025-11-08 14:53:11,502 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:53:11,503 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:53:11,512 - INFO - runserver - [mHTTP GET /static/main/styles/main.css 200 [0.00, 127.0.0.1:59393][0m
+2025-11-08 14:53:11,526 - INFO - runserver - [mHTTP GET /static/main/scripts/training.js 200 [0.01, 127.0.0.1:61942][0m
+2025-11-08 14:53:11,527 - INFO - runserver - [mHTTP GET /static/main/images/su-logo-text.png 200 [0.01, 127.0.0.1:58638][0m
+2025-11-08 14:53:11,527 - INFO - runserver - [mHTTP GET /static/main/scripts/script.js 200 [0.01, 127.0.0.1:51249][0m
+2025-11-08 14:53:11,528 - INFO - runserver - [mHTTP GET /static/main/scripts/training_confusion.js 200 [0.01, 127.0.0.1:59915][0m
+2025-11-08 14:53:11,529 - INFO - runserver - [mHTTP GET /static/main/scripts/training_overview.js 200 [0.01, 127.0.0.1:59393][0m
+2025-11-08 14:53:11,529 - INFO - runserver - [mHTTP GET /static/main/images/logo.png 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:53:12,009 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:53:12,018 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=10 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:53:12,046 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=10&round=19 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:53:12,194 - INFO - runserver - [mHTTP GET /static/main/images/favicon.ico 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:53:12,289 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:62858]
+2025-11-08 14:53:12,290 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:62858]
+2025-11-08 14:53:12,302 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:55264]
+2025-11-08 14:53:12,302 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:55264]
+2025-11-08 14:53:59,901 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:53:59,906 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:62858]
+2025-11-08 14:53:59,906 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:55264]
+2025-11-08 14:53:59,928 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:53:59,929 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:53:59,982 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:53:59,998 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=10 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:00,027 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=10&round=19 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:00,263 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:49270]
+2025-11-08 14:54:00,264 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:49270]
+2025-11-08 14:54:00,277 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:62316]
+2025-11-08 14:54:00,277 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:62316]
+2025-11-08 14:54:01,547 - INFO - runserver - [mHTTP POST /training/delete/ 200 [0.04, 127.0.0.1:53341][0m
+2025-11-08 14:54:01,557 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:01,566 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:01,584 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:02,106 - INFO - runserver - [mHTTP GET /training/ 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:54:02,110 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:49270]
+2025-11-08 14:54:02,110 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:62316]
+2025-11-08 14:54:02,128 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:54:02,128 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:02,156 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:02,183 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:02,205 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:02,437 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:65414]
+2025-11-08 14:54:02,438 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:65414]
+2025-11-08 14:54:02,450 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:49162]
+2025-11-08 14:54:02,451 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:49162]
+2025-11-08 14:54:11,541 - INFO - runserver - [mHTTP GET /training/ 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:11,545 - INFO - runserver - WebSocket DISCONNECT /ws/train_model/ [127.0.0.1:65414]
+2025-11-08 14:54:11,545 - INFO - runserver - WebSocket DISCONNECT /ws/device_status/ [127.0.0.1:49162]
+2025-11-08 14:54:11,563 - WARNING - log - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-08 14:54:11,563 - WARNING - runserver - [33mHTTP GET /.well-known/appspecific/com.chrome.devtools.json 404 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:11,586 - INFO - runserver - [mHTTP GET /training/trains/ 200 [0.00, 127.0.0.1:53341][0m
+2025-11-08 14:54:11,624 - INFO - runserver - [mHTTP GET /training/rounds/?train_id=6 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:11,651 - INFO - runserver - [mHTTP GET /training/confusion/?train_id=6&round=9 200 [0.01, 127.0.0.1:53341][0m
+2025-11-08 14:54:11,871 - INFO - runserver - WebSocket HANDSHAKING /ws/train_model/ [127.0.0.1:60543]
+2025-11-08 14:54:11,872 - INFO - runserver - WebSocket CONNECT /ws/train_model/ [127.0.0.1:60543]
+2025-11-08 14:54:11,885 - INFO - runserver - WebSocket HANDSHAKING /ws/device_status/ [127.0.0.1:60359]
+2025-11-08 14:54:11,886 - INFO - runserver - WebSocket CONNECT /ws/device_status/ [127.0.0.1:60359]

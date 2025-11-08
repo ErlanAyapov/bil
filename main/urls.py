@@ -28,6 +28,7 @@ urlpatterns = [
     path('device/<int:pk>/edit/', device_edit, name='device_edit'),
     path('device/<int:pk>/activity/', device_activity_data, name='device_activity_data'),
     path('device/<int:pk>/charts/', device_charts, name='device_charts'),
+    path('control/', device_control, name='device_control'),
     path('training/confusion/', get_confusion_data, name='get_confusion_data'),
     path('training/trains/', list_trains, name='list_trains'),
     path('training/rounds/', get_train_rounds, name='get_train_rounds'),
