@@ -31,4 +31,5 @@ urlpatterns = [
     path('training/confusion/', get_confusion_data, name='get_confusion_data'),
     path('training/trains/', list_trains, name='list_trains'),
     path('training/rounds/', get_train_rounds, name='get_train_rounds'),
+    path('training/delete/', delete_train, name='delete_train'),
 ]

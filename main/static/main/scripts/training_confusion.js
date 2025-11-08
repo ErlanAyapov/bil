@@ -91,6 +91,8 @@
     };
   }
 
+  window.renderConfusionMatrix = renderConfusionMatrix;
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', hook);
   } else {

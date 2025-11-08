@@ -108,6 +108,7 @@ class Train(models.Model):
     is_active    = models.BooleanField(default=True)
     ready        = models.BooleanField(default=False)
     created_at   = models.DateTimeField(auto_now_add=True)
+    global_confusion = models.JSONField(blank=True, null=True)
 
     class Meta:
         ordering = ['-date', '-created_at']

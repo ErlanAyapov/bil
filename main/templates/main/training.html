@@ -1,11 +1,11 @@
 {% extends "main.html" %}
 {% load static %}
 
-{% block title %}Обучение модели{% endblock %}
+{% block title %}Обучение моделей{% endblock %}
 
 {% block main %}
-<div class="row align-items-stretch">
-  <!-- ────────── Панель управления ────────── -->
+<div class="row align-items-stretch g-3">
+  <!-- Левая колонка: запуск новой сессии -->
   <div class="col-md-6 d-flex flex-column">
     <form id="train-form"
           class="bg-white rounded shadow-sm p-4 flex-grow-1"
@@ -14,20 +14,23 @@
 
       <div class="form-group">
         <div id="model-description" class="alert alert-warning mb-3">
-          <p class="text-muted text-center mb-0">Выберите модель для просмотра описания.</p>
+          <p class="text-muted text-center mb-0">
+            Выберите модель, чтобы увидеть краткое описание и параметры.
+          </p>
         </div>
 
+        <label for="model" class="form-label">Модель</label>
         <select class="form-control" id="model" name="model" required
                 onchange="updateModelDescription(this.value)">
           <option value="" selected disabled>Выберите модель</option>
           <option value="cnn">CNN</option>
           <option value="dnn">DNN</option>
-          <option value="cnn_bilstm">CNN&nbsp;+&nbsp;BiLSTM</option>
+          <option value="cnn_bilstm">CNN + BiLSTM</option>
         </select>
       </div>
 
       <div class="form-group mt-4">
-        <label for="rounds">
+        <label for="rounds" class="form-label">
           Количество раундов: <strong id="rounds-value">10</strong>
         </label>
         <input type="range" class="form-range"
@@ -38,21 +41,40 @@
       </div>
 
       <button id="start-btn" class="btn btn-primary w-100 mt-auto">
-        Начать обучение
+        Запустить обучение
       </button>
+
+      <h6 class="text-center mt-5">Матрица ошибок</h6>
+      <canvas id="confusion-heatmap" height="300"></canvas>
     </form>
   </div>
 
-  <!-- ────────── Мониторинг ────────── -->
+  <!-- Правая колонка: история и метрики -->
   <div class="col-md-6 d-flex flex-column">
     <div class="bg-white rounded shadow-sm p-4 flex-grow-1">
-      <div class="d-flex justify-content-between align-items-center mb-2"><h5 class="mb-0">�������� ��������</h5><div class="d-flex align-items-center gap-2"><label for="train-session-select" class="form-label mb-0 small text-muted">������</label><select id="train-session-select" class="form-select form-select-sm" style="min-width: 220px"></select></div></div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">История тренировок</h5>
+        <div class="d-flex align-items-center gap-2">
+          <label for="train-session-select" class="form-label mb-0 small text-muted">Сессия</label>
+          <select id="train-session-select" class="form-select form-select-sm" style="min-width: 220px"></select>
+          <button type="button" class="btn btn-outline-danger btn-sm" id="train-delete-btn" disabled>Удалить</button>
+        </div>
+      </div>
+
+      <h6 class="text-center">Точность</h6>
       <canvas id="training-progress-chart" height="200"></canvas>
 
+      <hr class="my-3" />
+
+      <h6 class="text-center">Функция потерь</h6>
+      <canvas id="train-loss" height="220"></canvas>
+
       <div id="training-logs" class="mt-3">
-        <div class="alert alert-info" style="max-height: 300px; overflow-y:auto;">
-          Пока нет подключённых шлюзов. Ждём…
-        </div>\r\n\r\n      <hr class='my-3' />\r\n      <h6 class='text-center'>Confusion Matrix</h6>\r\n      <canvas id='confusion-heatmap' height='300'></canvas>\r\n    </div>\r\n  </div>
+        <div class="alert alert-info" style="max-height: 300px; overflow-y: auto;">
+          Логи обучения появятся здесь после старта. Нажмите «Запустить обучение».
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -60,7 +82,5 @@
 {% block include_scripts %}
 <script src="{% static 'main/scripts/training.js' %}"></script>
 <script src="{% static 'main/scripts/training_confusion.js' %}"></script>
+<script src="{% static 'main/scripts/training_overview.js' %}"></script>
 {% endblock %}
-
-
-

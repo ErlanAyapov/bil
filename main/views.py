@@ -17,6 +17,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 
 
 logger = logging.getLogger(__name__)
@@ -567,6 +568,34 @@ def get_train_rounds(request):
             accuracies.append(None)
 
     return JsonResponse({'success': True, 'rounds': rounds, 'accuracies': accuracies, 'train_id': train_id})
+
+
+@login_required(login_url='login')
+@require_POST
+def delete_train(request):
+    try:
+        payload = json.loads(request.body or "{}")
+    except json.JSONDecodeError:
+        payload = {}
+
+    train_id = payload.get('train_id') or request.POST.get('train_id')
+    if not train_id:
+        return JsonResponse({'success': False, 'error': 'train_id is required'}, status=400)
+
+    try:
+        train = Train.objects.get(pk=int(train_id))
+    except (ValueError, Train.DoesNotExist):
+        return JsonResponse({'success': False, 'error': 'train not found'}, status=404)
+
+    # if train.is_active:
+    #     return JsonResponse({'success': False, 'error': 'Нельзя удалить активную сессию. Остановите обучение и попробуйте снова.'}, status=400)
+
+    deleted_id = train.id
+    train.delete()
+    return JsonResponse({'success': True, 'train_id': deleted_id})
+
+@require_POST
+
 
 
 @login_required(login_url='login')

@@ -108,50 +108,76 @@ class DeviceStatusConsumer(AsyncWebsocketConsumer):
 
 
 class TrainModelConsumer(AsyncWebsocketConsumer):
-    # слабые ссылки, чтобы не удерживать объекты
-    connected_clients = weakref.WeakSet()
+    import weakref as _weakref
+    connected_clients = _weakref.WeakSet()  # слабые ссылки, чтобы не удерживать объекты
     aggregations = {}
     agg_init_lock = asyncio.Lock()
 
-    # параметры ожидания и синхронизации
     AGG_TIMEOUT_SEC = 20
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.device = None
         self.lock = asyncio.Lock()
-        self.training_clients = set()   # set(device_id) зафиксированный на старте
-        self.round_weights = {}         # {device_id: [layer arrays]}
+        self.training_clients = set()
+        self.round_weights = {}
         self.round_deadline = None
-        self.current_model = None       # 'dnn' | 'cnn' | ...
+        self.current_model = None
         self.train = None
         self.timeout_task = None
-        # текущая Train-сессия (сегодня + model_name)
+        self.is_ui = False
 
+    # -------------- lifecycle --------------
     async def connect(self):
         await self.accept()
         self.connected_clients.add(self)
 
-        # UI-группа (лог/прогресс)
-        if self.channel_layer:
-            await self.channel_layer.group_add("ui_training", self.channel_name)
-
     async def disconnect(self, code):
         self.connected_clients.discard(self)
-        if self.channel_layer:
+        if self.is_ui and self.channel_layer:
             await self.channel_layer.group_discard("ui_training", self.channel_name)
 
+    async def _ensure_ui_channel(self):
+        if self.is_ui or not self.channel_layer:
+            return
+        await self.channel_layer.group_add("ui_training", self.channel_name)
+        self.is_ui = True
+
+    # -------------- helpers: UI emit + broadcast --------------
+    async def ui_message(self, event):
+        # handler для group_send(type="ui.message", ...)
+        await self.send(json.dumps(event["message"]))
+
+    async def ui_emit(self, message: dict):
+        """Отправить только в UI-группу."""
+        if self.channel_layer:
+            await self.channel_layer.group_send("ui_training", {"type": "ui.message", "message": message})
+
+    async def ui_log(self, text: str):
+        await self.ui_emit({"type": "train_log", "text": text})
+
+    async def broadcast_all(self, message: dict):
+        """Рассылка всем подключенным сокетам (устройствам и UI) + в UI-группу."""
+        # прямые соединения
+        for c in list(self.connected_clients):
+            try:
+                await c.send(json.dumps(message))
+            except Exception:
+                pass
+        # UI-группа (на случай, если часть UI только в группе)
+        await self.ui_emit(message)
+
+    # -------------- receive --------------
     async def receive(self, text_data):
         data = json.loads(text_data or "{}")
         t = data.get("type")
 
         if t == "hello":
-            print("Client connected:", data)
             self.device = await self.get_device(data.get("device_token"))
             if not self.device:
                 await self.close(code=4001); return
 
-            # если уже есть активная Train и глобальные веса — отдаём
+            # если уже есть активная Train и глобальные веса — отдать
             if self.train and self.train.get("global_weights"):
                 await self.send(json.dumps({
                     "type": "global_weights",
@@ -161,11 +187,9 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                     "model": self.train["model_name"],
                     "train_id": self.train["id"],
                 }))
-
-            await self.ui_log(f"Подключен {self.device.name}" )
+            await self.ui_log(f"Подключен {self.device.name}")
 
         elif t == "subscribe":
-            # подписка клиента (отправим в UI инфо)
             self.device = await self.get_device(data.get("device_token"))
             if not self.device:
                 await self.close(code=4001); return
@@ -176,11 +200,10 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 "device_name": data.get("client") or self.device.name,
                 "device_id": self.device.id,
             }
-
-            # раньше было: await self.broadcast_all(msg)
             await self.broadcast_all(msg)
+
         elif t == "ui_sync":
-            # пошлём текущий список подписанных устройств (сокетов с device)
+            await self._ensure_ui_channel()
             items = []
             for c in list(self.connected_clients):
                 dev = getattr(c, "device", None)
@@ -193,16 +216,14 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             await self.send(json.dumps({"type": "full_subscribers", "items": items}))
 
         elif t == "start_training":
-            # UI-команда: задали модель и лимиты — найдём/создадим Train (сегодня + модель)
+            await self._ensure_ui_channel()
             model = (data.get("model") or "dnn").lower()
             max_rounds = int(data.get("rounds") or 50)
             epochs = int(data.get("epochs") or 10)
 
             self.train = await self.get_or_create_today_train(model, max_rounds, epochs)
-            print(f"Training session: {self.train}")
             self.current_model = self.train["model_name"]
-            print(f"Training session ready: {self.train}")
-            # зафиксируем участников (только реальные устройства с device)
+
             loop = asyncio.get_running_loop()
             agg = await self._get_agg_state(self.train["id"])
             async with agg["lock"]:
@@ -211,7 +232,6 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 agg["round_deadline"] = loop.time() + self.AGG_TIMEOUT_SEC
             await self._schedule_timeout_shared(self.train["id"], self.train["round_count"])
 
-            # разошлём клиентам команду (продолжить с текущего round_count)
             payload_msg = {
                 "type": "start_training",
                 "model": self.current_model,
@@ -220,9 +240,8 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 "train_id": self.train["id"],
             }
             await self.broadcast_all(payload_msg)
-            await self.ui_log(f"▶ Старт обучения: {self.current_model}, раунд с {self.train['round_count']}")
+            await self.ui_log(f"? Старт обучения: {self.current_model}, раунд с {self.train['round_count']}")
 
-            # если у Train уже есть глобальные веса — полезно дёрнуть их рассылку для новых клиентов
             if self.train.get("global_weights"):
                 payload_msg = {
                     "type": "global_weights",
@@ -231,157 +250,181 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                     "accuracy": None,
                     "model": self.current_model,
                     "train_id": self.train["id"],
-                };        await self.broadcast_all(payload_msg)
+                }
+                await self.broadcast_all(payload_msg)
+
         elif t == "weights":
-            # print(f'data weights: {data}')
+            # Получены локальные веса/метрики от клиента
             print(f"Received weights message from device_token={data.get('device_token')}")
             print(f"train_id: {data.get('train_id')}")
-
             self.train = await self.get_train_by_id(data.get("train_id"))
             await self.process_weights(data)
 
         else:
             await self.close(code=4002)
 
+    # -------------- core per-message --------------
     async def process_weights(self, data):
-        # обязательные условия
-        # print(f'device: {self.device}, train: {self.train}  ')
-        if not self.device:
-            return
-        if not self.train:
-            # если клиент прислал веса до команды старта — игнорируем
+        if not self.device or not self.train:
             return
 
         weights  = pickle.loads(bytes.fromhex(data["payload"]))
         round_no = int(data.get("round") or self.train["round_count"])
         metrics  = self._normalize_metrics(data.get("metrics"), round_no)
+
         print(f"Received weights from {self.device.name} for round {round_no}")
         print(f"Metrics: {metrics}")
         print(f"Weights layers: {len(weights)}")
-        # сохраним per-device метрики как раньше (если используешь RoundResult на пер-девайс)
+
+        # 1) сохранить per-device метрики/строку
         local_data = await self.get_or_create_local_data(self.device)
         await self.save_device_round_result(self.device, local_data, round_no, metrics, train_id=self.train["id"])
 
-        # запишем веса в буфер текущего раунда
+        # 2) UI: онлайн-обновление графика Loss (если есть)
+        if isinstance(metrics, dict) and (metrics.get("loss") is not None):
+            await self.ui_emit({"type": "train_loss", "round": round_no, "loss": metrics.get("loss")})
+
+        # 3) сложить веса в буфер текущего раунда
+        have_snapshot = set()
+        goal_snapshot = set()
+        time_expired = False
+        ready = False
         agg = await self._get_agg_state(self.train["id"])
         async with agg["lock"]:
             agg["round_weights"][self.device.id] = [np.asarray(a) for a in weights]
 
             have = set(agg["round_weights"].keys())
             goal = set(agg.get("training_clients") or [])
-            # Fallback: если snapshot не зафиксирован, берём всех подписанных с устройством
             if not goal:
-                goal = {getattr(c.device, 'id', None) for c in list(self.connected_clients) if getattr(c, 'device', None)}
+                goal = {getattr(c.device, "id", None) for c in list(self.connected_clients) if getattr(c, "device", None)}
                 goal.discard(None)
 
             loop = asyncio.get_running_loop()
-            # Инициализируем дедлайн раунда, если его ещё нет
             if not agg.get("round_deadline"):
                 agg["round_deadline"] = loop.time() + self.AGG_TIMEOUT_SEC
-                await self._schedule_timeout_shared(self.train["id"], self.train["round_count"]) 
+                await self._schedule_timeout_shared(self.train["id"], self.train["round_count"])
             time_expired = bool(agg.get("round_deadline")) and (loop.time() >= agg["round_deadline"])
-            ready = (len(goal) > 0 and have >= goal) or time_expired
-        
-        print(f'ready to aggregate? {ready} (have {len(have)}/{len(goal)}, expired={time_expired})')
+            have_snapshot = set(have)
+            goal_snapshot = set(goal)
+            ready = (len(goal_snapshot) > 0 and have_snapshot >= goal_snapshot) or time_expired
+
+        # 4) UI: онлайн-агрегированная confusion по уже полученным устройствам (не ждём FedAvg)
+        aggregated = await self.get_aggregated_confusion(self.train["id"], round_no)
+        if aggregated and aggregated.get("confusion"):
+            await self.ui_emit({
+                "type": "confusion_matrix",
+                "labels": aggregated.get("classes"),
+                "matrix": aggregated.get("confusion"),
+                "support": aggregated.get("support"),
+            })
+
+        print(f"ready to aggregate? {ready} (have {len(have_snapshot)}/{len(goal_snapshot)}, expired={time_expired})")
         if ready:
+            if have_snapshot:
+                await self._set_training_clients(self.train["id"], have_snapshot)
             await self.aggregate_and_broadcast_all(round_no, metrics)
             # подготовка к следующему сбору
             agg = await self._get_agg_state(self.train["id"])
             async with agg["lock"]:
                 agg["round_weights"].clear()
                 agg["round_deadline"] = asyncio.get_running_loop().time() + self.AGG_TIMEOUT_SEC
-            await self._schedule_timeout_shared(self.train["id"], self.train["round_count"]) 
+            await self._schedule_timeout_shared(self.train["id"], self.train["round_count"])
 
     async def aggregate_and_broadcast_all(self, round_num, metrics):
         """
-        FedAvg буфера self.round_weights → обновляем Train.global_weights и Train.round_count,
-        пишем агрегированную строку RoundResult (train-wide), шлём global_weights клиентам/в UI.
+        FedAvg буфера > обновляем Train, пишем историю, шлём global_weights и UI-метрики.
         """
         print(f"Aggregating weights for round {round_num}...")
-        print(f'Train before agg: {self.train}')
         if not self.train:
             return
 
         # 1) FedAvg
         new_weights = await self.fedavg_current_round()
         if new_weights is None:
-            await self.ui_log("⚠ Нет валидных весов для агрегации"); return
+            await self.ui_log("? Нет валидных весов для агрегации"); return
 
-        # 2) Обновим Train: глобальные веса + инкремент round_count
-        self.train = await self.update_train_after_agg(self.train["id"], new_weights)
+        # 2) агрегированная матрица за раунд (если есть)
+        aggregated = await self.get_aggregated_confusion(self.train["id"], round_num)
+        new_global_confusion = aggregated if aggregated else None
 
-        # 3) Усреднённая accuracy по этому round_num (из RoundResult per-device)
+        # 3) Обновим Train (веса + счётчик + глобальная матрица)
+        self.train = await self.update_train_after_agg(self.train["id"], new_weights, new_global_confusion)
+
+        # 4) Средняя accuracy по раунду (из RoundResult per-device)
         avg_accuracy = await self.get_average_accuracy(self.train["id"], round_num)
         avg_loss = metrics.get("loss") if isinstance(metrics, dict) else None
         print(f"Aggregated round {round_num}: avg_accuracy={avg_accuracy}, avg_loss={avg_loss}")
-        # 4) Сохранить «строку истории» для этого Train/round
+
+        # 5) История — опционально (оставлено как в исходнике)
         await self.save_round_history(
             train_id=self.train["id"],
-            round_number=self.train["round_count"],   # уже инкрементированный номер
+            round_number=self.train["round_count"],
             avg_accuracy=avg_accuracy,
             avg_loss=avg_loss,
             snapshot_weights=new_weights
         )
 
-        # 5) Разослать всем обновление
+        # 6) Разослать обновлённые веса и метрики
         payload_msg = {
             "type": "global_weights",
             "payload": pickle.dumps(new_weights).hex(),
-            "round":   self.train["round_count"],   # уже инкрементирован
+            "round":   self.train["round_count"],
             "accuracy": avg_accuracy,
             "model": self.train["model_name"],
             "train_id": self.train["id"],
         }
+        if new_global_confusion and new_global_confusion.get("confusion"):
+            payload_msg.update({
+                "confusion": new_global_confusion.get("confusion"),
+                "classes": new_global_confusion.get("classes"),
+                "support": new_global_confusion.get("support"),
+            })
         await self.broadcast_all(payload_msg)
-        await self.ui_log(f"[agg] Раунд завершён → {self.train['round_count']} (avg_acc={avg_accuracy})")
+        # Обновить loss-график для UI, если значение есть
+        if avg_loss is not None:
+            await self.ui_emit({"type": "train_loss", "round": self.train["round_count"], "loss": avg_loss})
 
+        # Актуальная агрегированная confusion после FedAvg — отдельно в UI
+        if new_global_confusion and new_global_confusion.get("confusion"):
+            await self.ui_emit({
+                "type": "confusion_matrix",
+                "labels": new_global_confusion.get("classes"),
+                "matrix": new_global_confusion.get("confusion"),
+                "support": new_global_confusion.get("support"),
+            })
 
+        await self.ui_log(f"[agg] Раунд завершён > {self.train['round_count']} (avg_acc={avg_accuracy})")
 
-        # 6) Стоп/продолжить
+        # 7) Остановка/продолжение
         if self.train["round_count"] >= self.train["max_rounds"]:
             await self.mark_train_finished(self.train["id"])
-            payload_msg = {
+            # финальная матрица есть в Train.global_confusion — отдаём в UI
+            final_conf = self.train.get("global_confusion") or new_global_confusion
+            msg = {
                 "type": "training_complete",
                 "rounds": self.train["max_rounds"],
                 "final_accuracy": avg_accuracy,
                 "train_id": self.train["id"],
             }
-            await self.broadcast_all(payload_msg)
-            await self.ui_log("✔ Обучение завершено")
+            if final_conf and final_conf.get("confusion"):
+                msg.update({
+                    "labels": final_conf.get("classes"),
+                    "matrix": final_conf.get("confusion"),
+                    "support": final_conf.get("support"),
+                })
+            await self.broadcast_all(msg)
+            await self.ui_log("? Обучение завершено")
             return
 
         # следующий раунд
-        payload_msg = {
+        await self.broadcast_all({
             "type": "start_training",
-            "round": self.train["round_count"],   # теперь точно следующий
+            "round": self.train["round_count"],
             "model": self.train["model_name"],
             "train_id": self.train["id"],
-        };        await self.broadcast_all(payload_msg)
-    async def broadcast_all(self, message: dict):
-        # клиентам-обучателям
-        for c in list(self.connected_clients):
-            try:
-                await c.send(json.dumps(message))
-            except Exception:
-                pass
-        # UI-группа
-        if self.channel_layer:
-            await self.channel_layer.group_send("ui_training", {"type": "ui.message", "message": message})
+        })
 
-    async def broadcast_all(self, message: dict):
-        for c in list(self.connected_clients):
-            try:
-                await c.send(json.dumps(message))
-            except Exception:
-                pass
-
-    async def ui_message(self, event):
-        await self.send(json.dumps(event["message"]))
-
-    async def ui_log(self, text: str):
-        if self.channel_layer:
-            await self.channel_layer.group_send("ui_training", {"type": "ui.message", "message": {"type":"train_log","text": text}})
-
+    # -------------- shared timeout (как было) --------------
     async def _get_agg_state(self, train_id: int):
         if train_id in self.aggregations:
             return self.aggregations[train_id]
@@ -398,6 +441,11 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             }
             return self.aggregations[train_id]
 
+    async def _set_training_clients(self, train_id: int, client_ids):
+        st = await self._get_agg_state(train_id)
+        async with st["lock"]:
+            st["training_clients"] = set(client_ids or [])
+
     async def _schedule_timeout_shared(self, train_id: int, round_no: int):
         st = await self._get_agg_state(train_id)
         async with st["lock"]:
@@ -412,40 +460,26 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
         except asyncio.CancelledError:
             return
         st = await self._get_agg_state(train_id)
-        # If round already advanced, nothing to do
         current_round = self.train["round_count"] if self.train else None
         if current_round != round_no:
             return
         if st["round_weights"]:
+            have = set(st["round_weights"].keys())
+            if have:
+                await self._set_training_clients(train_id, have)
             await self.ui_log(f"[timeout] Aggregating on timeout for round {round_no}. Collected: {len(st['round_weights'])} clients")
             await self.aggregate_and_broadcast_all(round_no, {"timeout": True})
 
-    async def _timeout_trigger(self, round_no: int):
-        try:
-            await asyncio.sleep(self.AGG_TIMEOUT_SEC)
-        except asyncio.CancelledError:
-            return
-        # On timeout, aggregate whatever has been collected for this round
-        async with self.lock:
-            # If round already advanced, nothing to do
-            if not self.train or self.train.get("round_count") != round_no:
-                return
-        if self.round_weights:
-            await self.ui_log(f"[timeout] Aggregating on timeout for round {round_no}. Collected: {len(self.round_weights)} clients")
-            await self.aggregate_and_broadcast_all(round_no, {"timeout": True})
-
-    # ---------------------- DB helpers ----------------------
-
+    # -------------- DB/helpers (как у вас, с правками сигнатур) --------------
     @database_sync_to_async
     def get_device(self, token):
         from .models import Device
         if not token:
             return None
-        try: 
+        try:
             return Device.objects.get(device_token=token)
-        except (InvalidToken, Exception):
+        except Exception:
             return None
-        
 
     @database_sync_to_async
     def get_train_by_id(self, train_id):
@@ -459,12 +493,12 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 "round_count": obj.round_count,
                 "max_rounds": obj.max_rounds,
                 "epochs": obj.epochs,
-                "global_weights": obj.global_weights,     # уже сериализовано
+                "global_weights": obj.global_weights,
                 "is_active": obj.is_active,
                 "ready": getattr(obj, "ready", False),
                 "created": False,
+                "global_confusion": getattr(obj, "global_confusion", None),
             }
-
         except Train.DoesNotExist:
             return None
 
@@ -472,39 +506,23 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
     def get_or_create_today_train(self, model_name: str, max_rounds: int, epochs: int):
         from .models import Train
         today = now().date()
-
-        # блокируем строку на время правок (если существует)
         try:
-            obj = (
-                Train.objects.select_for_update()
-                .get(date=today, model_name=model_name)
-            )
+            obj = Train.objects.select_for_update().get(date=today, model_name=model_name)
             created = False
         except Train.DoesNotExist:
             obj = Train(
-                date=today,
-                model_name=model_name,
-                max_rounds=max_rounds,
-                epochs=epochs,
-                is_active=True,
-                round_count=0,
+                date=today, model_name=model_name,
+                max_rounds=max_rounds, epochs=epochs,
+                is_active=True, round_count=0,
             )
             obj.save()
             created = True
 
-        # точечно обновляем, если надо
         changed_fields = []
-        if obj.max_rounds != max_rounds:
-            obj.max_rounds = max_rounds; changed_fields.append("max_rounds")
-        if obj.epochs != epochs:
-            obj.epochs = epochs; changed_fields.append("epochs")
-        if not obj.is_active:
-            obj.is_active = True; changed_fields.append("is_active")
-
-        if changed_fields:
-            obj.save(update_fields=changed_fields)
-
-        # !!! сериализуем веса для безопасной передачи в async/JSON
+        if obj.max_rounds != max_rounds: obj.max_rounds = max_rounds; changed_fields.append("max_rounds")
+        if obj.epochs != epochs: obj.epochs = epochs; changed_fields.append("epochs")
+        if not obj.is_active: obj.is_active = True; changed_fields.append("is_active")
+        if changed_fields: obj.save(update_fields=changed_fields)
 
         return {
             "id": obj.id,
@@ -513,10 +531,11 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             "round_count": obj.round_count,
             "max_rounds": obj.max_rounds,
             "epochs": obj.epochs,
-            "global_weights": obj.global_weights,     # уже сериализовано
+            "global_weights": obj.global_weights,
             "is_active": obj.is_active,
             "ready": getattr(obj, "ready", False),
             "created": created,
+            "global_confusion": getattr(obj, "global_confusion", None),
         }
 
     @database_sync_to_async
@@ -526,24 +545,32 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def save_device_round_result(self, device, local_data, rnd, metrics, train_id=None):
-        from .models import RoundResult, Train
-        train = Train.objects.filter(id=train_id).first() if train_id else None
+        from .models import RoundResult
         RoundResult.objects.create(
-            train=train, device=device, local_data=local_data,
+            train_id=train_id, device=device, local_data=local_data,
             round_number=rnd, result=metrics
         )
 
     @database_sync_to_async
-    def update_train_after_agg(self, train_id, new_weights):
+    def update_train_after_agg(self, train_id, new_weights, new_global_confusion):
         from .models import Train
         tr = Train.objects.get(pk=train_id)
         tr.global_weights = new_weights
+        # сохраняем глобальную confusion, если рассчитана
+        if new_global_confusion is not None:
+            tr.global_confusion = new_global_confusion
+            tr.save(update_fields=["global_weights", "round_count", "global_confusion"])
+        else:
+            tr.save(update_fields=["global_weights", "round_count"])
         tr.round_count = tr.round_count + 1
-        tr.save(update_fields=["global_weights","round_count"])
-        return dict(id=tr.id, date=str(tr.date), model_name=tr.model_name,
-                    round_count=tr.round_count, max_rounds=tr.max_rounds,
-                    epochs=tr.epochs, global_weights=tr.global_weights,
-                    is_active=tr.is_active, ready=tr.ready)
+        tr.save(update_fields=["round_count"])
+        return dict(
+            id=tr.id, date=str(tr.date), model_name=tr.model_name,
+            round_count=tr.round_count, max_rounds=tr.max_rounds,
+            epochs=tr.epochs, global_weights=tr.global_weights,
+            is_active=tr.is_active, ready=getattr(tr, "ready", False),
+            global_confusion=getattr(tr, "global_confusion", None)
+        )
 
     @database_sync_to_async
     def mark_train_finished(self, train_id):
@@ -555,23 +582,12 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def save_round_history(self, train_id, round_number, avg_accuracy, avg_loss, snapshot_weights):
-        # Skip saving aggregated history into RoundResult to avoid NOT NULL on local_data
+        # Оставлено выключенным (как в исходнике)
         return None
-        from .models import Train, RoundResult
-        tr = Train.objects.get(pk=train_id)
-        # агрегированная строка истории (train-wide):
-        rr, _ = RoundResult.objects.update_or_create(
-            train=tr, device_id=tr.id,  # фиктивно: можно завести отдельную модель AggregatedRound
-            local_data_id=None,         # или позволить null=True у local_data, если хочешь хранить снапшот тут
-            round_number=round_number,
-            defaults=dict(avg_accuracy=avg_accuracy, avg_loss=avg_loss, result={"snapshot": True})
-        )
-        # Если хочешь именно выделенную модель «AggregatedRound», создай её. Здесь оставил компактный путь.
 
     @database_sync_to_async
     def get_average_accuracy(self, train_id, round_num):
-        from .models import RoundResult, Train
-        # возьмём только per-device записи этого train/round
+        from .models import RoundResult
         accs = []
         qs = RoundResult.objects.filter(train_id=train_id, round_number=round_num)
         for r in qs:
@@ -592,6 +608,7 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def get_aggregated_confusion(self, train_id, round_num):
         from .models import RoundResult
+        import numpy as _np
         qs = RoundResult.objects.filter(train_id=train_id, round_number=round_num)
         confusion_sum = None
         support_sum = None
@@ -607,29 +624,25 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             conf = m.get("confusion")
             supp = m.get("support")
             cls = m.get("classes")
-            if conf:
-                # normalize to list of lists of numbers
+            if conf is not None:
                 try:
-                    import numpy as _np
                     arr = _np.array(conf, dtype=float)
                     confusion_sum = arr if confusion_sum is None else (confusion_sum + arr)
                 except Exception:
                     pass
-            if supp:
+            if supp is not None:
                 try:
-                    import numpy as _np
                     arrs = _np.array(supp, dtype=float)
                     support_sum = arrs if support_sum is None else (support_sum + arrs)
                 except Exception:
                     pass
-            if cls and classes is None:
+            if cls is not None and classes is None:
                 classes = cls
         if confusion_sum is None:
             return None
-        # convert numpy arrays back to lists
-        confusion_list = confusion_sum.tolist()
-        support_list = support_sum.tolist() if support_sum is not None else None
-        return {"confusion": confusion_list, "support": support_list, "classes": classes}
+        return {"confusion": confusion_sum.tolist(),
+                "support": support_sum.tolist() if support_sum is not None else None,
+                "classes": classes}
 
     @database_sync_to_async
     def fedavg_current_round(self):
@@ -648,7 +661,7 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
             agg.append(layer_stack.mean(axis=0).tolist())
         return agg
 
-    # ---------- утилита нормализации метрик ----------
+    # ---------- нормализация метрик ----------
     def _normalize_metrics(self, metrics, round_no):
         out = {"round": round_no, "loss": None, "accuracy": None, "val_loss": None, "val_accuracy": None}
         if metrics is None:
@@ -660,13 +673,9 @@ class TrainModelConsumer(AsyncWebsocketConsumer):
                 "val_loss": metrics.get("val_loss"),
                 "val_accuracy": metrics.get("val_accuracy"),
             })
-            # pass-through optional confusion matrix data
-            if "confusion" in metrics:
-                out["confusion"] = metrics.get("confusion")
-            if "support" in metrics:
-                out["support"] = metrics.get("support")
-            if "classes" in metrics:
-                out["classes"] = metrics.get("classes")
+            if "confusion" in metrics: out["confusion"] = metrics.get("confusion")
+            if "support" in metrics:   out["support"] = metrics.get("support")
+            if "classes" in metrics:   out["classes"] = metrics.get("classes")
             return out
         if isinstance(metrics, str):
             try:
