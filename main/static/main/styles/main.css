@@ -198,3 +198,19 @@ main { padding: 1rem; }
   .avatar-xxl{ width: 84px; height: 84px; margin-top: -42px; }
   .kpi{ min-width: 72px; }
 }
+/* Общая зона под канвасы: управляем высотой через CSS-переменную */
+.chart-area {
+  position: relative;
+  height: var(--chart-h, 280px);
+}
+.chart-area > canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Большой элемент по умолчанию — «M», отдельно класс для XL */
+.chart-area-xl { --chart-h: 520px; }
+
+/* Переключатели размеров для матрицы */
+.btn-group [data-chart-size].active { pointer-events: none; }

@@ -5,7 +5,7 @@
 
 {% block main %}
 <div class="row align-items-stretch g-3">
-  <!-- Левая колонка: запуск новой сессии -->
+  <!-- ЛЕВО: форма старта (как было) -->
   <div class="col-md-6 d-flex flex-column">
     <form id="train-form"
           class="bg-white rounded shadow-sm p-4 flex-grow-1"
@@ -43,13 +43,10 @@
       <button id="start-btn" class="btn btn-primary w-100 mt-auto">
         Запустить обучение
       </button>
-
-      <h6 class="text-center mt-5">Матрица ошибок</h6>
-      <canvas id="confusion-heatmap" height="300"></canvas>
     </form>
   </div>
 
-  <!-- Правая колонка: история и метрики -->
+  <!-- ПРАВО: история + два графика (как было) -->
   <div class="col-md-6 d-flex flex-column">
     <div class="bg-white rounded shadow-sm p-4 flex-grow-1">
       <div class="d-flex justify-content-between align-items-center mb-3">
@@ -62,15 +59,40 @@
       </div>
 
       <h6 class="text-center">Точность</h6>
-      <canvas id="training-progress-chart" height="200"></canvas>
-
-      <hr class="my-3" />
+      <div class="chart-area mb-3"><canvas id="training-progress-chart"></canvas></div>
 
       <h6 class="text-center">Функция потерь</h6>
-      <canvas id="train-loss" height="220"></canvas>
+      <div class="chart-area"><canvas id="train-loss"></canvas></div>
+    </div>
+  </div>
+</div>
 
-      <div id="training-logs" class="mt-3">
-        <div class="alert alert-info" style="max-height: 300px; overflow-y: auto;">
+<!-- НИЖЕ №1: ОГРОМНАЯ МАТРИЦА ОШИБОК на всю ширину -->
+<div class="row g-3 mt-0">
+  <div class="col-12">
+    <div class="bg-white rounded shadow-sm p-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <!-- <h5 class="mb-0">Матрица ошибок</h5> -->
+        <div class="btn-group btn-group-sm" role="group" aria-label="Размер">
+          <button type="button" class="btn btn-outline-secondary" data-chart-size="sm">S</button>
+          <button type="button" class="btn btn-outline-secondary active" data-chart-size="md">M</button>
+          <button type="button" class="btn btn-outline-secondary" data-chart-size="lg">L</button>
+        </div>
+      </div>
+      <div class="chart-area chart-area-xl">
+        <canvas id="confusion-heatmap"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- НИЖЕ №2: ЛОГИ на всю ширину -->
+<div class="row g-3 mt-0">
+  <div class="col-12">
+    <div class="bg-white rounded shadow-sm p-4">
+      <h6 class="mb-2">Логи</h6>
+      <div id="training-logs">
+        <div class="alert alert-info mb-0" style="max-height: 360px; overflow-y: auto;">
           Логи обучения появятся здесь после старта. Нажмите «Запустить обучение».
         </div>
       </div>
@@ -78,6 +100,7 @@
   </div>
 </div>
 {% endblock %}
+
 
 {% block include_scripts %}
 <script src="{% static 'main/scripts/training.js' %}"></script>
